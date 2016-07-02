@@ -42,7 +42,7 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)ft_cd.c			\
 		$(SRC_PATH)trim.c			\
-		$(SRC_PATH)signal.c
+		$(SRC_PATH)signals.c
 	  
 BIN =  $(SRC:.c=.o)
 
