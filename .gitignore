@@ -5,3 +5,5 @@ a.out
 .swp
 .*.c.*
 ._*.pdf
+*.json
+*.gch
