@@ -20,8 +20,8 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-# include <unistd.h>
 # include <stdlib.h>
+# include <signal.h>
 # include "libft.h"
 
 /*Defines*/
