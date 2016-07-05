@@ -1,15 +1,15 @@
 #include "minishell.h"
 
-int	error1(t_data *data)
+int	error1(int err)
 {
-	if (data->error == 1)
-		ft_putstr("Error: No such file or directory.\n");
-	else if (data->error == 2)
-		ft_putstr("Error: Command not found.\n");
+	if (err == 1)
+		ft_putstr(E_MESS01);
+	else if (err == 2)
+		ft_putstr(E_MESS02);
 }
 
-int	error(t_data *data)
+int	error(int err)
 {
-	if (0 <= t_data->error && t_data->error <= 9)
-		return (error1(data));
+	if (0 <= err && err <= 9)
+		return (error1(err));
 }

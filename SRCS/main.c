@@ -11,21 +11,21 @@ int		main()
 {
 	t_env	env;
 	char	*line;
-	int		k;
+	extern char **environ
 
-	get_env(&env);
+	env.environ = get_env(environ);
 	line == NULL;
 	while (1)
 	{
 		write(1, "$>", 2);
-		get_line();//What are the param's?
-		if (memcmp(line, exit, k ) == 0)
+		get_line(0, &line);
+		if (ft_memcmp(line, "exit", 5) == 0)
 			break;
 		if (ft_strchr_f(line, '=') != NULL)
 			set_env(&env, line);
 		else
 			command(&env, line);
-		k++;
+		free(line);
 	}
 	free(env.exe);//this is also a possible solution for that string we need to free.
 	//(We can make this list bigger once we struggle to free something and then create a function)
