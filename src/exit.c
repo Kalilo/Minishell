@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-void		free2d(char arr[][])
+void	free2d(char arr[][])
 {
 	int		k;
 	

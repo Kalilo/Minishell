@@ -11,3 +11,4 @@ int allowed_character(char c)
 		return (1);
 	return (0);
 }
+int	arg_valid(char **sa, int i);

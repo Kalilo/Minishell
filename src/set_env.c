@@ -5,7 +5,7 @@
  */
 #include "../includes/minishell.h"
 
-int		env_valid(char *s)
+int		env_valid(char *s)//needs work
 {
 	int		k;
 	int		l;

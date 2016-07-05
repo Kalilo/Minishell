@@ -53,16 +53,23 @@ typedef struct	s_env
 	char		*a;
 }				t_env;
 /*Prototypes*/
+	/*checks.c*/
+int 	allowed_character(char c);
+int		arg_valid(char **sa, int i);
 	/*command.c*/
 int 	do_command(char *com);
-void	do_fork(char *s);
 void	command(t_env *env, char *s);
 	/*errors.c*/
 int		error1(int err);
 int		error(int err);
+	/*exit.c*/
+void		free2d(char arr[][]);
+void		exit_prog(t_env env);
 	/*get_line.c*/
 char	*re_malloc(char *line, size_t size);
 int		get_line(int fd, char **line);
+	/*own_command.c*/
+int 	is_own(char *s);
 	/*set_env.c*/
 int		env_valid(char *s);
 void	set_env(t_env *env, char *s);
