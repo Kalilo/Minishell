@@ -5,12 +5,10 @@
  *		int		count(char *s, char c); #plus one here to get right amount# -v
  *		void	error(int i); -a
  *		char	*find_path(char *s); -a
- *		int		is_own(char *s); -k
  *		void	own_command(char **sa); -v
  *		int		env_valid(char *s); -a
  *		int		ft_strchr_f(char *s, char c); -v
  *		void	get_env(char **environ); -v
- *		void	free2d(char *sa[][]) -k 
  */
 #ifndef MINISHELL_H
 # define MINISHELL_H
