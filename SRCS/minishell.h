@@ -34,6 +34,7 @@
 	/*Error Messages*/
 # define E_MESS01 "Error: No such file or directory.\n"
 # define E_MESS02 "Error: Command not found.\n"
+# define E_MESS03 "Error: Command failed.\n"
 
 /*Structures*/
 
