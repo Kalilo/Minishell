@@ -37,7 +37,7 @@
 # define E_MESS03 "Error: Command failed.\n"
 
 	/*Stings*/
-# define SH_L "$>"
+# define SH_L "$> "
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 
