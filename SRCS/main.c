@@ -18,7 +18,7 @@ int		main()
 	while (1)
 	{
 		write(1, "$>", 2);
-		get_next_line();//What are the param's?
+		get_line();//What are the param's?
 		if (memcmp(line, exit, k ) == 0)
 			break;
 		if (ft_strchr_f(line, '=') != NULL)
