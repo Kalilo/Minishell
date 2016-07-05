@@ -1,3 +1,5 @@
+#include "minishell.h"
+
 char	*re_malloc(char *line, size_t size)
 {
 	char				*tmp;

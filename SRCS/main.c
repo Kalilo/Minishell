@@ -1,11 +1,4 @@
-/*
- *	Things we still need:
- *		void	get_env(t_env *env);
- *
- *		We need to modify ft_strchr to it only checks first word
- *		int		ft_strchr_f(char *s, char c);
- *		Double check everthing before we go on..
- */
+#include "minishell.h"
 
 int		main()
 {
