@@ -1,4 +1,4 @@
-static char	*re_malloc(char *line, size_t size)
+char	*re_malloc(char *line, size_t size)
 {
 	char				*tmp;
 
@@ -11,7 +11,7 @@ static char	*re_malloc(char *line, size_t size)
 	return (tmp);
 }
 
-static int	get_line(int fd, char **line)
+int		get_line(int fd, char **line)
 {
 	static unsigned int	k;
 	char				buff;
