@@ -33,14 +33,16 @@ $(NAME):
 	@make re -C libft/
 	@$(CC) $(C_FLAGS) -c $(SRC) $(INCL)
 	@mv *.o src/
-	@echo "Library has successfully compiled and object files have been created and moved to src/"
+	@echo "Library has successfully compiled and object files have been" \
+		"created and moved to src/"
 	@$(CC) $(C_FLAGS) $(BIN) $(LIB_INCL) $(LIB_A)
 	@mv ./a.out ./minishell
 	@echo "Minishell has successfully been compiled.\n"
 
 clean:
 	@rm -f $(BIN)
-	@echo "All object files have been removed. Please ensure no source files have accidently been removed."
+	@echo "All object files have been removed. Please ensure no source" \
+		"files have accidently been removed."
 
 fclean: clean
 	@rm -f $(NAME)

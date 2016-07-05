@@ -19,6 +19,7 @@ int		main()
 		else
 			command(&env, line);
 		free(line);
+		line = NULL;
 	}
 	//free(env.exe);//this is also a possible solution for that string we need to free.
 	//(We can make this list bigger once we struggle to free something and then create a function)
