@@ -14,7 +14,7 @@
  *	We need to free str in do_command().
  */
 
-int do_command(char *com)
+int 	do_command(char *com)
 {
 	char *str;
 	char **arr;
