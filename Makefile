@@ -40,15 +40,16 @@ $(NAME):
 
 clean:
 	@rm -f $(BIN)
+	@make clean -C libft/
 	@echo "All object files have been removed. Please ensure no source files have accidently been removed."
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "The executable ./minishell has been removed"
+	@make fclean -C libft/
+	@echo "The executables ./minishell and ./libft has been removed"
 
 re: fclean all
 	@echo "Minishell has successfully recompiled.\n"
 
 norme:
 	norminette $(SRC)
-
