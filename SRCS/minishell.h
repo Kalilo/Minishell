@@ -2,15 +2,17 @@
  *	Things we still need:
  *		t_env	struct
  *		int		arg_valid(char **sa, int i); -a
- *		int		count(char *s, char c); #plus one here to get right amount# -v
  *		void	error(int i); -a
  *		char	*find_path(char *s); -a
  *		int		is_own(char *s); -k
- *		void	own_command(char **sa); -v
  *		int		env_valid(char *s); -a
- *		int		ft_strchr_f(char *s, char c); -v
  *		void	get_env(char **environ); -v
- *		void	free2d(char *sa[][]) -k 
+ *		void	free2d(char *sa[][]) -k
+ *		void	ft_echo(char **sa);
+ *		void	ft_cd(char **sa);
+ *		void	ft_export(char **sa);
+ *		void	ft_unset(char **sa);
+ *		void	ft_env(char **sa);
  */
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -45,7 +47,7 @@
 
 typedef struct	s_env
 {
-	char		**environ;//last possition is our local variables.
+	char		**environ;/*last possition is our local variables.*/
 	int			env_size;
 	char		*line;
 	int			error;
@@ -63,5 +65,13 @@ char	*re_malloc(char *line, size_t size);
 int		get_line(int fd, char **line);
 	/*set_env.c*/
 void	set_env(t_env *env, char *s);
-	
+	/*count.c*/
+int		count(char *s, char c);
+	/*own_command.c*/
+int		is_own(char *s);
+void	own_command(char **sa);
+	/*ft_strchr_f.c*/
+int		ft_strchr_f(char *s, char c);
+	/*get_env.c*/
+char	**get_env(char **environ);
 #endif
