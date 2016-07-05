@@ -4,7 +4,7 @@ int		main()
 {
 	t_env	env;
 	char	*line;
-	extern char **environ
+	extern char **environ;
 
 	env.environ = get_env(environ);
 	line == NULL;
