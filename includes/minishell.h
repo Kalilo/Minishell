@@ -42,6 +42,7 @@
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit "
+# define AL_SYM "$()- "
 
 /*Structures*/
 
@@ -65,6 +66,7 @@ int		error(int err);
 char	*re_malloc(char *line, size_t size);
 int		get_line(int fd, char **line);
 	/*set_env.c*/
+int		env_valid(char *s);
 void	set_env(t_env *env, char *s);
 	
 #endif
