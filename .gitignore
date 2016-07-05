@@ -4,3 +4,4 @@ a.out
 *.o
 .swp
 .*.c.*
+._*.pdf
