@@ -22,7 +22,7 @@
 # include <sys/uio.h>
 # include <stdlib.h>
 # include <signal.h>
-# include "libft.h"
+# include "../libft/includes/libft.h"
 
 /*Defines*/
 	/*Shorthand*/
@@ -49,6 +49,7 @@ typedef struct	s_env
 	int			env_size;
 	char		*line;
 	int			error;
+	char		*a;
 }				t_env;
 /*Prototypes*/
 	/*command.c*/
