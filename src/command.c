@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../includes/minishell.h"
 
 int 	do_command(char *com)
 {
@@ -16,6 +16,7 @@ int 	do_command(char *com)
 	}
 	else
 		wait(0);
+	return ();
 }
 
 void	command(t_env *env, char *s)
@@ -35,8 +36,8 @@ void	command(t_env *env, char *s)
 			com = find_path(sa[0]);
 			if (com[0] != '\0')
 			{
-				do_comand(com);// Double check the do_fork()
-				free(com);//Will this work or does prog that we busy with terminate?? Read 2de colom 2de comment
+				do_comand(com); // Double check the do_fork()
+				free(com); //Will this work or does prog that we busy with terminate?? Read 2de colom 2de comment
 			}
 			else
 				error(2);
