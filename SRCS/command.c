@@ -16,28 +16,26 @@
 
 int 	do_command(char *com)
 {
-	char *str;
-	char **arr;
-
-	arr = ft_strsplit(com, ' ');
-	str = ft_strjoin("/bin/", arr[0]);
-	execve(str, arr, NULL);
-}
-
-void	do_fork(char *s)
-{
+	char	*str;
+	char	**arr;
 	pid_t	forked;
 
 	forked = fork();
 	if (forked == 0)
-		do_command(s);
-	wait(0);
+	{
+		arr = ft_strsplit(com, ' ');
+		//str = ft_strjoin(path, arr[0]);
+		execve(arr[0], arr, NULL);
+		kill(forked, 9);
+	}
+	else
+		wait(0);
 }
 
 void	command(t_env *env, char *s)
 {
 	char	**sa;
-	char	*exe;
+	char	*com;
 
 	if (ft_strlen(s) == 0)
 		return ;
@@ -48,11 +46,11 @@ void	command(t_env *env, char *s)
 			own_command(sa);
 		else
 		{
-			exe = find_path(sa[0]);
-			if (exe[0] != '\0')
+			com = find_path(sa[0]);
+			if (com[0] != '\0')
 			{
-				do_fork(exe);// Double check the do_fork()
-				free(exe);//Will this work or does prog that we busy with terminate?? Read 2de colom 2de comment
+				do_comand(com);// Double check the do_fork()
+				free(com);//Will this work or does prog that we busy with terminate?? Read 2de colom 2de comment
 			}
 			else
 				error(2);

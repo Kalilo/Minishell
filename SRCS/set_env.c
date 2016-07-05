@@ -7,8 +7,9 @@
 void	set_env(t_env *env, char *s)
 {
 	char	*temp;
+	int		check;
 
-	if (env_valid(s))
+	if (check = env_valid(s))
 	{
 		temp = env->a;
 		env->a = ft_strjoin(env->a, s);
@@ -16,4 +17,6 @@ void	set_env(t_env *env, char *s)
 	}
 	else
 		error(0);
+	if (check == 2)
+		command(env, ft_strchr(s, ' '));
 }
