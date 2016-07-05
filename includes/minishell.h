@@ -30,6 +30,7 @@
 # define E_SI env->size
 # define E_LI env->line
 # define E_ER env->error
+# define E_A env->a
 
 	/*Error Messages*/
 # define E_MESS01 "Error: No such file or directory.\n"
@@ -40,6 +41,7 @@
 # define SH_L "$> "
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
+# define OWN_FUNCS "cd setenv unsetenv env exit "
 
 /*Structures*/
 
