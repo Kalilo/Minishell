@@ -3,13 +3,14 @@
  *		int		env_valid(char *s);
  *		void	error(int i);
  */
+#include "../includes/minishell.h"
 
 void	set_env(t_env *env, char *s)
 {
 	char	*temp;
 	int		check;
 
-	if (check = env_valid(s))
+	if (check == env_valid(s))
 	{
 		temp = env->a;
 		env->a = ft_strjoin(env->a, s);

@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../includes/minishell.h"
 
 int	error1(int err)
 {
@@ -6,7 +6,7 @@ int	error1(int err)
 		ft_putstr(E_MESS01);
 	else if (err == 2)
 		ft_putstr(E_MESS02);
-	else i f(err == 3)
+	else if (err == 3)
 		ft_putstr(E_MESS03);
 	else
 		return (0);
