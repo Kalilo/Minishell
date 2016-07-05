@@ -17,9 +17,9 @@ int		main()
 	line == NULL;
 	while (1)
 	{
-		write(1, "$>", 2);
+		ft_putstr(SH_L);
 		get_line(0, &line);
-		if (ft_memcmp(line, "exit", 5) == 0)
+		if (ft_memcmp(line, CM_EXIT, CM_EXIT_S) == 0)
 			break;
 		if (ft_strchr_f(line, '=') != NULL)
 			set_env(&env, line);
