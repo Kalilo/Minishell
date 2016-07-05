@@ -5,6 +5,22 @@
  */
 #include "../includes/minishell.h"
 
+int		env_valid(char *s)
+{
+	int		k;
+	int		l;
+	
+	k = 0;
+	l = ft_strlen(s);
+	while (k < l)
+	{
+		if (!(allowed_character(s[k])))
+			return (0);
+		k++;
+	}
+	return (1);
+}
+
 void	set_env(t_env *env, char *s)
 {
 	char	*temp;
