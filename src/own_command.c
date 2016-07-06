@@ -1,13 +1,4 @@
-/*
- *	Things we still need:
- *		void	ft_echo(char **sa);
- *		void	ft_cd(char **sa);
- *		void	ft_export(char **sa);
- *		void	ft_unset(char **sa);
- *		void	ft_env(char **sa);
- */
-
-#include "minishell.h"
+#include "../includes/minishell.h"
 
 int is_own(char *s)
 {

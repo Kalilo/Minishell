@@ -58,4 +58,6 @@ int		ft_tolower(int c);
 int		ft_intlen(int *i);
 int		ft_intcmp(int *a);
 
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
 #endif

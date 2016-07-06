@@ -1,8 +1,3 @@
-/*
- *	Things we still need:
- *		int		env_valid(char *s);
- *		void	error(int i);
- */
 #include "../includes/minishell.h"
 
 int		env_valid(char *s)//needs work

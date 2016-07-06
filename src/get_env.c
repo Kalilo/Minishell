@@ -1,6 +1,4 @@
-/*
- *	Do we have a working ft_strdup??
- */
+#include "../includes/minishell.h"
 
 char    *add_own()
 {
@@ -22,7 +20,7 @@ char	**get_env(char **environ)
 		i++;
 	if (!(env = (char **)malloc(sizeof(char *) * i + 2)))
 	{
-		ft_putstr("Memory problem.\n");
+		ft_putstr(E_MESS04);
 		exit(0);
 	}
 	i = 0;
@@ -30,7 +28,7 @@ char	**get_env(char **environ)
 	{
 		if (!(env[i] = (char *)malloc(sizeof(char) * ft_strlen(environ[i]))))
 		{
-			ft_putstr("Memory problem.\n");
+			ft_putstr(E_MESS04);
 			exit(0);
 		}
 		env[i] = environ[i];

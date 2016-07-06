@@ -1,3 +1,5 @@
+#include "../includes/minishell.h"
+
 int		count(char *s, char c)
 {
 	int		i;
