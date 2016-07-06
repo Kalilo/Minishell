@@ -8,7 +8,6 @@
  *		void	ft_echo(char *sa[][]);-c
  *		void	ft_cd(char *sa[][]);-a
  *		void	ft_export(char *sa[][]);-v
- *		void	ft_unset(char *sa[][]);-k
  *		void	ft_env(char sa[][]);-c
  */
 #ifndef MINISHELL_H
@@ -83,4 +82,8 @@ void	own_command(char **sa);
 int		ft_strchr_f(char *s, char c);
 	/*get_env.c*/
 char	**get_env(char **environ);
+	/*ft_unset.c*/
+void	ft_removestr(char *big[], char little[]);
+void	ft_unset(char *sa[][], char var[]);
+
 #endif
