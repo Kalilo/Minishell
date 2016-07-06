@@ -1,14 +1,18 @@
 /*
+ *
+ * Change the following params:
+ * 	ft_*;
+ *
  *	Things we still need:
  *		int		arg_valid(char **sa, int i); -a
  *		void	error(int i); -a
  *		char	*find_path(char s[]); -a
  *		int		env_valid(char s[]); -a
  *		void	replace_var(char *s[]);
- *		void	ft_echo(char *sa[][]);-c
- *		void	ft_cd(char *sa[][]);-a
- *		void	ft_export(char *sa[][]);-v
- *		void	ft_env(char sa[][]);-c
+ *		void	ft_echo(char *sa[]);-c
+ *		void	ft_cd(char *sa[]);-a
+ *		void	ft_export(char *sa[]);-v
+ *		void	ft_env(char **sa);-c
  */
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -85,6 +89,8 @@ int		ft_strchr_f(char *s, char c);
 char	**get_env(char **environ);
 	/*ft_unset.c*/
 void	ft_removestr(char **big, char *little);
-void	ft_unset(char ***sa, char *var);
+void	ft_unset(char *sa[], char *var);
+	/*ft_export.c*/
+void	ft_export(char *sa[], char *s);
 
 #endif
