@@ -8,11 +8,10 @@
  *		void	error(int i); -a
  *		char	*find_path(char s[]); -a
  *		int		env_valid(char s[]); -a
- *		void	replace_var(char *s[]);
+ *		void	replace_var(char *s[]);-v
  *		void	ft_echo(char *sa[]);-c
  *		void	ft_cd(char *sa[]);-a
- *		void	ft_export(char *sa[]);-v
- *		void	ft_env(char **sa);-c
+ *		void	ft_env(char **sa);-v
  */
 #ifndef MINISHELL_H
 # define MINISHELL_H
