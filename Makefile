@@ -12,19 +12,21 @@ LIB_INCL = -L. libft/includes/libft.h
 
 LIB_A = -lm libft/libft.a
 
-SRC = $(SRC_PATH)command.c		\
-	  $(SRC_PATH)errors.c		\
-	  $(SRC_PATH)get_line.c		\
-	  $(SRC_PATH)main.c			\
-	  $(SRC_PATH)own_command.c	\
-	  $(SRC_PATH)set_env.c
+SRC =	$(SRC_PATH)checks.c			\
+		$(SRC_PATH)command.c		\
+		$(SRC_PATH)count.c			\
+		$(SRC_PATH)errors.c			\
+		$(SRC_PATH)exit.c			\
+		$(SRC_PATH)ft_export.c		\
+		$(SRC_PATH)ft_strchr_f.c	\
+		$(SRC_PATH)ft_unset.c		\
+		$(SRC_PATH)get_env.c		\
+		$(SRC_PATH)get_line.c		\
+		$(SRC_PATH)main.c			\
+		$(SRC_PATH)own_command.c	\
+		$(SRC_PATH)set_env.c		\
 	  
-BIN =  $(SRC_PATH)command.o		\
-	   $(SRC_PATH)errors.o		\
-	   $(SRC_PATH)get_line.o	\
-	   $(SRC_PATH)main.o		\
-	   $(SRC_PATH)own_command.o	\
-	   $(SRC_PATH)set_env.o
+BIN =  $(SRC:.c=.o)
 
 all: $(NAME)
 
