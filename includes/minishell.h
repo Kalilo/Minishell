@@ -1,17 +1,15 @@
 /*
  *	Things we still need:
- *		t_env	struct
  *		int		arg_valid(char **sa, int i); -a
  *		void	error(int i); -a
- *		char	*find_path(char *s); -a
- *		int		env_valid(char *s); -a
- *		void	get_env(char **environ); -v
- *		void	free2d(char *sa[][]) -k
- *		void	ft_echo(char **sa);
- *		void	ft_cd(char **sa);
- *		void	ft_export(char **sa);
- *		void	ft_unset(char **sa);
- *		void	ft_env(char **sa);
+ *		char	*find_path(char s[]); -a
+ *		int		env_valid(char s[]); -a
+ *		void	replace_var(char *s[]);
+ *		void	ft_echo(char *sa[][]);-c
+ *		void	ft_cd(char *sa[][]);-a
+ *		void	ft_export(char *sa[][]);-v
+ *		void	ft_unset(char *sa[][]);-k
+ *		void	ft_env(char sa[][]);-c
  */
 #ifndef MINISHELL_H
 # define MINISHELL_H
