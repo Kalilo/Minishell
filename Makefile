@@ -28,7 +28,7 @@ BIN =  $(SRC_PATH)command.o		\
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): qme
 	@echo "\nPreparing to compile minishell..."
 	@make re -C libft/
 	@$(CC) $(C_FLAGS) -c $(SRC) $(INCL)
@@ -41,13 +41,9 @@ $(NAME):
 
 clean:
 	@rm -f $(BIN)
-<<<<<<< HEAD
 	@echo "All object files have been removed. Please ensure no source" \
 		"files have accidently been removed."
-=======
 	@make clean -C libft/
-	@echo "All object files have been removed. Please ensure no source files have accidently been removed."
->>>>>>> f200af9c1b23c45b93ba93a11a4b32af3ea1593a
 
 fclean: clean
 	@rm -f $(NAME)
@@ -57,5 +53,16 @@ fclean: clean
 re: fclean all
 	@echo "Minishell has successfully recompiled.\n"
 
+format: norme me
+	@echo "All good!"
+
 norme:
-	norminette $(SRC)
+	norminette $(SRC) $(INCL)
+
+me: qme
+	@echo "Author:"
+	cat -e author
+
+qme:
+	@rm -Rf author
+	@whoami > author
