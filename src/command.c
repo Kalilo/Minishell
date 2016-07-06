@@ -16,7 +16,7 @@ int 	do_command(char *com)
 	}
 	else
 		wait(0);
-	return ();
+	return (1);
 }
 
 void	command(t_env *env, char *s)
@@ -33,10 +33,10 @@ void	command(t_env *env, char *s)
 			own_command(sa);
 		else
 		{
-			com = find_path(sa[0]);
+			//com = find_path(sa[0]);
 			if (com[0] != '\0')
 			{
-				do_comand(com); // Double check the do_fork()
+				do_command(com); // Double check the do_fork()
 				free(com); //Will this work or does prog that we busy with terminate?? Read 2de colom 2de comment
 			}
 			else

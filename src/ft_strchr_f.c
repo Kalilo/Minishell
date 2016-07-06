@@ -1,3 +1,5 @@
+#include "../includes/minishell.h"
+
 int		ft_strchr_f(char *s, char c)
 {
 	int		i;

@@ -1,6 +1,4 @@
-/*
- *	Check that the ft_strjoin works
- */
+#include "../includes/minishell.h"
 
 void	ft_export(char *sa[][], int env_size, char *s)
 {
