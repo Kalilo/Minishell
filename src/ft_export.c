@@ -11,9 +11,9 @@ void	ft_export(char *sa[], int env_size, char *s)
 		sa[env_size - 1] = s;
 	else
 	{
-		sa[env_size - 1] = ft_strjoin(sa[env_size], "\n");
+		sa[env_size - 1] = ft_strjoin(sa[env_size - 1], "\n");
 		temp2 = sa[env_size - 1];
-		sa[env_size - 1] = ft_strjoin(sa[env_size], s);
+		sa[env_size - 1] = ft_strjoin(sa[env_size - 1], s);
 	}
 	free (temp);
 	if (temp2)
