@@ -11,7 +11,6 @@
  *		void	replace_var(char *s[]);-v
  *		void	ft_echo(char *sa[]);-c
  *		void	ft_cd(char *sa[]);-a
- *		void	ft_env(char **sa);-v
  */
 #ifndef MINISHELL_H
 # define MINISHELL_H
