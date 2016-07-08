@@ -120,6 +120,7 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@echo "Crystal has removed the executable.\n"
+	@rm -f $(INCLUDES:.h=.h.gch)
 
 re: fclean all
 	@echo "Crystal has successfully recompiled your libft.\n"
