@@ -12,16 +12,16 @@
 
 #include "../includes/minishell.h"
 
-void	ft_echo(char *sa[][])
+void	ft_echo(char **sa)
 {
 	size_t	i;
 
 	i = 0;
-	while (sa[i][] != NULL && sa[i][])
+/*	while (sa[i][0] != NULL && sa[i][0])
 	{
-		sa[i][] = ft_rmpadding(sa[i][]);
-		sa[i][] = ft_replace_literal(sa[i][]);
+		sa[i][0] = ft_rmpadding(sa[i][0]);
+		sa[i][0] = ft_replace_literal(sa[i][0]);
 		i++;
 	}
-	ft_env(sa);
+	ft_env(sa);*/
 }

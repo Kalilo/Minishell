@@ -100,5 +100,7 @@ void	ft_export(char *sa[], int env_size, char *s);
 void	ft_env(char **sa);
 	/*find_path.c*/
 char	*find_path(t_env *env, char s[]);
+	/*echo.c*/
+void	ft_echo(char **sa);
 
 #endif

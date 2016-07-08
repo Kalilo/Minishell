@@ -7,8 +7,8 @@ int is_own(char *s)
 
 void	own_command(char **sa)
 {
-/*	if (ft_memcmp(sa[0], "echo", 5) == 0)
-		ft_echo(sa);
+	/*if (ft_memcmp(sa[0], "echo", 5) == 0)
+		ft_echo(*sa);
 	else if (ft_memcmp(sa[0], "cd", 3) == 0)
 		ft_cd(sa);
 	else if (ft_memcmp(sa[0], "setenv", 7) == 0)

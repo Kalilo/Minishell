@@ -31,7 +31,7 @@ char	*find_path(t_env *env, char *s)
 		return (NULL);
 	while (E_EN[k] != NULL)
 	{
-		if (ft_strstr(E_EN[k], "PATH=") != NULL)//need to use ft_strstr
+		if (ft_strstr(E_EN[k], "PATH=") != NULL)
 		{
 			p = ft_strchr(E_EN[k], '=');
 			p++;
