@@ -10,8 +10,7 @@ int 	do_command(t_env *env, char *com)
 	if (forked == 0)
 	{
 		arr = ft_strsplit(com, ' ');
-		//printf("path = %s\n", find_path(env, arr[0]));//test
-		str = ft_strjoin(find_path(env, arr[0]), arr[0]);//debug
+		str = ft_strjoin(find_path(env, arr[0]), arr[0]);
 		execve(str, arr, E_EN);
 		exit(0);
 	}
@@ -34,9 +33,8 @@ void	command(t_env *env, char *s)
 		else
 		{
 			do_command(env, s);
-			//free(com); //Will this work or does prog that we busy with terminate?? Read 2de colom 2de comment
 		}
 	}
 	else
 		error(1);
-}//24 lines
+}
