@@ -6,7 +6,7 @@
 #    By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/16 08:04:07 by cdebruyn          #+#    #+#              #
-#    Updated: 2016/07/07 16:40:03 by cdebruyn         ###   ########.fr        #
+#    Updated: 2016/07/08 12:29:05 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,6 @@ SRC = $(SRC_PATH)ft_strlen.c	\
 	  $(SRC_PATH)ft_intcmp.c	\
 	  $(SRC_PATH)ft_strjoin.c	\
 	  $(SRC_PATH)ft_2charcmp.c	\
-	  $(SRC_PATH)ft_mem_append.c		\
 	  $(SRC_PATH)ft_check_literal.c		\
 	  $(SRC_PATH)ft_replace_literal.c	\
 	  $(SRC_PATH)ft_atoi_isdigit.c
@@ -93,8 +92,8 @@ OBJ = $(SRC_PATH)ft_strlen.o	\
 	  $(SRC_PATH)ft_intcmp.o	\
 	  $(SRC_PATH)ft_strjoin.o	\
 	  $(SRC_PATH)ft_2charcmp.o	\
-	  $(SRC_PATH)ft_check_literal.o		\
 	  $(SRC_PATH)ft_replace_literal.o	\
+	  $(SRC_PATH)ft_check_literal.o		\
 	  $(SRC_PATH)ft_atoi_isdigit.o
 
 all: $(NAME)
