@@ -10,6 +10,7 @@ int 	do_command(t_env *env, char *com)
 	if (forked == 0)
 	{
 		arr = ft_strsplit(com, ' ');
+		find_path(env, arr[0]);
 		str = ft_strjoin("/bin/", arr[0]);//debug
 		execve(str, arr, NULL);
 		exit(0);
