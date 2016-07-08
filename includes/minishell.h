@@ -68,7 +68,7 @@ int		error1(int err);
 int		error(int err);
 	/*exit.c*/
 void		free2d(char **arr);
-void		exit_prog(t_env env);
+void		exit_prog(t_env *env);
 	/*get_line.c*/
 char	*re_malloc(char *line, size_t size);
 int		get_line(int fd, char **line);
@@ -88,8 +88,8 @@ int		ft_strchr_f(char *s, char c);
 char	**get_env(char **environ);
 	/*ft_unset.c*/
 void	ft_removestr(char *big, char *little);
-void	ft_unset(char *sa[], char *var);
+void	ft_unset(char ***sa, char *var);
 	/*ft_export.c*/
-void	ft_export(char *sa[], char *s);
+void	ft_export(char *sa[], int env_size, char *s);
 
 #endif
