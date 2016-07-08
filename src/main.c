@@ -8,6 +8,9 @@ int		main()
 
 	env.environ = get_env(environ);
 	line = NULL;
+	
+	ft_env(env.environ);
+	
 	while (1)
 	{
 		ft_putstr(SH_L);
@@ -18,7 +21,8 @@ int		main()
 			set_env(&env, line);
 		else
 			command(&env, line);
-		free(line);
+		if (line != NULL)
+			free(line);
 		line = NULL;
 	}
 	//free(env.exe);//this is also a possible solution for that string we need to free.

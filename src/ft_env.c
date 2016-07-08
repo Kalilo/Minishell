@@ -8,6 +8,6 @@ void	ft_env(char **sa)
 	while (sa[i])
 	{
 		ft_putstr(sa[i++]);
-		ft_putchr('\n');
+		ft_putchar('\n');
 	}
 }

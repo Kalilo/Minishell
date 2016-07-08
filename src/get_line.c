@@ -35,5 +35,7 @@ int		get_line(int fd, char **line)
 		k = 0;
 		return (1);
 	}
+	else
+		line = NULL;
 	return (0);
 }

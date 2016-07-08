@@ -1,6 +1,6 @@
 #include "../includes/minishell.h"
 
-int 	do_command(char *com)
+int 	do_command(t_env *env, char *com)
 {
 	char	*str;
 	char	**arr;
@@ -10,9 +10,9 @@ int 	do_command(char *com)
 	if (forked == 0)
 	{
 		arr = ft_strsplit(com, ' ');
-		//str = ft_strjoin(path, arr[0]);
-		execve(arr[0], arr, NULL);
-		kill(forked, 9);
+		str = ft_strjoin("/bin/", arr[0]);//debug
+		execve(str, arr, NULL);
+		exit(0);
 	}
 	else
 		wait(0);
@@ -22,9 +22,8 @@ int 	do_command(char *com)
 void	command(t_env *env, char *s)
 {
 	char	**sa;
-	char	*com;
 
-	if (ft_strlen(s) == 0)
+	if (s == NULL)
 		return ;
 	sa = ft_strsplit(s, ' ');
 	if	(arg_valid(sa, count(s, ' ')))
@@ -33,14 +32,8 @@ void	command(t_env *env, char *s)
 			own_command(sa);
 		else
 		{
-			//com = find_path(sa[0]);
-			if (com[0] != '\0')
-			{
-				do_command(com); // Double check the do_fork()
-				free(com); //Will this work or does prog that we busy with terminate?? Read 2de colom 2de comment
-			}
-			else
-				error(2);
+			do_command(env, s);
+			//free(com); //Will this work or does prog that we busy with terminate?? Read 2de colom 2de comment
 		}
 	}
 	else
