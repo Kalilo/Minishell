@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_replace2_1.c                                    :+:      :+:    :+:   */
+/*   ft_replace_literal.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 14:14:46 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/07 16:39:55 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/08 12:26:02 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_replace_literal(const char *str, char a, char b, char c)
+char	*ft_replace_literal(char *str)
 {
-	const char	*ptr;
-	const char	*ptr2;
-	char		*dest;
-	char		type;
 	size_t		len;
 	size_t		cnt;
+	char		*ptr;
+	char		*dest;
+	char		type;
+	char		a;
+	char		b;
 
+	a = '\\';
+	b = '\\';
+	ptr = NULL;
 	dest = (char *)malloc(sizeof(char) * (ft_strlen(str) - 2));
-	ptr = ft_3charcmp(str, a, b, c);
-	ptr2 = ft_2charcmp(str, b, c);
+	ptr = ft_2charcmp(str, a, b);
 	len = ft_strlen(str) - ft_strlen(ptr);
-	type = ft_check_literal(a, b, c);
 	if (ptr != NULL)
 	{
 		cnt = 0;
@@ -34,17 +36,31 @@ char	*ft_replace_literal(const char *str, char a, char b, char c)
 			dest[cnt] = str[cnt];
 			cnt++;
 		}
-		dest[cnt] = type;
-		cnt++;
-		while (str[cnt + 2] && str[cnt + 2] != '\0')
+		if ((type = ft_check_literal(str[cnt], str[cnt + 1], \
+						str[cnt + 2])) != 32)
 		{
-			dest[cnt] = str[cnt + 2];
+			dest[cnt] = type;
 			cnt++;
+			while (str[cnt + 2] && str[cnt + 2] != '\0')
+			{
+				dest[cnt] = str[cnt + 2];
+				cnt++;
+			}
+			dest[cnt] = '\0';
+			return (dest);
 		}
-		dest[cnt] = '\0';
-		return (dest);
+		else
+		{
+			dest[cnt] = '\\';
+			cnt++;
+			while (str[cnt + 1] && str[cnt + 1] != '\0')
+			{
+				dest[cnt] = str[cnt + 1];
+				cnt++;
+			}
+			dest[cnt] = '\0';
+			return (dest);
+		}
 	}
-//	ft_mem_append(dest, 2);
-//	dest = ft_strcpy(dest, str);
-	return (dest);
+	return (str);
 }
