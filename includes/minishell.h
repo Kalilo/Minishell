@@ -24,6 +24,9 @@
 # include <signal.h>
 # include "../libft/includes/libft.h"
 
+#include <stdio.h>//debug!
+// printf("\n");//debug
+
 /*Defines*/
 	/*Shorthand*/
 # define E_EN env->environ
@@ -61,14 +64,14 @@ typedef struct	s_env
 int 	allowed_character(char c);
 int		arg_valid(char **sa, int i);
 	/*command.c*/
-int 	do_command(char *com);
+int 	do_command(t_env *env, char *com);
 void	command(t_env *env, char *s);
 	/*errors.c*/
 int		error1(int err);
 int		error(int err);
 	/*exit.c*/
-void		free2d(char **arr);
-void		exit_prog(t_env *env);
+void	free2d(char **arr);
+void	exit_prog(t_env *env);
 	/*get_line.c*/
 char	*re_malloc(char *line, size_t size);
 int		get_line(int fd, char **line);
@@ -91,5 +94,7 @@ void	ft_removestr(char *big, char *little);
 void	ft_unset(char ***sa, char *var);
 	/*ft_export.c*/
 void	ft_export(char *sa[], int env_size, char *s);
+	/*ft_env.c*/
+void	ft_env(char **sa);
 
 #endif

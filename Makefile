@@ -25,6 +25,7 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)main.c			\
 		$(SRC_PATH)own_command.c	\
 		$(SRC_PATH)set_env.c		\
+		$(SRC_PATH)ft_env.c			\
 	  
 BIN =  $(SRC:.c=.o)
 
@@ -39,6 +40,7 @@ $(NAME): qme
 		"created and moved to src/"
 	@$(CC) $(C_FLAGS) $(BIN) $(LIB_INCL) $(LIB_A)
 	@mv ./a.out ./minishell
+	@clear
 	@echo "Minishell has successfully been compiled.\n"
 
 clean:
@@ -51,8 +53,10 @@ fclean: clean
 	@rm -f $(NAME)
 	@make fclean -C libft/
 	@echo "The executables ./minishell and ./libft has been removed"
+	@rm -f $(INCL:.h=.h.gch)
 
 re: fclean all
+	@clear
 	@echo "Minishell has successfully recompiled.\n"
 
 format: norme me
