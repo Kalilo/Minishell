@@ -1,19 +1,19 @@
 #include "../includes/minishell.h"
 
-void	ft_removestr(char big[], char little[])
+void	ft_removestr(char *big, char *little)
 {
 	char	*start;
 	int		k;
 	int		l;
-	char	str[];
+	char	*str;
 
 	k = -1;
 	str = (char *)malloc(ft_strlen(big) + 1);
 	start = ft_strstr(big, little);
-	while (big[++k] != start)
+	while (big[++k] != *start)
 		str[k] = big[k];
 	l = k;
-	while (big[l] == start || big[l] == '\n')
+	while (big[l] == *start || big[l] == '\n')
 	{
 		start++;
 		l++;
@@ -27,7 +27,7 @@ void	ft_removestr(char big[], char little[])
 	big = str;
 }
 
-void	ft_unset(char *sa[][], char var[])
+void	ft_unset(char ***sa, char *var)
 {
 	int		k;
 	char	*temp;

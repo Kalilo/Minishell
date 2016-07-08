@@ -12,4 +12,8 @@ int allowed_character(char c)
 	return (0);
 }
 
-int	arg_valid(char **sa, int i);
+int	arg_valid(char **sa, int i)
+{
+	//code here
+	return (1);
+}
