@@ -6,7 +6,7 @@
 #    By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/16 08:04:07 by cdebruyn          #+#    #+#              #
-#    Updated: 2016/07/08 14:29:01 by cdebruyn         ###   ########.fr        #
+#    Updated: 2016/07/08 14:44:02 by khansman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,10 +96,7 @@ OBJ = $(SRC_PATH)ft_strlen.o	\
 	  $(SRC_PATH)ft_strjoin.o	\
 	  $(SRC_PATH)ft_memchr.o	\
 	  $(SRC_PATH)ft_2charcmp.o	\
-<<<<<<< HEAD
 	  $(SRC_PATH)ft_3charcmp.o	\
-=======
->>>>>>> ea4199676920b933d4ebb942d71125c0a50bff5e
 	  $(SRC_PATH)ft_replace_literal.o	\
 	  $(SRC_PATH)ft_check_literal.o		\
 	  $(SRC_PATH)ft_memcmp.o	\

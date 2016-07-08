@@ -22,9 +22,11 @@
 # include <sys/uio.h>
 # include <stdlib.h>
 # include <signal.h>
+# include <dirent.h>
 # include "../libft/includes/libft.h"
 
 #include <stdio.h>//debug!
+#include <string.h>//debug!
 // printf("\n");//debug
 
 /*Defines*/
@@ -96,5 +98,7 @@ void	ft_unset(char ***sa, char *var);
 void	ft_export(char *sa[], int env_size, char *s);
 	/*ft_env.c*/
 void	ft_env(char **sa);
+	/*find_path.c*/
+char	*find_path(t_env *env, char s[]);
 
 #endif
