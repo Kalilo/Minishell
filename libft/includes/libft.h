@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/16 08:48:16 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/08 12:35:51 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/08 14:25:43 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 size_t	ft_strlen(const char *s);
+size_t	ft_count_char(const char *str, char c);
+size_t	*ft_check_dquote(char *str);
 
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strdup(const char *s1);
@@ -47,6 +49,7 @@ char	*ft_2charcmp(char *str, char a, char b);
 char	*ft_3charcmp(char *str, char a, char b, char c);
 char	ft_check_literal(char a, char b, char c);
 char	*ft_replace_literal(char *str);
+char	*ft_rmpadding(char *str);
 
 int		*ft_multistrlen(const char *str, char c);
 int		ft_strcmp(const char *s1, const char *s2);
