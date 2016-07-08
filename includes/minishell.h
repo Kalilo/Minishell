@@ -86,7 +86,7 @@ int		ft_strchr_f(char *s, char c);
 	/*get_env.c*/
 char	**get_env(char **environ);
 	/*ft_unset.c*/
-void	ft_removestr(char **big, char *little);
+void	ft_removestr(char *big, char *little);
 void	ft_unset(char *sa[], char *var);
 	/*ft_export.c*/
 void	ft_export(char *sa[], char *s);

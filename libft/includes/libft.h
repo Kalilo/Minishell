@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/16 08:48:16 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/05 12:36:59 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/07 16:21:39 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_strdel(char **as);
 void	ft_strclr(char *s);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	*ft_mem_append(void *str, size_t n);
 
 size_t	ft_strlen(const char *s);
 
@@ -43,6 +44,10 @@ char	**ft_strsplit(const char *str, char c);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
+const char	*ft_2charcmp(const char *str, char a, char b);
+const char	*ft_3charcmp(const char *str, char a, char b, char c);
+char	*ft_replace_literal(const char *str, char a, char b, char c);
+char	ft_check_literal(char a, char b, char c);
 
 int		*ft_multistrlen(const char *str, char c);
 int		ft_strcmp(const char *s1, const char *s2);
@@ -57,7 +62,6 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_intlen(int *i);
 int		ft_intcmp(int *a);
-
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif

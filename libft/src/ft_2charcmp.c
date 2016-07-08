@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_2charcmp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/19 13:07:10 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/07 16:12:33 by cdebruyn         ###   ########.fr       */
+/*   Created: 2016/07/07 13:52:26 by cdebruyn          #+#    #+#             */
+/*   Updated: 2016/07/07 16:37:07 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+const char	*ft_2charcmp(const char *str, char a, char b)
 {
 	size_t	cnt;
+	const char	*ptr;
 
 	cnt = 0;
-	while (src[cnt] != '\0' && src[cnt] && dest[cnt] && dest[cnt] != '\0')
+	ptr = str;
+	while (ptr && *ptr != '\0' && (ptr + 1) && \
+			*(ptr + 1) != '\0')
 	{
-		dest[cnt] = src[cnt];
-		cnt++;
+		if (*ptr == a && *(ptr + 1) == b)
+			return (ptr);
+		ptr++;
 	}
-	return (dest);
+	return (NULL);
 }
