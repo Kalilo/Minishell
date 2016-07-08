@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 14:28:08 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/07 16:20:56 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/08 10:52:37 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ char	ft_check_literal(char a, char b, char c)
 		if (c == 'v')
 			return ('\v');
 	}
-	return (0);
+	return (32);
 }

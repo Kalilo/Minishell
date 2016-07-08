@@ -6,19 +6,19 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 13:52:26 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/07 16:37:07 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/08 10:53:05 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-const char	*ft_2charcmp(const char *str, char a, char b)
+char	*ft_2charcmp(char *str, char a, char b)
 {
 	size_t	cnt;
-	const char	*ptr;
+	char	*ptr;
 
 	cnt = 0;
-	ptr = str;
+	ptr = (char *)str;
 	while (ptr && *ptr != '\0' && (ptr + 1) && \
 			*(ptr + 1) != '\0')
 	{

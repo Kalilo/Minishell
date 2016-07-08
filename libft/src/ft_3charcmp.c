@@ -6,19 +6,19 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 15:44:34 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/07 16:39:59 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/08 10:53:28 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-const char	*ft_3charcmp(const char *str, char a, char b, char c)
+char	*ft_3charcmp(char *str, char a, char b, char c)
 {
 	size_t	cnt;
-	const char	*ptr;
+	char	*ptr;
 
 	cnt = 0;
-	ptr = str;
+	ptr = (char *)str;
 	while (ptr && *ptr != '\0' && (ptr + 1) && \
 			*(ptr + 1) != '\0' && (ptr + 2) && *(ptr + 2) != '\0')
 	{
