@@ -27,6 +27,7 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)set_env.c		\
 		$(SRC_PATH)ft_env.c			\
 		$(SRC_PATH)find_path.c		\
+		$(SRC_PATH)echo.c			\
 
 	  
 BIN =  $(SRC:.c=.o)
