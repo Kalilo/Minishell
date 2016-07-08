@@ -12,7 +12,7 @@ int 	do_command(t_env *env, char *com)
 		arr = ft_strsplit(com, ' ');
 		//printf("path = %s\n", find_path(env, arr[0]));//test
 		str = ft_strjoin(find_path(env, arr[0]), arr[0]);//debug
-		execve(str, arr, NULL);
+		execve(str, arr, E_EN);
 		exit(0);
 	}
 	else

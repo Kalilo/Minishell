@@ -33,7 +33,7 @@ char	*find_path(t_env *env, char *s)
 	while (E_EN[k] != NULL)
 	{
 		
-		if (strstr(E_EN[k], "PATH=") != NULL)//need to use ft_strstr
+		if (ft_strstr(E_EN[k], "PATH=") != NULL)//need to use ft_strstr
 		{
 			//printf("path found, PATH = %s\n", E_EN[k]);//debug
 			p = ft_strchr(E_EN[k], '=');
