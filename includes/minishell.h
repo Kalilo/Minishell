@@ -37,6 +37,7 @@
 # define E_MESS02 "Error: Command not found.\n"
 # define E_MESS03 "Error: Command failed.\n"
 # define E_MESS04 "Memory problem.\n"
+# define E_MESS05 "is_own is not working properly"
 
 	/*Stings*/
 # define SH_L "$> "
