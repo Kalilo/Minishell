@@ -26,6 +26,7 @@
 # include "../libft/includes/libft.h"
 
 #include <stdio.h>//debug!
+#include <string.h>//debug!
 // printf("\n");//debug
 
 /*Defines*/
