@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_3charcmp.c                                      :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/07 15:44:34 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/08 13:49:16 by cdebruyn         ###   ########.fr       */
+/*   Created: 2016/07/07 10:06:53 by cdebruyn          #+#    #+#             */
+/*   Updated: 2016/07/08 14:25:33 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/minishell.h"
 
-char	*ft_3charcmp(char *str, char a, char b, char c)
+void	ft_echo(char *sa[][])
 {
-	size_t	cnt;
-	char	*ptr;
+	size_t	i;
 
-	cnt = 0;
-	ptr = (char *)str;
-	while (ptr && *ptr != '\0' && (ptr + 1) && \
-			*(ptr + 1) != '\0' && (ptr + 2) && *(ptr + 2) != '\0')
+	i = 0;
+	while (sa[i][] != NULL && sa[i][])
 	{
-		if (*ptr == a && *(ptr + 1) == b && *(ptr + 2) == c)
-			return (ptr);
-		ptr++;
+		sa[i][] = ft_rmpadding(sa[i][]);
+		sa[i][] = ft_replace_literal(sa[i][]);
+		i++;
 	}
-	return (NULL);
+	ft_env(sa);
 }
