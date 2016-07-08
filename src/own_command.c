@@ -18,5 +18,5 @@ void	own_command(char **sa)
 	else if (ft_memcmp(sa[0], "env", 4) == 0)
 		ft_env(sa);
 	else
-		ft_putstr("is_own is not working properly");
+		ft_putstr(E_MESS05);
 }
