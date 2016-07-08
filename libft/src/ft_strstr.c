@@ -3,33 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/19 14:50:03 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/06/20 07:46:31 by cdebruyn         ###   ########.fr       */
+/*   Created: 2016/05/10 09:43:21 by khansman          #+#    #+#             */
+/*   Updated: 2016/05/14 14:14:58 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include <string.h>
 
-char	*ft_strstr(const char *big, const char *little)
+char	*ft_strstr(char *big, char *little)
 {
-	char	*cpy;
-	char	*cpy2;
+	int		k;
+	int		l;
+	char	*pos;
 
-	cpy = (char *)big;
-	cpy2 = (char *)little;
-	if (little == NULL)
-		return ((char *)big);
-	while (cpy)
+	k = 0;
+	if (sizeof(little) == 0 || little[0] == '\0')
+		return (big);
+	while (big[k] != '\0')
 	{
-		if (*cpy2 == *cpy)
-			cpy2++;
-		else
-			cpy2 = (char *)little;
-		if (*cpy2 == '\0')
-			return (cpy - ft_strlen(little) + 1);
-		cpy++;
+		l = 0;
+		while (little[l] == big[k + l])
+			l++;
+		if (little[l] == '\0')
+		{
+			pos = &big[k];
+			return (pos);
+		}
+		k++;
 	}
 	return (NULL);
 }
