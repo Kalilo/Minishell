@@ -1,19 +1,19 @@
 #include "../includes/minishell.h"
 
-void	free2d(char arr[][])
+void	free2d(char **arr)
 {
 	int		k;
 	
 	k = 0;
-	while (str[k] != NULL)
+	while (arr[k] != NULL)
 	{
-		free(str[k]);
+		free(arr[k]);
 		k++;
 	}
 	free(arr);
 }
 
-void	exit_prog(t_env env)
+void	exit_prog(t_env *env)
 {
 	if (E_EN != NULL)
 		free2d(E_EN);
