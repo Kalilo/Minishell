@@ -7,7 +7,7 @@ int is_own(char *s)
 
 void	own_command(char **sa)
 {
-	if (ft_memcmp(sa[0], "echo", 5) == 0)
+/*	if (ft_memcmp(sa[0], "echo", 5) == 0)
 		ft_echo(sa);
 	else if (ft_memcmp(sa[0], "cd", 3) == 0)
 		ft_cd(sa);
@@ -17,6 +17,6 @@ void	own_command(char **sa)
 		ft_unset(sa);
 	else if (ft_memcmp(sa[0], "env", 4) == 0)
 		ft_env(sa);
-	else
+	else*/
 		ft_putstr(E_MESS05);
 }

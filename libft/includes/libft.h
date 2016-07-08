@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/16 08:48:16 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/07 16:21:39 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/08 08:50:32 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ int		ft_tolower(int c);
 int		ft_intlen(int *i);
 int		ft_intcmp(int *a);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
+void	*ft_memchr(const void *s, int c, size_t n);
 
 #endif
