@@ -38,14 +38,14 @@
 # define E_A env->a
 
 	/*Error Messages*/
-# define E_MESS01 "Error: No such file or directory.\n"
-# define E_MESS02 "Error: Command not found.\n"
-# define E_MESS03 "Error: Command failed.\n"
-# define E_MESS04 "Memory problem.\n"
-# define E_MESS05 "is_own is not working properly"
+# define E_MESS01 "\e[31mError: No such file or directory.\n"
+# define E_MESS02 "\e[31mError: Command not found.\n"
+# define E_MESS03 "\e[31mError: Command failed.\n"
+# define E_MESS04 "\e[31mMemory problem.\n"
+# define E_MESS05 "\e[31mis_own is not working properly"
 
 	/*Stings*/
-# define SH_L "\e[32m$> \e[0m\e[93m"
+# define SH_L "\e[32m$> \e[0m\e[96m"
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit "
