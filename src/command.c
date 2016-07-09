@@ -27,14 +27,17 @@ void	command(t_env *env, char *s)
 		return ;
 	s = rm_tabs(s);
 	sa = ft_strsplit(s, ' ');
+	ft_env(sa);
+	ft_putstr("array has been printed\n");
 	if	(arg_valid(sa, count(s, ' ')))
 	{
-		if (is_own(sa[0]))
-			own_command(env, sa, s);
-		else
-		{
-			do_command(env, s);
-		}
+//		if (is_own(sa[0]))
+//			own_command(env, sa, s);
+		ft_putstr("own_command to go here\n");
+//		else
+//		{
+//			do_command(env, s);
+//		}
 	}
 	else
 		error(1);
