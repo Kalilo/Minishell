@@ -8,3 +8,6 @@ a.out
 *.json
 *.gch
 *.a
+*.VC.*
+*.nfs.*
+minishell

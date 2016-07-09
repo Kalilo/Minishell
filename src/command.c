@@ -10,7 +10,7 @@ int 	do_command(t_env *env, char *com)
 	if (forked == 0)
 	{
 		arr = ft_strsplit(com, ' ');
-		str = ft_strjoin(find_path(env, arr[0]), arr[0]);
+		str = find_path(env, arr[0]);
 		execve(str, arr, E_EN);
 		exit(0);
 	}
@@ -27,7 +27,6 @@ void	command(t_env *env, char *s)
 		return ;
 	s = rm_tabs(s);
 	sa = ft_strsplit(s, ' ');
-	ft_env(sa);
 	if	(arg_valid(sa, count(s, ' ')))
 	{
 		if (is_own(sa[0]))
