@@ -106,6 +106,7 @@ char	*add_path(char	*path, char	*extension);
 char	*find_path(t_env *env, char s[]);
 	/*echo.c*/
 void	ft_echo(char **sa);
+void	ft_print_echo(char **sa);
 	/*ft_cd.c*/
 void	ft_cd(t_env *env, char **sa);
 	/*trim.c*/
