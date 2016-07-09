@@ -1,17 +1,15 @@
-/*
- *
- * Change the following params:
- * 	ft_*;
- *
- *	Things we still need:
- *		int		arg_valid(char **sa, int i); -a
- *		void	error(int i); -a
- *		char	*find_path(char s[]); -a
- *		int		env_valid(char s[]); -a
- *		void	replace_var(char *s[]);-v
- *		void	ft_echo(char *sa[]);-c
- *		void	ft_cd(char *sa[]);-a
- */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
+/*   Updated: 2016/07/09 15:36:06 by khansman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -25,8 +23,8 @@
 # include <dirent.h>
 # include "../libft/includes/libft.h"
 
-#include <stdio.h>//debug!
-#include <string.h>//debug!
+//#include <stdio.h>//debug!
+//#include <string.h>//debug!
 // printf("\n");//debug
 
 /*Defines*/

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checks.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/09 15:17:46 by khansman          #+#    #+#             */
+/*   Updated: 2016/07/09 15:30:17 by khansman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
-int allowed_character(char c)
+int	allowed_character(char c)
 {
 	if (ft_isalnum(c))
 		return (1);
@@ -12,8 +24,7 @@ int allowed_character(char c)
 int	arg_valid(char **sa, int i)
 {
 	int		k;
-	
+
 	k = 0;
-	//while ()
 	return (1);
 }

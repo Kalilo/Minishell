@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   trim.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/09 15:26:36 by khansman          #+#    #+#             */
+/*   Updated: 2016/07/09 15:34:36 by khansman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 char	*trim_start(char *str)
@@ -24,9 +36,9 @@ void	trim_end(char **str)
 	k = ft_strlen(*str) - 1;
 	while (k >= 0 && (*str[k] == ' ' || k == '\t'))
 		k--;
-	if (*str[k] && *str[k + 1] && 
-		(*str[k + 1] == ' ' || *str[k + 1] == '\t'))
-			*str[k + 1] = '\0';
+	if (*str[k] && *str[k + 1] &&
+			(*str[k + 1] == ' ' || *str[k + 1] == '\t'))
+		*str[k + 1] = '\0';
 }
 
 void	trim_str(char **str)
@@ -34,7 +46,6 @@ void	trim_str(char **str)
 	if (*str == NULL)
 		return ;
 	*str = trim_start(*str);
-	//trim_end(str);
 }
 
 int		trim_arr(char ***arr)
@@ -42,12 +53,9 @@ int		trim_arr(char ***arr)
 	int		k;
 
 	k = 0;
-	ft_putstr("before loop\n");//debug
 	while (arr[0][k] != NULL)
 	{
-		ft_putstr("in looop\n");//debug
 		trim_str(&arr[0][k]);
-		ft_putstr("trimmed\n");//debug
 		k++;
 	}
 	return (k);
