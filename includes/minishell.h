@@ -62,58 +62,58 @@ typedef struct	s_env
 }				t_env;
 /*Prototypes*/
 	/*checks.c*/
-int 	allowed_character(char c);
-int		arg_valid(char **sa, int i);
+int 			allowed_character(char c);
+int				arg_valid(char **sa, int i);
 	/*command.c*/
-int 	do_command(t_env *env, char *com);
-void	command(t_env *env, char *s);
+int 			do_command(t_env *env, char *com);
+void			command(t_env *env, char *s);
 	/*errors.c*/
-int		error1(int err);
-int		error(int err);
+int				error1(int err);
+int				error(int err);
 	/*exit.c*/
-void	free2d(char **arr);
-void	exit_prog(t_env *env);
+void			free2d(char **arr);
+void			exit_prog(t_env *env);
 	/*get_line.c*/
-char	*re_malloc(char *line, size_t size);
-int		get_line(int fd, char **line);
+char			*re_malloc(char *line, size_t size);
+int				get_line(int fd, char **line);
 	/*own_command.c*/
-int 	is_own(char *s);
+int 			is_own(char *s);
 	/*set_env.c*/
-int		env_valid(char *s);
-void	set_env(t_env *env, char *s);
+int				env_valid(char *s);
+void			set_env(t_env *env, char *s);
 	/*count.c*/
-int		count(char *s, char c);
+int				count(char *s, char c);
 	/*own_command.c*/
-int		is_own(char *s);
-void	own_command(t_env *env, char **sa, char *s);
+int				is_own(char *s);
+void			own_command(t_env *env, char **sa, char *s);
 	/*ft_strchr_f.c*/
-int		ft_strchr_f(char *s, char c);
+int				ft_strchr_f(char *s, char c);
 	/*get_env.c*/
-char	**get_env(char **environ);
-int		get_envsize(char **env);
+char			**get_env(char **environ);
+int				get_envsize(char **env);
 	/*ft_unset.c*/
-void	ft_removestr(char *big, char *little);
-void	ft_unset(char ***sa, char *var);
+void			ft_removestr(char *big, char *little);
+void			ft_unset(char ***sa, char *var);
 	/*ft_export.c*/
-void	ft_export(char *sa[], int env_size, char *s);
+void			ft_export(char *sa[], int env_size, char *s);
 	/*ft_env.c*/
-void	ft_env(char **sa);
-char	*find_var_val(t_env *env, const char *var);
-void	update_env(t_env *env, char *var, char *n);
+void			ft_env(char **sa);
+char			*find_var_val(t_env *env, const char *var);
+void			update_env(t_env *env, char *var, char *n);
 	/*find_path.c*/
-int		scan_dir(char *s, char *path);
-char	*add_path(char	*path, char	*extension);
-char	*find_path(t_env *env, char s[]);
+int				scan_dir(char *s, char *path);
+char			*add_path(char	*path, char	*extension);
+char			*find_path(t_env *env, char s[]);
 	/*echo.c*/
-void	ft_echo(char **sa);
-void	ft_print_echo(char **sa);
+void			ft_echo(char **sa);
+void			ft_print_echo(char **sa);
 	/*ft_cd.c*/
-void	ft_cd(t_env *env, char **sa);
+void			ft_cd(t_env *env, char **sa);
 	/*trim.c*/
-char	*trim_start(char *str);
-void	trim_end(char **str);
-void	trim_str(char **str);
-int		trim_arr(char ***arr);
-char	*rm_tabs(char *str);
+char			*trim_start(char *str);
+void			trim_end(char **str);
+void			trim_str(char **str);
+int				trim_arr(char ***arr);
+char			*rm_tabs(char *str);
 
 #endif
