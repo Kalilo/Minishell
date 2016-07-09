@@ -18,6 +18,17 @@ int		scan_dir(char *s, char *path)
 	return (0);
 }
 
+char	*add_path(char	*path, char	*extension)
+{
+	char	*temp;
+	char	*result;
+
+	temp = ft_strjoin(path, "/");
+	result = ft_strjoin(temp, extension);
+	free(temp);
+	return (result);
+}
+
 char	*find_path(t_env *env, char *s)
 {
 	int				k;
@@ -38,7 +49,7 @@ char	*find_path(t_env *env, char *s)
 			str = ft_strsplit(p, ':');
 			while (str[++l] != NULL)
 				if (scan_dir(s, str[l]))
-					return (ft_strjoin(str[l], "/"));			
+					return (add_path(str[l], s));	
 		}
 		k++;
 	}

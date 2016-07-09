@@ -99,7 +99,10 @@ void	ft_unset(char ***sa, char *var);
 void	ft_export(char *sa[], int env_size, char *s);
 	/*ft_env.c*/
 void	ft_env(char **sa);
+char	*find_var_val(t_env *env, const char *var);
 	/*find_path.c*/
+int		scan_dir(char *s, char *path);
+char	*add_path(char	*path, char	*extension);
 char	*find_path(t_env *env, char s[]);
 	/*echo.c*/
 void	ft_echo(char **sa);
