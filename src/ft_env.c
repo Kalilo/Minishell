@@ -32,9 +32,22 @@ char	*find_var_val(t_env *env, const char *var)
 	return (NULL);
 }
 
-void	update_env(t_env *env, char *var, char *new)
+void	update_env(t_env *env, char *var, char *n)
 {
 	char	*val;
+	char	*temp;
+	int		k;
 
-	val = find_var_val(env, var);
+	k = 0;
+	while (E_EN[k] != NULL)
+	{
+		if (ft_strncmp(E_EN[k], var, ft_strlen(var)) == 0)
+		{
+			free(&E_EN[k]);
+			temp = ft_strjoin(var, "=");
+			E_EN[k] = ft_strjoin(temp, n);
+			free(temp);
+		}
+		k++;
+	}
 }

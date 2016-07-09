@@ -59,7 +59,8 @@ SRC = $(SRC_PATH)ft_strlen.c	\
 	  $(SRC_PATH)ft_memcmp.c	\
 	  $(SRC_PATH)ft_check_literal.c		\
 	  $(SRC_PATH)ft_replace_literal.c	\
-	  $(SRC_PATH)ft_atoi_isdigit.c
+	  $(SRC_PATH)ft_atoi_isdigit.c		\
+	  $(SRC_PATH)ft_strncmp.c
 
 OBJ = $(SRC_PATH)ft_strlen.o	\
 	  $(SRC_PATH)ft_putstr.o	\
@@ -100,7 +101,8 @@ OBJ = $(SRC_PATH)ft_strlen.o	\
 	  $(SRC_PATH)ft_replace_literal.o	\
 	  $(SRC_PATH)ft_check_literal.o		\
 	  $(SRC_PATH)ft_memcmp.o	\
-	  $(SRC_PATH)ft_atoi_isdigit.o
+	  $(SRC_PATH)ft_atoi_isdigit.o \
+	  $(SRC_PATH)ft_strncmp.o
 
 define colorecho
       @tput setaf 4
