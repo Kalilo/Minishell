@@ -2,7 +2,7 @@ NAME = minishell
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRC_PATH = ./src/
 
@@ -28,7 +28,8 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)ft_env.c			\
 		$(SRC_PATH)find_path.c		\
 		$(SRC_PATH)echo.c			\
-
+		$(SRC_PATH)ft_cd.c			\
+		$(SRC_PATH)trim.c
 	  
 BIN =  $(SRC:.c=.o)
 

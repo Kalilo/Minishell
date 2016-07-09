@@ -25,11 +25,13 @@ void	command(t_env *env, char *s)
 
 	if (s == NULL)
 		return ;
+	s = rm_tabs(s);
 	sa = ft_strsplit(s, ' ');
+	ft_env(sa);
 	if	(arg_valid(sa, count(s, ' ')))
 	{
 		if (is_own(sa[0]))
-			own_command(sa);
+			own_command(env, sa, s);
 		else
 		{
 			do_command(env, s);
@@ -37,4 +39,5 @@ void	command(t_env *env, char *s)
 	}
 	else
 		error(1);
+	free2d(sa);
 }
