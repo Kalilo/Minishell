@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_cd.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/09 15:20:22 by khansman          #+#    #+#             */
+/*   Updated: 2016/07/09 15:20:48 by khansman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 int		scan_slash(char *str)
@@ -31,7 +43,6 @@ void	cd_one(t_env *env, char *dir)
 	path = find_var_val(env, "PWD=");
 	if (ft_strcmp(dir, "..") == 0)
 	{
-		//needs work
 	}
 	else if (scan_dir(dir, path))
 	{
@@ -44,7 +55,7 @@ void	cd_one(t_env *env, char *dir)
 
 void	ft_cd(t_env *env, char **sa)
 {
-	if (ft_strcmp(sa, "..") != 0)
+	if (ft_strcmp(sa[1], "..") != 0)
 		update_env(env, "OLDPWD", find_var_val(env, "PWD="));
 	if (sa[1] == NULL)
 		cd_home(env);

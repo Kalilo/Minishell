@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_path.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/09 15:19:37 by khansman          #+#    #+#             */
+/*   Updated: 2016/07/09 15:20:14 by khansman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 int		scan_dir(char *s, char *path)
 {
 	DIR				*dir;
 	struct dirent	*file;
-	
+
 	dir = opendir(path);
 	while ((file = readdir(dir)) != NULL)
 	{
@@ -18,7 +30,7 @@ int		scan_dir(char *s, char *path)
 	return (0);
 }
 
-char	*add_path(char	*path, char	*extension)
+char	*add_path(char *path, char *extension)
 {
 	char	*temp;
 	char	*result;
@@ -35,7 +47,7 @@ char	*find_path(t_env *env, char *s)
 	int				l;
 	char			*p;
 	char			**str;
-	
+
 	k = 0;
 	l = -1;
 	if (s == NULL)
@@ -49,7 +61,7 @@ char	*find_path(t_env *env, char *s)
 			str = ft_strsplit(p, ':');
 			while (str[++l] != NULL)
 				if (scan_dir(s, str[l]))
-					return (add_path(str[l], s));	
+					return (add_path(str[l], s));
 		}
 		k++;
 	}

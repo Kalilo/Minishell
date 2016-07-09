@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_export.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/09 15:22:37 by khansman          #+#    #+#             */
+/*   Updated: 2016/07/09 15:32:10 by khansman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 void	ft_unsetenv(t_env env, char *sa)
 {
-	//code here
 }
 
 char	*ft_remove_parenthesis(char *str)
@@ -24,7 +35,7 @@ char	*ft_remove_parenthesis(char *str)
 	return (str);
 }
 
-void	ft_export(char *sa[], int env_size, char *s)//env, env size, define
+void	ft_export(char *sa[], int env_size, char *s)
 {
 	char	*temp;
 	char	*temp2;
@@ -39,7 +50,7 @@ void	ft_export(char *sa[], int env_size, char *s)//env, env size, define
 		temp2 = sa[env_size - 1];
 		sa[env_size - 1] = ft_strjoin(sa[env_size - 1], s);
 	}
-	free (temp);
+	free(temp);
 	if (temp2)
 		free(temp2);
 }

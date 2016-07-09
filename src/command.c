@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   command.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/09 15:18:14 by khansman          #+#    #+#             */
+/*   Updated: 2016/07/09 15:31:48 by khansman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
-int 	do_command(t_env *env, char *com)
+int		do_command(t_env *env, char *com)
 {
 	char	*str;
 	char	**arr;
@@ -27,7 +39,7 @@ void	command(t_env *env, char *s)
 		return ;
 	s = rm_tabs(s);
 	sa = ft_strsplit(s, ' ');
-	if	(arg_valid(sa, count(s, ' ')))
+	if (arg_valid(sa, count(s, ' ')))
 	{
 		if (is_own(sa[0]))
 			own_command(env, sa, s);

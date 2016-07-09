@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/09 15:25:14 by khansman          #+#    #+#             */
+/*   Updated: 2016/07/09 15:35:08 by khansman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
-int		main()
+int		main(void)
 {
-	t_env	env;
-	char	*line;
-	extern char **environ;
+	t_env		env;
+	char		*line;
+	extern char	**environ;
 
 	env.environ = get_env(environ);
 	env.env_size = get_envsize(env.environ);
@@ -16,7 +28,7 @@ int		main()
 		if (line != NULL)
 		{
 			if (ft_memcmp(line, CM_EXIT, CM_EXIT_S) == 0)
-				break;
+				break ;
 			if (ft_strchr_f(line, '=') != 0)
 				set_env(&env, line);
 			else
@@ -28,6 +40,3 @@ int		main()
 	}
 	exit(1);
 }
-
-	//free(env.exe);//this is also a possible solution for that string we need to free.
-	//(We can make this list bigger once we struggle to free something and then create a function)
