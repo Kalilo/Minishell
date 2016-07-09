@@ -32,7 +32,7 @@
 /*Defines*/
 	/*Shorthand*/
 # define E_EN env->environ
-# define E_SI env->size`
+# define E_SI env->env_size
 # define E_LI env->line
 # define E_ER env->error
 # define E_A env->a
@@ -86,11 +86,12 @@ void	set_env(t_env *env, char *s);
 int		count(char *s, char c);
 	/*own_command.c*/
 int		is_own(char *s);
-void	own_command(char **sa);
+void	own_command(t_env *env, char **sa, char *s);
 	/*ft_strchr_f.c*/
 int		ft_strchr_f(char *s, char c);
 	/*get_env.c*/
 char	**get_env(char **environ);
+int		get_envsize(char **env);
 	/*ft_unset.c*/
 void	ft_removestr(char *big, char *little);
 void	ft_unset(char ***sa, char *var);
@@ -102,5 +103,13 @@ void	ft_env(char **sa);
 char	*find_path(t_env *env, char s[]);
 	/*echo.c*/
 void	ft_echo(char **sa);
+	/*ft_cd.c*/
+void	ft_cd(t_env *env, char **sa);
+	/*trim.c*/
+char	*trim_start(char *str);
+void	trim_end(char **str);
+void	trim_str(char **str);
+int		trim_arr(char ***arr);
+char	*rm_tabs(char *str);
 
 #endif

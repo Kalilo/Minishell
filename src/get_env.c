@@ -38,3 +38,13 @@ char	**get_env(char **environ)
 	env[i] = NULL;
 	return (env);
 }
+
+int		get_envsize(char **env)
+{
+	int		k;
+
+	k = 0;
+	while (env[k] != NULL)
+		k++;
+	return (k);
+}
