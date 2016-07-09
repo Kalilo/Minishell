@@ -12,12 +12,13 @@
 
 #include "../includes/minishell.h"
 
-void	ft_echo(char ***sa)
+void	ft_echo(char **sa)
 {
-	size_t	i;
+	ft_putstr("Command needs to be implemented...");//temp
+	/*size_t	i;
 
 	i = 0;
-/*	while (sa[i][0] != NULL && sa[i][0])
+	while (sa[i][0] != NULL && sa[i][0])
 	{
 		sa[i][0] = ft_rmpadding(sa[i][0]);
 		sa[i][0] = ft_replace_literal(sa[i][0]);
