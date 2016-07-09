@@ -45,7 +45,7 @@
 # define E_MESS05 "is_own is not working properly"
 
 	/*Stings*/
-# define SH_L "$> "
+# define SH_L "\e[32m$> \e[0m\e[93m"
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit "
@@ -101,6 +101,6 @@ void	ft_env(char **sa);
 	/*find_path.c*/
 char	*find_path(t_env *env, char s[]);
 	/*echo.c*/
-void	ft_echo(char **sa);
+void	ft_echo(char ***sa);
 
 #endif

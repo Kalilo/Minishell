@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-void	ft_echo(char **sa)
+void	ft_echo(char ***sa)
 {
 	size_t	i;
 
