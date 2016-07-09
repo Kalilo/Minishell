@@ -50,6 +50,7 @@
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit "
 # define AL_SYM "$()- "
+# define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 
 /*Structures*/
 
@@ -100,6 +101,7 @@ void	ft_export(char *sa[], int env_size, char *s);
 	/*ft_env.c*/
 void	ft_env(char **sa);
 char	*find_var_val(t_env *env, const char *var);
+void	update_env(t_env *env, char *var, char *n);
 	/*find_path.c*/
 int		scan_dir(char *s, char *path);
 char	*add_path(char	*path, char	*extension);
