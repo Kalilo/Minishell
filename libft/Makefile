@@ -6,7 +6,7 @@
 #    By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/16 08:04:07 by cdebruyn          #+#    #+#              #
-#    Updated: 2016/07/08 14:44:02 by khansman         ###   ########.fr        #
+#    Updated: 2016/07/09 13:41:59 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,9 @@ SRC = $(SRC_PATH)ft_strlen.c	\
 	  $(SRC_PATH)ft_3charcmp.c	\
 	  $(SRC_PATH)ft_memchr.c	\
 	  $(SRC_PATH)ft_memcmp.c	\
+	  $(SRC_PATH)ft_rmpadding.c	\
+	  $(SRC_PATH)ft_count_char.c		\
+	  $(SRC_PATH)ft_check_dquote.c		\
 	  $(SRC_PATH)ft_check_literal.c		\
 	  $(SRC_PATH)ft_replace_literal.c	\
 	  $(SRC_PATH)ft_atoi_isdigit.c
@@ -97,9 +100,12 @@ OBJ = $(SRC_PATH)ft_strlen.o	\
 	  $(SRC_PATH)ft_memchr.o	\
 	  $(SRC_PATH)ft_2charcmp.o	\
 	  $(SRC_PATH)ft_3charcmp.o	\
+	  $(SRC_PATH)ft_rmpadding.o	\
+	  $(SRC_PATH)ft_count_char.o		\
+	  $(SRC_PATH)ft_check_dquote.o		\
 	  $(SRC_PATH)ft_replace_literal.o	\
 	  $(SRC_PATH)ft_check_literal.o		\
-	  $(SRC_PATH)ft_memcmp.o	\
+	  $(SRC_PATH)ft_memcmp.o			\
 	  $(SRC_PATH)ft_atoi_isdigit.o
 
 define colorecho

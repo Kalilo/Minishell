@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 10:06:53 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/08 14:25:33 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/09 13:35:41 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	ft_echo(char **sa)
 {
-	ft_putstr("Command needs to be implemented...");//temp
-	/*size_t	i;
+	size_t	i;
 
 	i = 0;
-	while (sa[i][0] != NULL && sa[i][0])
+	while (sa[i] != NULL && sa[i])
 	{
-		sa[i][0] = ft_rmpadding(sa[i][0]);
-		sa[i][0] = ft_replace_literal(sa[i][0]);
+		sa[i] = ft_rmpadding(sa[i]);
+		sa[i] = ft_replace_literal(sa[i]);
 		i++;
 	}
-	ft_env(sa);*/
+	ft_env(sa);
 }
