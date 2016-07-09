@@ -30,17 +30,22 @@ void	cd_one(t_env *env, char *dir)
 
 	path = find_var_val(env, "PWD=");
 	if (ft_strcmp(dir, "..") == 0)
-		chdir(path);//need to set to remove one
+	{
+		//needs work
+	}
 	else if (scan_dir(dir, path))
 	{
 		path = add_path(path, dir);
 		chdir(path);
+		update_env(env, "PWD", path);
 		free(path);
 	}
 }
 
 void	ft_cd(t_env *env, char **sa)
 {
+	if (ft_strcmp(sa, "..") != 0)
+		update_env(env, "OLDPWD", find_var_val(env, "PWD="));
 	if (sa[1] == NULL)
 		cd_home(env);
 	else

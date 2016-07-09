@@ -6,7 +6,7 @@
 #    By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/16 08:04:07 by cdebruyn          #+#    #+#              #
-#    Updated: 2016/07/09 13:41:59 by cdebruyn         ###   ########.fr        #
+#    Updated: 2016/07/09 14:56:25 by khansman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,8 @@ SRC = $(SRC_PATH)ft_strlen.c	\
 	  $(SRC_PATH)ft_check_dquote.c		\
 	  $(SRC_PATH)ft_check_literal.c		\
 	  $(SRC_PATH)ft_replace_literal.c	\
-	  $(SRC_PATH)ft_atoi_isdigit.c
+	  $(SRC_PATH)ft_atoi_isdigit.c		\
+	  $(SRC_PATH)ft_strncmp.c
 
 OBJ = $(SRC_PATH)ft_strlen.o	\
 	  $(SRC_PATH)ft_putstr.o	\
@@ -105,8 +106,9 @@ OBJ = $(SRC_PATH)ft_strlen.o	\
 	  $(SRC_PATH)ft_check_dquote.o		\
 	  $(SRC_PATH)ft_replace_literal.o	\
 	  $(SRC_PATH)ft_check_literal.o		\
-	  $(SRC_PATH)ft_memcmp.o			\
-	  $(SRC_PATH)ft_atoi_isdigit.o
+	  $(SRC_PATH)ft_memcmp.o	\
+	  $(SRC_PATH)ft_atoi_isdigit.o \
+	  $(SRC_PATH)ft_strncmp.o
 
 define colorecho
       @tput setaf 4
