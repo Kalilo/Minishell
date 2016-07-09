@@ -32,7 +32,7 @@
 /*Defines*/
 	/*Shorthand*/
 # define E_EN env->environ
-# define E_SI env->size
+# define E_SI env->size`
 # define E_LI env->line
 # define E_ER env->error
 # define E_A env->a
@@ -45,7 +45,7 @@
 # define E_MESS05 "\e[31mis_own is not working properly"
 
 	/*Stings*/
-# define SH_L "\e[32m$> \e[0m\e[96m"
+# define SH_L "\e[32m$> \e[0m\e[36m"
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit "
@@ -101,6 +101,6 @@ void	ft_env(char **sa);
 	/*find_path.c*/
 char	*find_path(t_env *env, char s[]);
 	/*echo.c*/
-void	ft_echo(char ***sa);
+void	ft_echo(char **sa);
 
 #endif

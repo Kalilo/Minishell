@@ -51,7 +51,7 @@ $(NAME): qme
 	@make re -C libft/
 	@$(CC) $(C_FLAGS) -c $(SRC) $(INCL)
 	@mv *.o src/
-	@$(call colorecho,"Library has successfully compiled and object " \
+	@$(call colorecho,"Library has successfully compiled and object" \
 		"files have been created and moved to src/")
 	@$(CC) $(C_FLAGS) $(BIN) $(LIB_INCL) $(LIB_A)
 	@mv ./a.out ./minishell
@@ -61,7 +61,7 @@ $(NAME): qme
 clean:
 	@rm -f $(BIN)
 	@$(call colorecho, "All object files have been removed. Please" \
-		" ensure no sourcefiles have accidently been removed.")
+		"ensure no sourcefiles have accidently been removed.")
 	@make clean -C libft/
 
 fclean: clean
