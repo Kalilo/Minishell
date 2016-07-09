@@ -32,44 +32,58 @@ SRC =	$(SRC_PATH)checks.c			\
 	  
 BIN =  $(SRC:.c=.o)
 
+define colorecho
+      @tput setaf 14
+      @echo $1
+      @tput sgr0
+endef
+
+define colorecho2
+      @tput setaf 2
+      @echo $1
+      @tput sgr0
+endef
+
 all: $(NAME)
 
 $(NAME): qme
-	@echo "\nPreparing to compile minishell..."
+	@$(call colorecho,"\nPreparing to compile minishell...")
 	@make re -C libft/
 	@$(CC) $(C_FLAGS) -c $(SRC) $(INCL)
 	@mv *.o src/
-	@echo "Library has successfully compiled and object files have been" \
-		"created and moved to src/"
+	@$(call colorecho,"Library has successfully compiled and object " \
+		"files have been created and moved to src/")
 	@$(CC) $(C_FLAGS) $(BIN) $(LIB_INCL) $(LIB_A)
 	@mv ./a.out ./minishell
 	@clear
-	@echo "Minishell has successfully been compiled.\n"
+	@$(call colorecho, "Minishell has successfully been compiled.\n")
 
 clean:
 	@rm -f $(BIN)
-	@echo "All object files have been removed. Please ensure no source" \
-		"files have accidently been removed."
+	@$(call colorecho, "All object files have been removed. Please" \
+		" ensure no sourcefiles have accidently been removed.")
 	@make clean -C libft/
 
 fclean: clean
 	@rm -f $(NAME)
 	@make fclean -C libft/
-	@echo "The executables ./minishell and ./libft has been removed"
+	@$(call colorecho, "The executables ./minishell and " \
+		"./libft has been removed")
 	@rm -f $(INCL:.h=.h.gch)
 
 re: fclean all
 	@clear
-	@echo "Minishell has successfully recompiled.\n"
+	@$(call colorecho, "Minishell has successfully recompiled.\n")
 
 format: norme me
-	@echo "All good!"
+	@$(call colorecho2, "All good!")
 
 norme:
-	norminette $(SRC) $(INCL)
+	@$(call colorecho2, "Normenette:\n")
+	@norminette $(SRC) $(INCL)
 
 me: qme
-	@echo "Author:"
+	@$(call colorecho2, "Author:")
 	cat -e author
 
 qme:

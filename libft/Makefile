@@ -102,31 +102,40 @@ OBJ = $(SRC_PATH)ft_strlen.o	\
 	  $(SRC_PATH)ft_memcmp.o	\
 	  $(SRC_PATH)ft_atoi_isdigit.o
 
+define colorecho
+      @tput setaf 4
+      @echo $1
+      @tput sgr0
+endef
+
 all: $(NAME)
 
 $(NAME):
-	@echo "Crystal is preparing to make your libft"
+	@$(call colorecho, "Crystal is preparing to make your libft")
 	@$(CC) $(FLAGS) -c $(SRC) -I $(INCLUDES)
-	@echo "Crystal has created all your object files..."
+	@$(call colorecho, "Crystal has created all your object files...")
 	@mv *.o src/
-	@echo "Crystal has successfully moved all the object files to src/"	
-	@echo "Crystal is preparing to create your libft.."
+	@$(call colorecho, "Crystal has successfully moved all the" \
+		" object files to src/")
+	@$(call colorecho, "Crystal is preparing to create your libft..")	
 	@ar rc $(NAME) $(OBJ)
-	@ranlib	$(NAME) 
-	@echo "Crystal has successfully created your libft"
+	@ranlib	$(NAME)
+	@$(call colorecho, "Crystal has successfully created your libft")
 
 clean:
 	@rm -f $(OBJ)
-	@echo "Crystal has removed all object files.\n"
+	@$(call colorecho, "Crystal has removed all object files.\n")
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Crystal has removed the executable.\n"
+	@$(call colorecho, "Crystal has removed the executable.\n")
 	@rm -f $(INCLUDES:.h=.h.gch)
 
 re: fclean all
-	@echo "Crystal has successfully recompiled your libft.\n"
+	@$(call colorecho, "Crystal has successfully recompiled your" \
+		" libft.\n")
 
 norme:
 	norminette $(SRC)
-	@echo "Crystal has successfully normed all your source files.\n"
+	@$(call colorecho, "Crystal has successfully normed all your" \
+		" source files.\n")
