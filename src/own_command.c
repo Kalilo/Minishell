@@ -34,9 +34,9 @@ void	own_command(t_env *env, char **sa, char *s)
 	else if (ft_memcmp(sa[0], "cd", 2) == 0)
 		ft_cd(env, sa);
 	else if (ft_memcmp(sa[0], "setenv", 6) == 0)
-		ft_export(sa, E_SI, s);
+		ft_setenv(env, sa);
 	else if (ft_memcmp(sa[0], "unsetenv", 8) == 0)
-		ft_unset(&sa, s);
+		ft_unsetenv(env, sa);
 	else if (ft_memcmp(sa[0], "env", 3) == 0)
 		ft_env(E_EN);
 	else

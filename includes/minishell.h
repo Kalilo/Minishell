@@ -23,8 +23,8 @@
 # include <dirent.h>
 # include "../libft/includes/libft.h"
 
-//#include <stdio.h>//debug!
-//#include <string.h>//debug!
+#include <stdio.h>//debug!
+#include <string.h>//debug!
 // printf("\n");//debug
 
 /*Defines*/
@@ -41,6 +41,13 @@
 # define E_MESS03 "\e[31mError: Command failed.\n"
 # define E_MESS04 "\e[31mMemory problem.\n"
 # define E_MESS05 "\e[31mis_own is not working properly"
+# define E_MESS06 "\e[31mError: No mathing variable found\n"
+# define E_MESS07 "\e[31mError: env is full.\n"
+# define E_MESS08 "\e[31mError: it isn't a good idea removing " \
+	"preset variables\n"
+# define E_MESS09 "\e[31mError: Please use the correct format:\n" \
+	"VARIABLE=VALUE\n"
+# define E_MESS10 "\e[31mError: Variable already exists.\n"
 
 	/*Stings*/
 # define SH_L "\e[32m$> \e[0m\e[36m"
@@ -49,6 +56,7 @@
 # define OWN_FUNCS "cd setenv unsetenv env exit "
 # define AL_SYM "$()- "
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
+# define ERROR_6 else ft_putstr(E_MESS06)
 
 /*Structures*/
 
@@ -89,12 +97,15 @@ void			own_command(t_env *env, char **sa, char *s);
 	/*ft_strchr_f.c*/
 int				ft_strchr_f(char *s, char c);
 	/*get_env.c*/
+char			*add_own(void);
 char			**get_env(char **environ);
 int				get_envsize(char **env);
 	/*ft_unset.c*/
 void			ft_removestr(char *big, char *little);
 void			ft_unset(char ***sa, char *var);
 	/*ft_export.c*/
+void			ft_unsetenv(t_env *env, char **sa);
+void			ft_setenv(t_env *env, char **sa);
 void			ft_export(char *sa[], int env_size, char *s);
 	/*ft_env.c*/
 void			ft_env(char **sa);
