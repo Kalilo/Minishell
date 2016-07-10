@@ -31,6 +31,7 @@ int		get_line(int fd, char **line)
 	char				buff;
 	char				*l;
 
+	l = NULL;
 	read(fd, &buff, 1);
 	while (buff != '\n' && buff != '\0')
 	{
