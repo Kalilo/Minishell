@@ -30,7 +30,7 @@ char	**get_env(char **environ)
 	i = 0;
 	while (environ[i])
 		i++;
-	if (!(env = (char **)malloc(sizeof(char *) * i + 2)))
+	if (!(env = (char **)malloc(sizeof(char *) * (i + 100))))
 	{
 		ft_putstr(E_MESS04);
 		exit(0);
