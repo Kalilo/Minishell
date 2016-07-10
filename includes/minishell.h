@@ -125,6 +125,6 @@ char			*trim_start(char *str);
 void			trim_end(char **str);
 void			trim_str(char **str);
 int				trim_arr(char ***arr);
-char			*rm_tabs(char *str);
+void			rm_tabs(char **str);
 
 #endif

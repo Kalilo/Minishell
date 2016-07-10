@@ -61,15 +61,15 @@ int		trim_arr(char ***arr)
 	return (k);
 }
 
-char	*rm_tabs(char *str)
+void	rm_tabs(char **str)
 {
 	int		k;
 
-	while (str[k] != '\0')
+	k = 0;
+	while (str[0][k] != '\0')
 	{
-		if (str[k] == '\t')
-			str[k] = ' ';
+		if (str[0][k] == '\t')
+			str[0][k] = ' ';
 		k++;
 	}
-	return (str);
 }

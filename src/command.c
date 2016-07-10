@@ -37,7 +37,7 @@ void	command(t_env *env, char *s)
 
 	if (s == NULL)
 		return ;
-	s = rm_tabs(s);
+	rm_tabs(&s);
 	sa = ft_strsplit(s, ' ');
 	if (arg_valid(sa, count(s, ' ')))
 	{
