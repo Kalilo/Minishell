@@ -40,6 +40,7 @@ void	cd_one(t_env *env, char *dir)
 {
 	char	*path;
 
+	path = NULL;
 	path = find_var_val(env, "PWD=");
 	if (ft_strcmp(dir, "..") == 0)
 	{

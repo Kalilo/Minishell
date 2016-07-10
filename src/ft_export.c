@@ -106,6 +106,7 @@ void	ft_export(char *sa[], int env_size, char *s)
 	char	*temp;
 	char	*temp2;
 
+	temp = NULL;
 	temp = sa[env_size - 1];
 	temp2 = NULL;
 	if (ft_strcmp(sa[env_size - 1], "#") == 0)
