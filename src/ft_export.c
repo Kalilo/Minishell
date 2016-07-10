@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:22:37 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:32:10 by khansman         ###   ########.fr       */
+/*   Updated: 2016/07/10 13:47:02 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 void	ft_unsetenv(t_env *env, char **sa)
 {
 	int		k;
-	
+
 	k = 0;
 	if (sa[0] == NULL || sa[1] == NULL)
 		return ;
-	while (E_EN[k] != NULL && 
-		ft_strncmp(E_EN[k], sa[1], ft_strlen(sa[1])) != 0)
-			k++;
+	while (E_EN[k] != NULL &&
+			ft_strncmp(E_EN[k], sa[1], ft_strlen(sa[1])) != 0)
+		k++;
 	if (k < E_SI)
 	{
 		ft_putstr(E_MESS08);
 		return ;
 	}
 	if (E_EN[k] != NULL &&
-		ft_strncmp(E_EN[k], sa[1], ft_strlen(sa[1])) == 0)
+			ft_strncmp(E_EN[k], sa[1], ft_strlen(sa[1])) == 0)
 	{
 		free(E_EN[k]);
 		while (E_EN[k + 1] != NULL)
@@ -92,7 +92,7 @@ void	ft_setenv(t_env *env, char **sa)
 int		is_var(char *s1, char *s2)
 {
 	int		k;
-	
+
 	k = 0;
 	while (s1[k] == s2[k] && s1[k] != '\0' && s1[k] != '=')
 		k++;

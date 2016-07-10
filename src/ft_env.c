@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:22:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:22:23 by khansman         ###   ########.fr       */
+/*   Updated: 2016/07/10 13:47:45 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	call_env(t_env env, char *s)
 {
 	int		k;
 	char	**sa;
-	pid_t	forked;	
-	
+	pid_t	forked;
+
 	k = 1;
 	if (ft_strchr(s, ' ') == NULL)
 	{
