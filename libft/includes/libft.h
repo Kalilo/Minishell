@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/16 08:48:16 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/08 14:25:43 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/10 11:59:37 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_2charcmp(char *str, char a, char b);
 char	*ft_3charcmp(char *str, char a, char b, char c);
 char	ft_check_literal(char a, char b, char c);
+char	ft_check_literal2(char a, char b);
 char	*ft_replace_literal(char *str);
 char	*ft_rmpadding(char *str);
 

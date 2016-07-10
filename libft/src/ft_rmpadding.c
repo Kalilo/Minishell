@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/08 12:57:01 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/08 14:23:02 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/10 10:58:06 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,44 @@
 
 char	*ft_rmpadding(char *str)
 {
-	size_t	*arr;
-	size_t	cnt;
-	size_t	cnt2;
-	size_t	cnt3;
-	size_t	cnt4;
+	int		i;
+	int		j;
 	char	*dest;
 
-	cnt = 0;
-	cnt2 = 0;
-	cnt3 = 0;
+	i = 0;
+	j = 0;
 	dest = (char *)malloc(sizeof(char) * ft_strlen(str));
-	arr = ft_check_dquote(str);
-	while (str[cnt] && str[cnt + 1] && str[cnt + 2] && str[cnt] != '\0' \
-			&& str[cnt + 1] != '\0' && str[cnt + 2] != '\0')
+	while (str[i] != '\0' && str[i])
 	{
-		cnt4 = cnt;
-		if ((cnt == arr[cnt2]) && arr[cnt2 + 1] && arr[cnt2])
+		if (str[i] == 9 && (str[i + 1] != ' ' || str[i + 1] != 9))
 		{
-			cnt4 = cnt + 1;
-			while (cnt4 != arr[cnt2])
-			{
-				dest[cnt3] = str[cnt4];
-				cnt3++;
-				cnt4++;
-			}
+			dest[j] = ' ';
+			i++;
+			j++;
 		}
-		cnt = cnt4;
-		if ((str[cnt] == 32 || str[cnt] == 9) && \
-					(str[cnt + 1] == 32 || str[cnt + 1] == 9))
+		if ((str[i] == ' ' || str[i] == 9) && (str[i + 1] = ' ' 
+					|| str[i + 1] == 9))
+		{	
+			while ((str[i] == ' ' || str[i] == 9) && (str[i + 1] == ' ' 
+						|| str[i + 1] == 9))
+			{
+				i++;
+			}
+			if (j != 0)
+			{
+				dest[j] = ' ';
+				j++;
+			}
+			i++;
+		}
+		if (str[i] != '\0')
 		{
-			while ((str[cnt] == 32 || str[cnt] == 9) && \
-					(str[cnt + 1] == 32 || str[cnt + 1] == 9))
-			{
-				cnt += 2;
-			}
+			dest[j] = str[i];
+			j++;
 		}
-		dest[cnt3] = str[cnt];
-		cnt3++;
-		cnt++;
+		i++;
 	}
+	dest[j] = str[i];
+	dest[j + 1] = '\0';
 	return (dest);
 }
