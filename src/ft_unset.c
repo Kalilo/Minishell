@@ -45,6 +45,7 @@ void	ft_unset(char ***sa, char *var)
 	char	*temp;
 
 	k = 0;
+	temp = NULL;
 	if (var == NULL)
 		return ;
 	while (*sa[k] != NULL)

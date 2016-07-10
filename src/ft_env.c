@@ -59,6 +59,7 @@ char	*find_var_val(t_env *env, const char *var)
 	int		k;
 
 	k = 0;
+	seeked = NULL;
 	while (E_EN[k] != NULL)
 	{
 		if (ft_strstr(E_EN[k], var) != NULL)

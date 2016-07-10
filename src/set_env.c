@@ -33,6 +33,8 @@ void	set_env(t_env *env, char *s)
 	char	*temp;
 	int		check;
 
+	temp = NULL;
+	check = 0;
 	if (check == env_valid(s))
 	{
 		temp = env->a;
