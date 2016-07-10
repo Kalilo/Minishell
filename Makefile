@@ -54,10 +54,6 @@ endef
 define colorecho2
       @tput setaf 2
       @echo $1
-	if (ft_strcmp(s1, s2) != 0)
-		ft_putstr("\t<<< SUCCESS >>>\n");
-	else
-		ft_putstr("\t<<< FAILED >>>\n");
       @tput sgr0
 endef
 
