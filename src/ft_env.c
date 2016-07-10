@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:22:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/10 14:29:09 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/10 14:32:39 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,33 @@ void	ft_env(char **sa)
 	}
 }
 
-void	replace_var_call(t_env *env, char **s)
+void	call_env(t_env env, char *s)
 {
 	int		k;
-	
-	k = 0;
-	if (ft_strstr(s[0], "$(") == NULL)
+	char	**sa;
+	pid_t	forked;
+
+	k = 1;
+	if (ft_strchr(s, ' ') == NULL)
+	{
+		ft_env(env.environ);
 		return ;
+	}
+	forked = fork();
+	if (forked == 0)
+	{
+		sa = ft_strsplit(s, ' ');
+		if (sa[k] != NULL)
+		{
+			ft_setenv(&env, sa);
+			k++;
+		}
+		free2d(sa);
+		ft_env(env.environ);
+		exit(0);
+	}
+	else
+		wait(0);
 }
 
 char	*find_var_val(t_env *env, const char *var)

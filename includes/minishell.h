@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:36:06 by khansman         ###   ########.fr       */
+/*   Updated: 2016/07/10 14:33:41 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,12 @@ void			ft_removestr(char *big, char *little);
 void			ft_unset(char ***sa, char *var);
 	/*ft_export.c*/
 void			ft_unsetenv(t_env *env, char **sa);
+int				is_var(char *s1, char *s2);
 void			ft_setenv(t_env *env, char **sa);
 void			ft_export(char *sa[], int env_size, char *s);
 	/*ft_env.c*/
 void			ft_env(char **sa);
+void			call_env(t_env env, char *s);
 char			*find_var_val(t_env *env, const char *var);
 void			update_env(t_env *env, char *var, char *n);
 	/*find_path.c*/
