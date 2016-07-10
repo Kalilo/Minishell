@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/07/10 12:36:11 by ehansman          #+#    #+#              #
+#    Updated: 2016/07/10 12:36:18 by ehansman         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = minishell
 
 CC = gcc
@@ -42,6 +54,10 @@ endef
 define colorecho2
       @tput setaf 2
       @echo $1
+	if (ft_strcmp(s1, s2) != 0)
+		ft_putstr("\t<<< SUCCESS >>>\n");
+	else
+		ft_putstr("\t<<< FAILED >>>\n");
       @tput sgr0
 endef
 

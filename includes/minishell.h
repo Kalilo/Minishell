@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:36:06 by khansman         ###   ########.fr       */
+/*   Updated: 2016/07/10 14:10:51 by ehansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@
 # define E_MESS09 "\e[31mError: Please use the correct format:\n" \
 	"VARIABLE=VALUE\n"
 # define E_MESS10 "\e[31mError: Variable already exists.\n"
+# define E_MESS11 ">>Take a deep breath and try again.<<\n"
+# define E_MESS12 E_MESS03 E_MESS11
 
 	/*Stings*/
 # define SH_L "\e[32m$> \e[0m\e[36m"

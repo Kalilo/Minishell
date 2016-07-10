@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/09 15:22:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:22:23 by khansman         ###   ########.fr       */
+/*   Created: 2016/07/10 11:52:19 by ehansman          #+#    #+#             */
+/*   Updated: 2016/07/10 11:56:36 by ehansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	update_env(t_env *env, char *var, char *n)
 	{
 		if (ft_strncmp(E_EN[k], var, ft_strlen(var)) == 0)
 		{
-			free(&E_EN[k]);
 			temp = ft_strjoin(var, "=");
 			E_EN[k] = ft_strjoin(temp, n);
 			free(temp);
