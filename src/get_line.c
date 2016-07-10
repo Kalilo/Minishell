@@ -31,10 +31,11 @@ int		get_line(int fd, char **line)
 	char				buff;
 	char				*l;
 
+	l = NULL;
 	read(fd, &buff, 1);
 	while (buff != '\n' && buff != '\0')
 	{
-		if (k % 50 == 0 || k == 0)
+		if (k + 1 % 50 == 0 || k == 0)
 			l = re_malloc(l, k);
 		l[k] = buff;
 		if (buff != 0)

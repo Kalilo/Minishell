@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 14:14:46 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/07/09 14:19:41 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/07/10 12:47:04 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,35 @@
 
 char	*ft_replace_literal(char *str)
 {
-	size_t		len;
-	size_t		cnt;
-	char		*ptr;
-	char		*dest;
-	char		type;
-	char		a;
-	char		b;
+	char	lit;
+	char	check;
+	char	*dest;
+	size_t	i;
+	size_t	j;
 
-	a = '\\';
-	b = '\\';
-	ptr = NULL;
-	dest = (char *)malloc(sizeof(char) * (ft_strlen(str) - 2));
-	ptr = ft_2charcmp(str, a, b);
-	len = ft_strlen(str) - ft_strlen(ptr);
-	if (ptr != NULL)
+	i = 0;
+	j = 0;
+	dest = (char *)malloc(sizeof(char) * ft_strlen(str));
+	while (str[i] != '\0' && str[i])
 	{
-		cnt = 0;
-		while (len-- > 0)
+		if ((lit = ft_check_literal(str[i], str[i + 1], str[i + 2])) != 32)
 		{
-			dest[cnt] = str[cnt];
-			cnt++;
+			dest[j] = lit;
+			check = 'y';
+			i = i + 3;
+			j++;
 		}
-		if ((type = ft_check_literal(str[cnt], str[cnt + 1], \
-						str[cnt + 2])) != 32)
+		if (((lit = ft_check_literal2(str[i], str[i + 1])) != 32) && check != 'y')
 		{
-			dest[cnt] = type;
-			cnt++;
-			while (str[cnt + 2] && str[cnt + 2] != '\0')
-			{
-				dest[cnt] = str[cnt + 2];
-				cnt++;
-			}
-			dest[cnt] = '\0';
-			return (dest);
+			dest[j] = lit;
+			i = i + 2;
+			j++;
 		}
-		else
-		{
-			dest[cnt] = '\\';
-			cnt++;
-			while (str[cnt + 1] && str[cnt + 1] != '\0')
-			{
-				dest[cnt] = str[cnt + 1];
-				cnt++;
-			}
-			dest[cnt] = '\0';
-			return (dest);
-		}
+		dest[j] = str[i];
+		check = 'n';
+		i++;
+		j++;
 	}
-	return (str);
+	dest[j] = '\0';
+	return (dest);
 }
