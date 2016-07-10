@@ -63,22 +63,28 @@ char	*ft_remove_parenthesis(char *str)
 void	ft_setenv(t_env *env, char **sa)
 {
 	int		k;
+	int		l;
 
-	if (ft_strchr(sa[1], '=') == NULL)
+	l = 1;
+	if (ft_strchr(sa[l], '=') == NULL)
 	{
 		ft_putstr(E_MESS09);
 		return ;
 	}
 	k = 0;
-	while (E_EN[k] != NULL)
-		k++;
-	if (k > 100)
+	while (sa[l] != NULL)
 	{
-		ft_putstr(E_MESS07);
-		return ;
+		while (E_EN[k] != NULL)
+			k++;
+		if (k > 100)
+		{
+			ft_putstr(E_MESS07);
+			return ;
+		}
+		else
+			E_EN[k] = ft_strdup(sa[l]);
+		l++;
 	}
-	else
-		E_EN[k] = ft_strdup(sa[1]);
 }
 
 void	ft_export(char *sa[], int env_size, char *s)
