@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/09 15:20:22 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:20:48 by khansman         ###   ########.fr       */
+/*   Created: 2016/07/10 12:35:02 by ehansman          #+#    #+#             */
+/*   Updated: 2016/07/10 14:23:01 by ehansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,28 @@ void	cd_home(t_env *env)
 
 	home = find_var_val(env, "HOME=");
 	chdir(home);
+	update_env(env, "PWD", home);
+}
+
+char	*clip_path(char *path)
+{
+	int		i;
+	int		j;
+	char	*new_path;
+
+	i = 0;
+	j = 0;
+	new_path = (char *)malloc(sizeof(char *) * ft_strlen(path));
+	while (path[i] != '\0')
+		i++;
+	while (path[i] != '/')
+		i--;
+	while (j < i)
+	{
+		new_path[j] = path[j];
+		j++;
+	}
+	return (new_path);
 }
 
 void	cd_one(t_env *env, char *dir)
@@ -41,27 +63,35 @@ void	cd_one(t_env *env, char *dir)
 	char	*path;
 
 	path = find_var_val(env, "PWD=");
+	update_env(env, "OLDPWD", path);
 	if (ft_strcmp(dir, "..") == 0)
 	{
-	}
-	else if (scan_dir(dir, path))
-	{
-		path = add_path(path, dir);
-		chdir(path);
-		update_env(env, "PWD", path);
+		path = clip_path(path);
+		if (chdir(path) == 0)
+			update_env(env, "PWD", path);
+		else
+			ft_putstr(E_MESS12);
 		free(path);
 	}
+	else if (scan_dir(dir, path) == 1)
+	{
+		path = add_path(path, dir);
+		if (chdir(path) == 0)
+			update_env(env, "PWD", path);
+		else
+			ft_putstr(E_MESS12);
+		free(path);
+	}
+	else
+		ft_putstr(E_MESS01);
 }
 
 void	ft_cd(t_env *env, char **sa)
 {
-	if (ft_strcmp(sa[1], "..") != 0)
-		update_env(env, "OLDPWD", find_var_val(env, "PWD="));
 	if (sa[1] == NULL)
 		cd_home(env);
+	else if (scan_slash(sa[1]) == 0 && sa[2] == NULL)
+		cd_one(env, sa[1]);
 	else
-	{
-		if (scan_slash(sa[1]) == 0 && sa[2] == NULL)
-			cd_one(env, sa[1]);
-	}
+		ft_putstr(E_MESS02);
 }
