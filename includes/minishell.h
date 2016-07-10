@@ -23,8 +23,8 @@
 # include <dirent.h>
 # include "../libft/includes/libft.h"
 
-#include <stdio.h>//debug!
-#include <string.h>//debug!
+//#include <stdio.h>//debug!
+//#include <string.h>//debug!
 // printf("\n");//debug
 
 /*Defines*/
@@ -62,7 +62,7 @@
 
 typedef struct	s_env
 {
-	char		**environ;/*last possition is our local variables.*/
+	char		**environ;
 	int			env_size;
 	char		*line;
 	int			error;
