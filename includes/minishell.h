@@ -71,6 +71,7 @@ typedef struct	s_env
 /*Prototypes*/
 	/*checks.c*/
 int 			allowed_character(char c);
+int				str_valid(t_env *env, char *str);
 int				arg_valid(char **sa, int i);
 	/*command.c*/
 int 			do_command(t_env *env, char *com);

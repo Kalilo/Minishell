@@ -24,6 +24,15 @@ void	ft_env(char **sa)
 	}
 }
 
+void	replace_var_call(t_env *env, char **s)
+{
+	int		k;
+	
+	k = 0;
+	if (ft_strstr(s[0], "$(") == NULL)
+		return ;
+}
+
 char	*find_var_val(t_env *env, const char *var)
 {
 	char	*seeked;

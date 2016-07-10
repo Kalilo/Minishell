@@ -21,6 +21,20 @@ int	allowed_character(char c)
 	return (0);
 }
 
+int	str_valid(t_env *env, char *str)
+{
+	int		k;
+	
+	k = 0;
+	while (str[k] != '\0')
+	{
+		if (!(allowed_character(str[k])))
+			return (0);
+		k++;
+	}
+	return (1);
+}
+
 int	arg_valid(char **sa, int i)
 {
 	int		k;
