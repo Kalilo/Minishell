@@ -18,6 +18,7 @@ int		scan_dir(char *s, char *path)
 	struct dirent	*file;
 
 	dir = opendir(path);
+	file = NULL;
 	while ((file = readdir(dir)) != NULL)
 	{
 		if (ft_strcmp(file->d_name, s) == 0)
@@ -35,6 +36,8 @@ char	*add_path(char *path, char *extension)
 	char	*temp;
 	char	*result;
 
+	temp = NULL;
+	result = NULL;
 	temp = ft_strjoin(path, "/");
 	result = ft_strjoin(temp, extension);
 	free(temp);
