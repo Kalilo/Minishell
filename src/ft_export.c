@@ -81,6 +81,8 @@ void	ft_setenv(t_env *env, char **sa)
 			ft_putstr(E_MESS07);
 			return ;
 		}
+		else if (ft_strchr(sa[l], '=') == NULL)
+			do_command(env, sa[l]);
 		else
 			E_EN[k] = ft_strdup(sa[l]);
 		l++;
