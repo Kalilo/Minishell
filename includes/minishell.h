@@ -110,6 +110,7 @@ void			ft_setenv(t_env *env, char **sa);
 void			ft_export(char *sa[], int env_size, char *s);
 	/*ft_env.c*/
 void			ft_env(char **sa);
+void			call_env(t_env env, char *s);
 char			*find_var_val(t_env *env, const char *var);
 void			update_env(t_env *env, char *var, char *n);
 	/*find_path.c*/

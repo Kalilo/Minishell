@@ -24,13 +24,25 @@ void	ft_env(char **sa)
 	}
 }
 
-void	replace_var_call(t_env *env, char **s)
+void	call_env(t_env env, char *s)
 {
 	int		k;
+	char	**sa;
 	
-	k = 0;
-	if (ft_strstr(s[0], "$(") == NULL)
+	k = 1;
+	if (ft_strchr(s, ' ') == NULL)
+	{
+		ft_env(env.environ);
 		return ;
+	}
+	sa = ft_strsplit(s, ' ');
+	while (sa[k] != NULL)
+	{
+		//ft_setenv(&env, &sa[k]);
+		k++;
+	}
+	free2d(sa);
+	ft_env(env.environ);
 }
 
 char	*find_var_val(t_env *env, const char *var)

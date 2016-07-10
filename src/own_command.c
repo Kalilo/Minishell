@@ -38,7 +38,7 @@ void	own_command(t_env *env, char **sa, char *s)
 	else if (ft_memcmp(sa[0], "unsetenv", 8) == 0)
 		ft_unsetenv(env, sa);
 	else if (ft_memcmp(sa[0], "env", 3) == 0)
-		ft_env(E_EN);
+		call_env(*env, s);//ft_env(E_EN);
 	else
 		ft_putstr(E_MESS05);
 }
