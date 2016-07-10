@@ -28,6 +28,7 @@ void	call_env(t_env env, char *s)
 {
 	int		k;
 	char	**sa;
+	pid_t	forked;	
 	
 	k = 1;
 	if (ft_strchr(s, ' ') == NULL)
@@ -35,14 +36,21 @@ void	call_env(t_env env, char *s)
 		ft_env(env.environ);
 		return ;
 	}
-	sa = ft_strsplit(s, ' ');
-	while (sa[k] != NULL)
+	forked = fork();
+	if (forked == 0)
 	{
-		//ft_setenv(&env, &sa[k]);
-		k++;
+		sa = ft_strsplit(s, ' ');
+		if (sa[k] != NULL)
+		{
+			ft_setenv(&env, sa);
+			k++;
+		}
+		free2d(sa);
+		ft_env(env.environ);
+		exit(0);
 	}
-	free2d(sa);
-	ft_env(env.environ);
+	else
+		wait(0);
 }
 
 char	*find_var_val(t_env *env, const char *var)
