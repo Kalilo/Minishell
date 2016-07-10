@@ -74,7 +74,7 @@ void	ft_setenv(t_env *env, char **sa)
 	k = 0;
 	while (sa[l] != NULL)
 	{
-		while (E_EN[k] != NULL)
+		while (E_EN[k] != NULL && !(is_var(E_EN[k], sa[l])))
 			k++;
 		if (k > 100)
 		{
@@ -85,6 +85,18 @@ void	ft_setenv(t_env *env, char **sa)
 			E_EN[k] = ft_strdup(sa[l]);
 		l++;
 	}
+}
+
+int		is_var(char *s1, char *s2)
+{
+	int		k;
+	
+	k = 0;
+	while (s1[k] == s2[k] && s1[k] != '\0' && s1[k] != '=')
+		k++;
+	if (s1[k] == s2[k] && s1[k] == '=')
+		return (1);
+	return (0);
 }
 
 void	ft_export(char *sa[], int env_size, char *s)
