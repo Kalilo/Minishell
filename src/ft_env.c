@@ -6,7 +6,7 @@
 /*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 15:17:46 by ehansman          #+#    #+#             */
-/*   Updated: 2016/07/10 15:19:30 by ehansman         ###   ########.fr       */
+/*   Updated: 2016/07/10 15:23:21 by ehansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char	*find_var_val(t_env *env, const char *var)
 	int		k;
 
 	k = 0;
+	seeked = NULL;
 	while (E_EN[k] != NULL)
 	{
 		if (ft_strstr(E_EN[k], var) != NULL)

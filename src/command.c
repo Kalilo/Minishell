@@ -18,6 +18,8 @@ int		do_command(t_env *env, char *com)
 	char	**arr;
 	pid_t	forked;
 
+	str = NULL;
+	arr = NULL;
 	forked = fork();
 	if (forked == 0)
 	{
@@ -37,6 +39,7 @@ void	command(t_env *env, char *s)
 
 	if (s == NULL)
 		return ;
+	sa = NULL;
 	rm_tabs(&s);
 	sa = ft_strsplit(s, ' ');
 	if (arg_valid(sa, count(s, ' ')))

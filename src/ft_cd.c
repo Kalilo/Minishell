@@ -62,6 +62,7 @@ void	cd_one(t_env *env, char *dir)
 {
 	char	*path;
 
+	path = NULL;
 	path = find_var_val(env, "PWD=");
 	update_env(env, "OLDPWD", path);
 	if (ft_strcmp(dir, "..") == 0)
