@@ -106,6 +106,7 @@ void			ft_removestr(char *big, char *little);
 void			ft_unset(char ***sa, char *var);
 	/*ft_export.c*/
 void			ft_unsetenv(t_env *env, char **sa);
+int				is_var(char *s1, char *s2);
 void			ft_setenv(t_env *env, char **sa);
 void			ft_export(char *sa[], int env_size, char *s);
 	/*ft_env.c*/
