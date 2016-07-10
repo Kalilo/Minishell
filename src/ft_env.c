@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/10 11:52:19 by ehansman          #+#    #+#             */
-/*   Updated: 2016/07/10 11:56:36 by ehansman         ###   ########.fr       */
+/*   Created: 2016/07/10 15:17:46 by ehansman          #+#    #+#             */
+/*   Updated: 2016/07/10 15:19:30 by ehansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,35 @@ void	ft_env(char **sa)
 		ft_putstr(sa[i++]);
 		ft_putchar('\n');
 	}
+}
+
+void	call_env(t_env env, char *s)
+{
+	int		k;
+	char	**sa;
+	pid_t	forked;
+
+	k = 1;
+	if (ft_strchr(s, ' ') == NULL)
+	{
+		ft_env(env.environ);
+		return ;
+	}
+	forked = fork();
+	if (forked == 0)
+	{
+		sa = ft_strsplit(s, ' ');
+		if (sa[k] != NULL)
+		{
+			ft_setenv(&env, sa);
+			k++;
+		}
+		free2d(sa);
+		ft_env(env.environ);
+		exit(0);
+	}
+	else
+		wait(0);
 }
 
 char	*find_var_val(t_env *env, const char *var)
