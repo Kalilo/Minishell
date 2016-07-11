@@ -91,6 +91,8 @@ void	ft_cd(t_env *env, char **sa)
 {
 	if (sa[1] == NULL)
 		cd_home(env);
+	else if (ft_strcmp(sa[1], ".") == 0)
+		return ;
 	else if (scan_slash(sa[1]) == 0 && sa[2] == NULL)
 		cd_one(env, sa[1]);
 	else

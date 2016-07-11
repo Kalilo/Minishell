@@ -12,12 +12,29 @@
 
 #include "../includes/minishell.h"
 
+int		main(void);
+
+void sig_handler(int signo)
+{
+	ft_putstr("\e[31mError: an unexpected error occured\n");
+	main();
+}
+
+void	sigs(void)
+{
+		signal(SIGSEGV, sig_handler);
+		signal(SIGBUS, sig_handler);
+		signal(SIGKILL, sig_handler);
+		signal(SIGABRT, sig_handler);
+}
+
 int		main(void)
 {
 	t_env		env;
 	char		*line;
 	extern char	**environ;
 
+	sigs();
 	env.environ = get_env(environ);
 	env.env_size = get_envsize(env.environ);
 	line = NULL;
