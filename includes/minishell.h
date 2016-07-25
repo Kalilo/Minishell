@@ -44,7 +44,6 @@
 # define E_LI env->line
 # define E_ER env->error
 # define E_A env->a
-
 /*
 **		Error Messages
 */
