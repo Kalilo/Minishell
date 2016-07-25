@@ -60,7 +60,6 @@
 # define E_MESS10 "\e[31mError: Variable already exists.\n"
 # define E_MESS11 ">>Take a deep breath and try again.<<\n"
 # define E_MESS12 E_MESS03 E_MESS11
-
 /*
 **		Stings
 */
@@ -71,7 +70,6 @@
 # define AL_SYM "$()- "
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
-
 /*
 **Structures
 */
