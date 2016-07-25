@@ -42,3 +42,19 @@ int	arg_valid(char **sa, int i)
 	k = 0;
 	return (1);
 }
+
+int		check_line(char *line)
+{
+	int		check;
+
+	check = 0;
+	if (line == NULL)
+		return (0);
+	while (*line)
+	{
+		if (*line != ' ' && *line != '\t')
+			return (1);
+		line++;
+	}
+	return (0);
+}

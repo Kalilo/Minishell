@@ -42,7 +42,7 @@ int		main(void)
 	{
 		ft_putstr(SH_L);
 		get_line(0, &line);
-		if (line != NULL)
+		if (check_line(line))
 		{
 			if (ft_memcmp(line, CM_EXIT, CM_EXIT_S) == 0)
 				break ;

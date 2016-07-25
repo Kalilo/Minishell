@@ -91,6 +91,7 @@ typedef struct	s_env
 int				allowed_character(char c);
 int				str_valid(t_env *env, char *str);
 int				arg_valid(char **sa, int i);
+int				check_line(char *line);
 /*
 **		command.c
 */
