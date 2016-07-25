@@ -182,5 +182,10 @@ void			trim_end(char **str);
 void			trim_str(char **str);
 int				trim_arr(char ***arr);
 void			rm_tabs(char **str);
+/*
+**		signal.c
+*/
+void			sig_handler(int signo);
+void			sigs(void);
 
 #endif

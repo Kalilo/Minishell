@@ -41,7 +41,8 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)find_path.c		\
 		$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)ft_cd.c			\
-		$(SRC_PATH)trim.c
+		$(SRC_PATH)trim.c			\
+		$(SRC_PATH)signal.c
 	  
 BIN =  $(SRC:.c=.o)
 
