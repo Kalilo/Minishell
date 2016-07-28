@@ -33,7 +33,7 @@ int		main(void)
 			if (ft_strchr_f(line, '=') != 0)
 				set_env(&env, line);
 			else
-				command(&env, line);
+				com_sep(&env, line);
 			if (line != NULL)
 				free(line);
 			line = NULL;

@@ -96,6 +96,7 @@ int				check_line(char *line);
 **		command.c
 */
 int				do_command(t_env *env, char *com);
+void			com_sep(t_env *env, char *s);
 void			command(t_env *env, char *s);
 /*
 **		errors.c

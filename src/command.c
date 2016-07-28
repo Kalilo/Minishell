@@ -37,6 +37,30 @@ int		do_command(t_env *env, char *com)
 	return (1);
 }
 
+void	com_sep(t_env *env, char *s)
+{
+	char	**sa;
+	int		k;
+
+	if (s == NULL)
+		return ;
+	sa = NULL;
+	rm_tabs(&s);
+	k = 0;
+	if (!ft_strchr(s, ';'))
+		command(env, s);
+	else
+	{
+		sa = ft_strsplit(s, ';');
+		while (sa && sa[k] && *sa[k])
+		{
+			command(env, sa[k]);
+			k++;
+		}
+		free2d(sa);
+	}
+}
+
 void	command(t_env *env, char *s)
 {
 	char	**sa;
