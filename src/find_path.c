@@ -68,6 +68,5 @@ char	*find_path(t_env *env, char *s)
 		}
 		k++;
 	}
-	SCAN_CUR;
 	return (NULL);
 }
