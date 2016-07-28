@@ -8,7 +8,16 @@ void sig_handler(int signo)
 
 void	sigs2(void)
 {
-	//To be continued...
+	signal(SIGTTOU, sig_handler);
+	signal(SIGIO, sig_handler);
+	signal(SIGXCPU, sig_handler);
+	signal(SIGXFSZ, sig_handler);
+	signal(SIGVTALRM, sig_handler);
+	signal(SIGPROF, sig_handler);
+	signal(SIGWINCH, sig_handler);
+	signal(SIGINFO, sig_handler);
+	signal(SIGUSR1, sig_handler);
+	signal(SIGUSR2, sig_handler);
 }
 
 void	sigs(void)
