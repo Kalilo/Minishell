@@ -23,7 +23,13 @@
 # include <stdlib.h>
 # include <signal.h>
 # include <dirent.h>
+# include <curses.h>
+# include <term.h>
 # include "../libft/includes/libft.h"
+# include <termcap.h>
+# include <termios.h>
+# include <sys/ioctl.h>
+# include <sys/stat.h>
 
 /*
 **Forbidden:
@@ -194,5 +200,9 @@ void			sigs(void);
 */
 void			*back_up_env(void *env);
 int				main(void);
+/*
+**		init_term.c
+*/
+int				init_term(void);
 
 #endif
