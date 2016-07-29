@@ -1,7 +1,23 @@
 #include "../includes/minishell.h"
 
-void sig_handler(int signo)
+/*
+**The restart function needs the origonal process to die,
+** before being called.
+**It will not be used for now.
+*/
+void	restart(void)
 {
+	t_env	*env;
+
+	env = (t_env *)back_up_env(NULL);
+	ft_putstr("\e[31mRestarting...");
+	execve("./minishell", NULL, E_EN);
+	exit(0);
+}
+
+void	sig_handler(int signo)
+{
+	printf("\e[93mSignal recieved: '%d'\n", signo);//debug
 	if (signo == SIGHUP || signo == SIGQUIT || signo == SIGABRT ||
 		signo == SIGKILL || signo == SIGTERM || signo == SIGUSR1 || 
 		signo == SIGUSR2)
