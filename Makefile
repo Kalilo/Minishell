@@ -90,7 +90,8 @@ re: fclean all
 	@clear
 	@$(call colorecho, "$(NAME) has successfully recompiled.\n")
 
-full: re clean
+full: re
+	@make clean
 	@clear
 	@$(call colorecho, "Done making and cleaning.\n")
 	@./$(NAME)
