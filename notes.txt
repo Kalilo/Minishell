@@ -1,10 +1,1 @@
-I can't find:
- 
-	1: env_valid
-	2: ft_strchr_f
-	3: ft_memcmp
-	4: get_env
-	5: arg_valid
-	7: find_path
-
-otherwise most errors fixed. mostly warnings of implicit declarations.
+Malloc errors cause signal 6 to be recieved.
