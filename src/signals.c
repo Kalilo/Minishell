@@ -15,6 +15,25 @@ void	restart(void)
 	exit(0);
 }
 
+/*
+**This function takes control of the terminal.
+*/
+static void		ft_signal_set(void)
+{
+	struct termios			*new;
+
+	new = (struct termios *)malloc(sizeof(struct termios));
+	tcgetattr(STDIN_FILENO, new);
+	new->c_iflag |= IGNBRK;
+	new->c_lflag |= ISIG;
+	new->c_lflag &= ~(ECHOPRT);//ECHOK | ECHOE | ECHOPRT | ECHONL);
+			//~(ICANON | ECHO | ECHOK | ECHOE | ECHONL | IEXTEN);
+	new->c_cc[VMIN] = 1;
+	new->c_cc[VTIME] = 0;
+	tcsetattr(STDIN_FILENO, TCSANOW, new);
+	return ;
+}
+
 void	sig_handler(int signo)
 {
 	printf("\e[93mSignal recieved: '%d'\n", signo);//debug
@@ -40,4 +59,5 @@ void	sigs(void)
 	k = 0;
 	while (++k < 32)
 		signal(k, sig_handler);
+	ft_signal_set();
 }
