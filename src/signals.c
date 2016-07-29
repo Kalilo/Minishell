@@ -19,7 +19,7 @@ void	sig_handler(int signo)
 {
 	printf("\e[93mSignal recieved: '%d'\n", signo);//debug
 	if (signo == SIGHUP || signo == SIGQUIT || signo == SIGKILL ||
-	signo == SIGTERM || signo == SIGUSR1 || 
+		signo == SIGTERM || signo == SIGUSR1 || signo == SIGTTIN ||
 		signo == SIGUSR2)
 	{
 		ft_putstr("\e[31mExiting Program.\n");
