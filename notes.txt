@@ -1,3 +1,4 @@
 Malloc errors cause signal 6 to be recieved.
 ctrl+c = signal 2 (SIGINT)
 ctrl+z = signal 18 (SIGTSTP)
+causes signal 21? (SIGTTIN)
