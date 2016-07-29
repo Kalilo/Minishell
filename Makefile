@@ -90,6 +90,8 @@ re: fclean all
 	@$(call colorecho, "Minishell has successfully recompiled.\n")
 
 full: all clean
+	@clear
+	@$(call colorecho, "Done making and cleaning.\n")
 	@./$(NAME)
 
 format: norme me
