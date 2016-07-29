@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minishell
+NAME = 21sh
 
 CC = gcc
 
@@ -61,16 +61,16 @@ endef
 all: $(NAME)
 
 $(NAME): qme
-	@$(call colorecho,"\nPreparing to compile minishell...")
+	@$(call colorecho,"\nPreparing to compile $(NAME)...")
 	@make re -C libft/
 	@$(CC) $(C_FLAGS) -c $(SRC) $(INCL)
 	@mv *.o src/
 	@$(call colorecho,"Library has successfully compiled and object" \
 		"files have been created and moved to src/")
 	@$(CC) $(C_FLAGS) $(BIN) $(LIB_INCL) $(LIB_A)
-	@mv ./a.out ./minishell
+	@mv ./a.out ./$(NAME)
 	@clear
-	@$(call colorecho, "Minishell has successfully been compiled.\n")
+	@$(call colorecho, "$(NAME) has successfully been compiled.\n")
 
 clean:
 	@rm -f $(BIN)
@@ -81,18 +81,19 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@make fclean -C libft/
-	@$(call colorecho, "The executables ./minishell and " \
+	@$(call colorecho, "The executables ./$(NAME) and " \
 		"./libft has been removed")
 	@rm -f $(INCL:.h=.h.gch)
 
 re: fclean all
 	@clear
-	@$(call colorecho, "Minishell has successfully recompiled.\n")
+	@$(call colorecho, "$(NAME) has successfully recompiled.\n")
 
 full: all clean
 	@clear
 	@$(call colorecho, "Done making and cleaning.\n")
 	@./$(NAME)
+
 
 format: norme me
 	@$(call colorecho2, "All good!")
