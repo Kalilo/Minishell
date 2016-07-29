@@ -31,6 +31,7 @@
 **#include <string.h>//debug!
 ** printf("\n");//debug
 */
+#include <stdio.h>//debug!
 
 /*
 **Defines
@@ -188,5 +189,10 @@ void			rm_tabs(char **str);
 */
 void			sig_handler(int signo);
 void			sigs(void);
+/*
+**		main.c
+*/
+void			*back_up_env(void *env);
+int				main(void);
 
 #endif

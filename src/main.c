@@ -12,6 +12,18 @@
 
 #include "../includes/minishell.h"
 
+/*
+**This function is not currently needed.
+*/
+void	*back_up_env(void *env)
+{
+	static void *e;
+
+	if (!e && env)
+		e = env;
+	return ((void *)e);
+}
+
 int		main(void)
 {
 	t_env		env;
@@ -22,6 +34,7 @@ int		main(void)
 	env.environ = get_env(environ);
 	env.env_size = get_envsize(env.environ);
 	line = NULL;
+	back_up_env((void *)&env);
 	while (1)
 	{
 		ft_putstr(SH_L);
