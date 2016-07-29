@@ -20,7 +20,7 @@ SRC_PATH = ./src/
 
 INCL = includes/minishell.h
 
-LIB_INCL = -L. libft/includes/libft.h
+LIB_INCL = -L. libft/includes/libft.h $^ -ltermcap
 
 LIB_A = -lm libft/libft.a
 
@@ -42,7 +42,8 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)ft_cd.c			\
 		$(SRC_PATH)trim.c			\
-		$(SRC_PATH)signals.c
+		$(SRC_PATH)signals.c		\
+		$(SRC_PATH)init_term.c
 	  
 BIN =  $(SRC:.c=.o)
 
@@ -58,9 +59,9 @@ define colorecho2
       @tput sgr0
 endef
 
-all: $(NAME)
+all: $(NAME) qme
 
-$(NAME): qme
+$(NAME):
 	@$(call colorecho,"\nPreparing to compile $(NAME)...")
 	@make re -C libft/
 	@$(CC) $(C_FLAGS) -c $(SRC) $(INCL)
@@ -89,7 +90,7 @@ re: fclean all
 	@clear
 	@$(call colorecho, "$(NAME) has successfully recompiled.\n")
 
-full: all clean
+full: re clean
 	@clear
 	@$(call colorecho, "Done making and cleaning.\n")
 	@./$(NAME)
