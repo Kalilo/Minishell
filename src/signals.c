@@ -6,7 +6,7 @@ void sig_handler(int signo)
 		signo == SIGKILL || signo == SIGTERM || signo == SIGUSR1 || 
 		signo == SIGUSR2)
 	{
-		ft_putstr("\e[31mExitting Program.\n");
+		ft_putstr("\e[31mExiting Program.\n");
 		exit(0);
 	}
 	if (signo == SIGTRAP || signo == SIGBUS ||
