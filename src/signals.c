@@ -18,14 +18,14 @@ void	restart(void)
 void	sig_handler(int signo)
 {
 	printf("\e[93mSignal recieved: '%d'\n", signo);//debug
-	if (signo == SIGHUP || signo == SIGQUIT || signo == SIGABRT ||
-		signo == SIGKILL || signo == SIGTERM || signo == SIGUSR1 || 
+	if (signo == SIGHUP || signo == SIGQUIT || signo == SIGKILL ||
+	signo == SIGTERM || signo == SIGUSR1 || 
 		signo == SIGUSR2)
 	{
 		ft_putstr("\e[31mExiting Program.\n");
 		exit(0);
 	}
-	if (signo == SIGTRAP || signo == SIGBUS ||
+	if (signo == SIGTRAP || signo == SIGBUS || signo == SIGABRT ||
 		signo == SIGSEGV || signo == SIGSYS)
 	{
 		ft_putstr("\e[31mError: an unexpected error occured.\n");
