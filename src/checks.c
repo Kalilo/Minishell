@@ -52,7 +52,7 @@ int		check_line(char *line)
 		return (0);
 	while (*line)
 	{
-		if (*line != ' ' && *line != '\t')
+		if (ft_isprint(*line))
 			return (1);
 		line++;
 	}
