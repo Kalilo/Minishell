@@ -69,7 +69,7 @@
 /*
 **		Stings
 */
-# define SH_L "\e[32m$> \e[0m\e[36m"
+# define SH_L "\r\e[32m$> \e[0m\e[36m"
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit "
@@ -204,5 +204,15 @@ int				main(void);
 **		init_term.c
 */
 int				init_term(void);
+/*
+**		debug.c
+*/
+void			put_bin(unsigned char *str);
+/*
+**		get_input.c
+*/
+void			get_key(char *l);
+void			print_line(char *line);
+int				get_input(int fd, char **line);
 
 #endif
