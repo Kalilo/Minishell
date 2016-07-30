@@ -25,8 +25,9 @@ static void		ft_signal_set(void)
 	new = (struct termios *)malloc(sizeof(struct termios));
 	tcgetattr(STDIN_FILENO, new);
 	new->c_iflag |= IGNBRK;
-	new->c_lflag |= ISIG;
-	new->c_lflag &= ~(ECHOPRT);//ECHOK | ECHOE | ECHOPRT | ECHONL);
+	new->c_lflag = ECHONL;
+	//new->c_lflag |= ISIG;
+	//new->c_lflag &= ~();//ECHOK | ECHOE | ECHOPRT | ECHONL);
 			//~(ICANON | ECHO | ECHOK | ECHOE | ECHONL | IEXTEN);
 	new->c_cc[VMIN] = 1;
 	new->c_cc[VTIME] = 0;

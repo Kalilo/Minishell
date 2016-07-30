@@ -38,9 +38,11 @@ int		main(void)
 	while (1)
 	{
 		ft_putstr(SH_L);
-		get_line(0, &line);
+		get_input(0, &line);
 		if (check_line(line))
 		{
+			printf("Line = '%s'\n", line);//debug
+			put_bin((unsigned char *)line);//debug
 			if (ft_memcmp(line, CM_EXIT, CM_EXIT_S) == 0)
 				break ;
 			if (ft_strchr_f(line, '=') != 0)
