@@ -2,6 +2,7 @@
 
 void	key_handler(t_env *env, char *key)
 {
-	if (*key == KEY_BKSP)
+	//put_bin((unsigned char *)key);//debug
+	if (*key == KEY_BKSP && I_C1 >= 0)
 		I_L1[I_C1--] = '\0';
 }

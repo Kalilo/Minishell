@@ -39,7 +39,8 @@ void	print_line(char *line)
 	ft_putchar('\r');
 	ft_putstr(SH_L);
 	while (line[++l])
-		ft_putchar(line[l]);
+		if (*line != '\n')
+			ft_putchar(line[l]);
 	k = l + ft_strlen(SH_L);
 }
 
