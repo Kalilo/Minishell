@@ -6,7 +6,7 @@
 #    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/10 12:36:11 by ehansman          #+#    #+#              #
-#    Updated: 2016/07/10 12:36:18 by ehansman         ###   ########.fr        #
+#    Updated: 2016/07/31 15:42:57 by ehansman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)init_term.c		\
 		$(SRC_PATH)debug.c			\
 		$(SRC_PATH)get_input.c		\
+		$(SRC_PATH)ft_cd_sub.c		\
 		$(SRC_PATH)keys.c
 	  
 BIN =  $(SRC:.c=.o)
