@@ -232,6 +232,7 @@ int				main(void);
 **		init_term.c
 */
 int				init_term(void);
+int				ft_termsize(int y);
 /*
 **		debug.c
 */
