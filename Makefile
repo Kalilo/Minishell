@@ -45,7 +45,8 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)signals.c		\
 		$(SRC_PATH)init_term.c		\
 		$(SRC_PATH)debug.c			\
-		$(SRC_PATH)get_input.c
+		$(SRC_PATH)get_input.c		\
+		$(SRC_PATH)keys.c
 	  
 BIN =  $(SRC:.c=.o)
 

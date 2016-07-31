@@ -83,6 +83,11 @@
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
 /*
+**		keys
+*/
+# define KEY_BKSP 127
+
+/*
 **Structures
 */
 
@@ -237,5 +242,9 @@ void			put_bin(unsigned char *str);
 void			get_key(t_env *env);
 void			print_line(char *line);
 int				get_input(t_env *env, int fd, char **line);
+/*
+**		keys.c
+*/
+void			key_handler(t_env *env, char *key);
 
 #endif
