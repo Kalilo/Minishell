@@ -19,9 +19,9 @@ static char	*ft_malloc(char const *s1, char const *s2)
 
 	k = 0;
 	l = 0;
-	while (s1[k] != '\0')
+	while (s1 && s1[k] != '\0')
 		k++;
-	while (s2[l] != '\0')
+	while (s2 && s2[l] != '\0')
 		l++;
 	return ((char *)malloc(k + l + 1));
 }
@@ -36,13 +36,13 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	if (temp == NULL)
 		return (NULL);
 	k = 0;
-	while (s1[k] != '\0')
+	while (s1 && s1[k] != '\0')
 	{
 		temp[k] = s1[k];
 		k++;
 	}
 	l = 0;
-	while (s2[l] != 0)
+	while (s2 && s2[l] != 0)
 	{
 		temp[k + l] = s2[l];
 		l++;
