@@ -38,7 +38,7 @@ int		main(void)
 	while (1)
 	{
 		ft_putstr(SH_L);
-		get_input(0, &line);
+		get_input(&env, 0, &line);
 		if (check_line(line))
 		{
 			printf("Line = '%s'\n", line);//debug

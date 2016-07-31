@@ -51,6 +51,12 @@
 # define E_LI env->line
 # define E_ER env->error
 # define E_A env->a
+# define I_HIS env->input.history
+# define I_TMP env->input.temp
+# define I_L1 env->input.line1
+# define I_L2 env->input.line2
+# define I_C1 env->input.count1
+# define I_C2 env->input.count2
 /*
 **		Error Messages
 */
@@ -79,6 +85,22 @@
 /*
 **Structures
 */
+
+/*
+**		Input manipulation
+*/
+typedef struct	s_input
+{
+	char		**history;
+	char		temp;
+	char		*line1;
+	char		*line2;
+	int			count1;
+	int			count2;
+}				t_input;
+/*
+**		Global Enviroment
+*/
 typedef struct	s_env
 {
 	char		**environ;
@@ -86,6 +108,7 @@ typedef struct	s_env
 	char		*line;
 	int			error;
 	char		*a;
+	t_input		input;
 }				t_env;
 
 /*
@@ -211,8 +234,8 @@ void			put_bin(unsigned char *str);
 /*
 **		get_input.c
 */
-void			get_key(char *l);
+void			get_key(t_env *env);
 void			print_line(char *line);
-int				get_input(int fd, char **line);
+int				get_input(t_env *env, int fd, char **line);
 
 #endif
