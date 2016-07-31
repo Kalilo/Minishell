@@ -33,3 +33,22 @@ int			init_term(void)
 	}
 	return (k);
 }
+
+int		ft_termsize(int y)
+{
+	int				ret;
+	struct ttysize	twin;
+	struct winsize	win;
+
+	ret = 0;
+	if (!ioctl(0, TIOCGSIZE, &twin))
+		ret = (y) ? twin.ts_lines : twin.ts_cols;
+	else if (!ioctl(0, TIOCGWINSZ, &win))
+		ret = (y) ? win.ws_row : win.ws_col;
+	else
+	{
+		ft_putstr("ioctl Error: Failed to determine window size.\n.");
+		exit(0);
+	}
+	return (ret);
+}

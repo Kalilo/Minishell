@@ -35,13 +35,12 @@ void	print_line(char *line)
 	ft_putchar('\r');
 	while (++l < k)
 		ft_putchar(' ');
-	l = -1;
-	ft_putchar('\r');
+	l = (ft_strlen(line) >= ft_termsize(0) - 4) ? ft_strlen(line) + 5 - ft_termsize(0) : -1;
 	ft_putstr(SH_L);
 	while (line[++l])
-		if (*line != '\n')
+		if (*line != '\n' && *line != '\v')
 			ft_putchar(line[l]);
-	k = l + ft_strlen(SH_L);
+	k = l + 3;
 }
 
 int		get_input(t_env *env, int fd, char **line)
