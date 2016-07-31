@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/10 15:20:45 by ehansman         ###   ########.fr       */
+/*   Updated: 2016/07/31 15:41:46 by ehansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,10 @@ void			ft_print_echo(char **sa);
 /*
 **		ft_cd.c
 */
+int				check(char **sa);
+void			cd_home(t_env *env);
 void			ft_cd(t_env *env, char **sa);
+t_env			*ft_cd_sub(t_env *env, char *sa, int count);
 /*
 **		trim.c
 */
