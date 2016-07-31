@@ -63,7 +63,7 @@ int		get_input(t_env *env, int fd, char **line)
 	}
 	if (I_C1 + 1)
 		I_L1[I_C1] = 0;
-	*line = I_L1;
+	*line = ft_strjoin(I_L1, I_L2);
 	if (++I_C1)
 		return (1);
 	return (0);
