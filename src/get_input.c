@@ -13,7 +13,7 @@
 
 void	get_key(t_env *env)
 {
-	char	key[4];
+	char		key[4];
 
 	key[0] = I_TMP;
 	if (I_TMP == '\e')
@@ -22,18 +22,25 @@ void	get_key(t_env *env)
 		read(1, &key[2], 1);
 	}
 	key[3] = '\0';
-	//Continue here...
+	key_handler(env, key);
+	return ;
 }
 
 void	print_line(char *line)
 {
-	int		l;
+	static int	k;
+	int			l;
 
+	l = -1;
+	ft_putchar('\r');
+	while (++l < k)
+		ft_putchar(' ');
 	l = -1;
 	ft_putchar('\r');
 	ft_putstr(SH_L);
 	while (line[++l])
 		ft_putchar(line[l]);
+	k = l + ft_strlen(SH_L);
 }
 
 int		get_input(t_env *env, int fd, char **line)
