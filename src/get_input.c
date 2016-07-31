@@ -35,7 +35,8 @@ void	print_line(char *line)
 	ft_putchar('\r');
 	while (++l < k)
 		ft_putchar(' ');
-	l = (ft_strlen(line) >= ft_termsize(0) - 4) ? ft_strlen(line) + 5 - ft_termsize(0) : -1;
+	l = (ft_strlen(line) >= ft_termsize(0) - 4) ?
+		ft_strlen(line) + 5 - ft_termsize(0) : -1;
 	ft_putstr(SH_L);
 	while (line[++l])
 		if (*line != '\n' && *line != '\v')
