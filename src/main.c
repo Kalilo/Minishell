@@ -24,16 +24,44 @@ void	*back_up_env(void *env)
 	return ((void *)e);
 }
 
+void	init_hist(t_env *env, char action)
+{
+	I_TMP = 0;
+	I_C1 = 0;
+	I_C2 = 0;
+	if (action == 0)
+	{
+		I_L1 = NULL;
+		I_L2 = NULL;
+		I_HIS = (char **)ft_strnew((sizeof(char *) * (MAX_HIST + 1)));
+	}
+	else if (0)
+	{
+		if (I_L1 != NULL)
+			free(I_L1);
+		I_L1 = NULL;
+		if (I_L2 != NULL)
+			free(I_L2);
+		I_L2 = NULL;
+	}
+}
+
+void	init_state(t_env *env, char **line, char ***environ)
+{
+	sigs();
+	env->environ = get_env(*environ);
+	env->env_size = get_envsize(env->environ);
+	*line = NULL;
+	init_hist(env, 0);
+}
+
 int		main(void)
 {
 	t_env		env;
 	char		*line;
 	extern char	**environ;
 
-	sigs();
-	env.environ = get_env(environ);
-	env.env_size = get_envsize(env.environ);
-	line = NULL;
+	init_state(&env, &line, &environ);
 	back_up_env((void *)&env);
 	while (1)
 	{
@@ -52,6 +80,8 @@ int		main(void)
 			if (line != NULL)
 				free(line);
 			line = NULL;
+			com_history(&env, HIST_STORE);
+			init_hist(&env, 1);
 		}
 	}
 	exit(1);

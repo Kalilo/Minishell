@@ -85,7 +85,19 @@
 /*
 **		keys
 */
-# define KEY_BKSP 127
+# define K_BKSP 127
+# define K_UP "\e[A"
+# define K_DOWN "\e[B"
+# define K_RIGHT "\e[C"
+# define K_LEFT "\e[D"
+
+/*
+**		Other
+*/
+# define HIST_STORE 0
+# define HIST_NEXT 1
+# define HIST_PREV 2
+# define MAX_HIST 50
 
 /*
 **Structures
@@ -247,5 +259,10 @@ int				get_input(t_env *env, int fd, char **line);
 **		keys.c
 */
 void			key_handler(t_env *env, char *key);
+/*
+**		com_history.c
+*/
+int				find_string_pos(char **arr, char *str);
+int				com_history(t_env *env, int action);
 
 #endif
