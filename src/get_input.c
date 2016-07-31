@@ -11,14 +11,18 @@
 
 #include "../includes/minishell.h"
 
-void	get_key(char *l)
+void	get_key(t_env *env)
 {
 	char	key[4];
 
-	read(1, &key[0], 1);
-	read(1, &key[1], 1);
-	key[2] = '\0';
-	
+	key[0] = I_TMP;
+	if (I_TMP == '\e')
+	{
+		read(1, &key[1], 1);
+		read(1, &key[2], 1);
+	}
+	key[3] = '\0';
+	//Continue here...
 }
 
 void	print_line(char *line)
@@ -32,30 +36,27 @@ void	print_line(char *line)
 		ft_putchar(line[l]);
 }
 
-int		get_input(int fd, char **line)
+int		get_input(t_env *env, int fd, char **line)
 {
-	int		k;
-	char	*l;
-	char	buff;
-
-	buff = 23;
-	l = NULL;
-	k = -1;
-	while (buff != '\r' && buff != '\n' && buff != '\0')
+	I_TMP = 23;
+	I_L1 = NULL;
+	I_C1 = -1;
+	while (I_TMP != '\r' && I_TMP != '\n' && I_TMP != '\0')
 	{
-		read(fd, &buff, 1);
-		if (k + 2 % 50 == 0 || k == -1)
-			l = re_malloc(l, k + 1);
-		if (buff == '\e')
-			get_key(l);
+		read(fd, &I_TMP, 1);
+		if (I_C1 + 2 % 50 == 0 || I_C1 == -1)
+			I_L1 = re_malloc(I_L1, I_C1 + 1);
+		if (!ft_isprint(I_TMP) && I_TMP != '\0' && I_TMP != '\r'
+				&& I_TMP != '\n')
+			get_key(env);
 		else
-			l[++k] = buff;
-		print_line(l);
+			I_L1[++I_C1] = I_TMP;
+		print_line(I_L1);
 	}
-	if (k + 1)
-		l[k] = 0;
-	*line = l;
-	if (++k)
+	if (I_C1 + 1)
+		I_L1[I_C1] = 0;
+	*line = I_L1;
+	if (++I_C1)
 		return (1);
 	return (0);
 }
