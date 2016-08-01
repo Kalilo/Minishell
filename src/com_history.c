@@ -22,12 +22,12 @@ static void com_hist_add(t_env *env, char *str)
 	if (ft_strlen(s) == 0)
 		return ;
 	k = -1;
-	while (I_HIS[++k] && k < MAX_HIST)
-		if (!ft_strcmp(I_HIS[k], s))
+	while (I_HIS[++k] && k < MAX_HIST);
+		/*if (!ft_strcmp(I_HIS[k], s))
 		{
 			free(s);
 			return ;
-		}
+		}*/
 	if (k == MAX_HIST - 1)
 		free(I_HIS[k]);
 	while (k > 0)
@@ -58,7 +58,7 @@ static void com_hist_next(t_env *env)
 		free(I_L1);
 	if (I_L2 != NULL)
 		free(I_L2);
-	I_L1 = I_HIS[k];
+	I_L1 = ft_strdup(I_HIS[k]);
 	I_L2 = NULL;
 	I_C1 = ft_strlen(I_L1);
 }
@@ -74,17 +74,17 @@ static void com_hist_prev(t_env *env)
 	k = find_string_pos(I_HIS, str) + 1;
 	k = (k < 0) ? 0 : k;
 	com_hist_add(env, str);
-//	if (I_L1 != NULL)
-//		free(I_L1);
-//	if (I_L2 != NULL)
-//		free(I_L2);
+	if (I_L1 != NULL)
+		free(I_L1);
+	if (I_L2 != NULL)
+		free(I_L2);
 	if (!I_HIS[k])
 	{
 		if (str != NULL)
 			free(str);
 		return ;
 	}
-	I_L1 = I_HIS[k];
+	I_L1 = ft_strdup(I_HIS[k]);
 	I_C1 = ft_strlen(I_L1);
 	I_L2 = NULL;
 	I_C2 = 0;
