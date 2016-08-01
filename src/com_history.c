@@ -19,7 +19,7 @@ static void com_hist_add(t_env *env, char *str)
 	char	*s;
 
 	s = (str == NULL) ? ft_strjoin(I_L1, I_L2) : ft_strdup(str);
-	if (ft_strlen(s) == 0)
+	if (ft_strlen(s) == 0 || !ft_strcmp(s, I_HIS[0]))
 		return ;
 	k = -1;
 	while (I_HIS[++k] && k < MAX_HIST);
@@ -44,8 +44,8 @@ static void com_hist_next(t_env *env)
 	char	*str;
 
 	str = ft_strjoin(I_L1, I_L2);
-	com_hist_add(env, str);
 	k = find_string_pos(I_HIS, str) - 1;
+	com_hist_add(env, str);
 	if (k < 0 || k >= MAX_HIST || !I_HIS[k])
 	{
 		free(str);
@@ -72,7 +72,7 @@ static void com_hist_prev(t_env *env)
 		return ;
 	str = ft_strjoin(I_L1, I_L2);
 	k = find_string_pos(I_HIS, str) + 1;
-	k = (k < 0) ? 0 : k;
+	//k = (k < 0) ? 0 : k;
 	com_hist_add(env, str);
 	if (I_L1 != NULL)
 		free(I_L1);
@@ -92,6 +92,12 @@ static void com_hist_prev(t_env *env)
 
 int			com_history(t_env *env, int action)
 {
+	int		k;
+
+	ft_putchar('\r');
+	k = -1;
+	while (++k < I_C1 + I_C2 + 4)
+		ft_putchar(' ');
 	if (action == HIST_STORE)
 		com_hist_add(env, NULL);
 	else if (action == HIST_NEXT)

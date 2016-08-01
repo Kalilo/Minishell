@@ -3,23 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/10 11:20:29 by ehansman          #+#    #+#             */
-/*   Updated: 2016/07/10 11:22:52 by ehansman         ###   ########.fr       */
+/*   Created: 2016/05/10 09:59:16 by khansman          #+#    #+#             */
+/*   Updated: 2016/05/15 11:09:56 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+static int	ft_diff(char s1, char s2)
 {
-	while (*s1 == *s2)
+	int	l;
+	int	m;
+
+	if (s1 < 0)
+		m = 256 + s1;
+	else
+		m = s1;
+	if (s2 < 0)
+		l = 256 + s2;
+	else
+		l = s2;
+	return (m - l);
+}
+
+int			ft_strcmp(const char *s1, const char *s2)
+{
+	int	k;
+
+	k = 0;
+	if (s1 == NULL || s2 == NULL)
 	{
-		if (*s1 == '\0')
-			return (0);
-		s1++;
-		s2++;
+		if (s1 == NULL && !(s2 == NULL))
+			return (s2[0]);
+		else if (!(s1 == NULL) && s2 == NULL)
+			return (s1[0]);
+		return (0);
 	}
-	return ((*(unsigned char *)s1 < *(unsigned char *)s2) ? -1 : +1);
+	while (s1[k] != '\0' && s2[k] != '\0')
+	{
+		if (s1[k] != s2[k])
+			return (ft_diff(s1[k], s2[k]));
+		k++;
+	}
+	if (s1[k] != '\0')
+		return (ft_diff(s1[k], 0));
+	else if (s2[k] != '\0')
+		return (ft_diff(0, s2[k]));
+	return (0);
 }
