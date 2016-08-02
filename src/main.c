@@ -34,6 +34,7 @@ void	init_hist(t_env *env, char action)
 		I_L1 = NULL;
 		I_L2 = NULL;
 		I_HIS = (char **)ft_strnew((sizeof(char *) * (MAX_HIST + 1)));
+		I_H_POS = -1;
 	}
 	else if (0)
 	{
@@ -43,6 +44,7 @@ void	init_hist(t_env *env, char action)
 		if (I_L2 != NULL)
 			free(I_L2);
 		I_L2 = NULL;
+		I_H_POS = -1;
 	}
 }
 

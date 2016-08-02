@@ -52,6 +52,7 @@
 # define E_ER env->error
 # define E_A env->a
 # define I_HIS env->input.history
+# define I_H_POS env->input.hist_pos
 # define I_TMP env->input.temp
 # define I_L1 env->input.line1
 # define I_L2 env->input.line2
@@ -109,6 +110,7 @@
 typedef struct	s_input
 {
 	char		**history;
+	int			hist_pos;
 	char		temp;
 	char		*line1;
 	char		*line2;
