@@ -48,7 +48,8 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)get_input.c		\
 		$(SRC_PATH)com_history.c	\
 		$(SRC_PATH)ft_cd_sub.c		\
-		$(SRC_PATH)keys.c
+		$(SRC_PATH)keys.c			\
+		$(SRC_PATH)keys_lr.c
 	  
 BIN =  $(SRC:.c=.o)
 

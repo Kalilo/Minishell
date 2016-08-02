@@ -269,5 +269,12 @@ void			key_handler(t_env *env, char *key);
 */
 int				find_string_pos(char **arr, char *str);
 int				com_history(t_env *env, int action);
+/*
+**		keys_lr.c
+*/
+void			ft_add_char_start(char **str, char c);
+void			ft_add_char_end(char **str, char c);
+void			ke_left(t_env *env);
+void			ke_right(t_env *env);
 
 #endif
