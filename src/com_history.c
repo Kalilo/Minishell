@@ -22,13 +22,13 @@ static void com_hist_add(t_env *env, char *str)
 	if (ft_strlen(s) == 0 || !ft_strcmp(s, I_HIS[0]))
 		return ;
 	k = -1;
-	while (I_HIS[++k] && k < MAX_HIST);
-		/*if (!ft_strcmp(I_HIS[k], s))
+	while (I_HIS[++k] && k < MAX_HIST)
+		if (!ft_strcmp(I_HIS[k], s) && str != NULL)
 		{
 			free(s);
 			return ;
-		}*/
-	if (k == MAX_HIST - 1)
+		}
+	if (k >= MAX_HIST - 1)
 		free(I_HIS[k]);
 	while (k > 0)
 	{
@@ -36,6 +36,9 @@ static void com_hist_add(t_env *env, char *str)
 		k--;
 	}
 	I_HIS[0] = s;
+//	I_H_POS = (str == NULL) ? -1 : I_H_POS;
+//	ft_putstr("History:\n"); 
+//	ft_env(I_HIS);
 }
 
 static void com_hist_next(t_env *env)
@@ -45,7 +48,6 @@ static void com_hist_next(t_env *env)
 
 	str = ft_strjoin(I_L1, I_L2);
 	k = find_string_pos(I_HIS, str) - 1;
-	com_hist_add(env, str);
 	if (k < 0 || k >= MAX_HIST || !I_HIS[k])
 	{
 		free(str);
@@ -54,6 +56,7 @@ static void com_hist_next(t_env *env)
 		I_C1 = 0;
 		return ;
 	}
+	com_hist_add(env, str);
 	if (I_L1 != NULL)
 		free(I_L1);
 	if (I_L2 != NULL)
@@ -61,6 +64,25 @@ static void com_hist_next(t_env *env)
 	I_L1 = ft_strdup(I_HIS[k]);
 	I_L2 = NULL;
 	I_C1 = ft_strlen(I_L1);
+
+	/*//	char	*str;
+
+	I_H_POS--;
+	if (I_H_POS - 1< 0)
+	{
+		I_H_POS++;
+		return ;
+	}
+//	str = ft_strjoin(I_L1, I_L2);
+//	com_hist_add(env, str);
+	if (I_L1 != NULL)
+		free(I_L1);
+	I_L1 = ft_strdup(I_HIS[I_H_POS]);
+	if (I_L2 != NULL)
+		free(I_L2);
+	I_L2 = NULL;
+	I_C2 = 0;
+	I_C1 = ft_strlen(I_L1);*/
 }
 
 static void com_hist_prev(t_env *env)
@@ -73,21 +95,40 @@ static void com_hist_prev(t_env *env)
 	str = ft_strjoin(I_L1, I_L2);
 	k = find_string_pos(I_HIS, str) + 1;
 	//k = (k < 0) ? 0 : k;
-	com_hist_add(env, str);
-	if (I_L1 != NULL)
-		free(I_L1);
-	if (I_L2 != NULL)
-		free(I_L2);
 	if (!I_HIS[k])
 	{
 		if (str != NULL)
 			free(str);
 		return ;
 	}
+	com_hist_add(env, str);
+	if (I_L1 != NULL)
+		free(I_L1);
+	if (I_L2 != NULL)
+		free(I_L2);
 	I_L1 = ft_strdup(I_HIS[k]);
 	I_C1 = ft_strlen(I_L1);
 	I_L2 = NULL;
 	I_C2 = 0;
+	
+/*//	char	*str;
+
+	I_H_POS++;
+	if (I_H_POS < 0 || I_H_POS >= MAX_HIST || I_HIS[I_H_POS] == NULL)
+	{
+		I_H_POS--;
+		return ;
+	}
+//	str = ft_strjoin(I_L1, I_L2);
+//	com_hist_add(env, str);
+	if (I_L1 != NULL)
+		free(I_L1);
+	I_L1 = ft_strdup(I_HIS[I_H_POS]);
+	if (I_L2 != NULL)
+		free(I_L2);
+	I_L2 = NULL;
+	I_C2 = 0;
+	I_C1 = ft_strlen(I_L1);*/
 }
 
 int			com_history(t_env *env, int action)
