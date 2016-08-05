@@ -56,7 +56,7 @@ static void com_hist_next(t_env *env)
 		free(I_L2);
 	I_L2 = NULL;
 	I_C1 = ft_strlen(I_L1) - 1;
-	I_C2 = 0;
+	I_C2 = ft_strlen(I_L2) - 1;
 }
 
 static void com_hist_prev(t_env *env)
@@ -76,19 +76,19 @@ static void com_hist_prev(t_env *env)
 		free(I_L2);
 	I_L2 = NULL;
 	I_C1 = ft_strlen(I_L1) - 1;
-	I_C2 = 0;
+	I_C2 = ft_strlen(I_L2) - 1;
 }
 
 int			com_history(t_env *env, int action)
 {
 	int			k;
 
-	ft_putchar('\r');
+	//ft_putchar('\r');
 	k = -1;
 	if (I_H_POS < 0)
 		I_CUR = ft_strjoin(I_L1, I_L2);
-	while (++k < I_C1 + I_C2 + 4)
-		ft_putchar(' ');
+	//while (++k < I_C1 + I_C2 + 4)
+	//	ft_putchar(' ');
 	if (action == HIST_STORE)
 		com_hist_add(env, NULL);
 	else if (action == HIST_NEXT && I_H_POS == 0)
