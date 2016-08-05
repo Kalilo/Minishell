@@ -20,6 +20,12 @@ void	get_key(t_env *env)
 	{
 		read(1, &key[1], 1);
 		read(1, &key[2], 1);
+		if ('1' <= key[2] && key[2] <= '3')
+		{
+			read(1, &key[3], 1);
+			if (key[3] != '~')
+				read(1, &key[4], 1);
+		}
 	}
 	key[3] = '\0';
 	key_handler(env, key);
