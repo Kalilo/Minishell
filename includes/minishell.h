@@ -60,6 +60,7 @@
 # define I_L2 env->input.line2
 # define I_C1 env->input.count1
 # define I_C2 env->input.count2
+# define I_CUR env->input.cur
 /*
 **		Error Messages
 */
@@ -115,6 +116,7 @@ typedef struct	s_input
 	char			**history;
 	int				hist_pos;
 	char			temp;
+	char			*cur;
 	char			*line1;
 	char			*line2;
 	int				count1;
