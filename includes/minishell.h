@@ -94,7 +94,16 @@
 # define K_DOWN "\e[B"
 # define K_RIGHT "\e[C"
 # define K_LEFT "\e[D"
-
+# define K_F5 "\e[15~"
+# define K_F6 "\e[17~"
+# define K_F13 "\e[25~"
+# define K_F14 "\e[26~"
+# define K_F15 "\e[28~"
+# define K_F16 "\e[29~"
+# define K_F17 "\e[31~"
+# define K_F18 "\e[32~"
+# define K_F19 "\e[33~"
+# define K_DEL "\e[3~"
 
 /*
 **		Other
