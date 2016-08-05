@@ -10,4 +10,8 @@ void	key_handler(t_env *env, char *key)
 		com_history(env, HIST_PREV);
 	else if (!ft_strcmp(K_DOWN, key))
 		com_history(env, HIST_NEXT);
+	else if (!ft_strcmp(K_RIGHT, key))
+		ke_right(env);
+	else if (!ft_strcmp(K_LEFT, key))
+		ke_left(env);
 }
