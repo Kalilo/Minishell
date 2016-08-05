@@ -29,6 +29,7 @@ char	*ft_add_char_end(char *str, char c)
 	k = -1;
 	while (str && *str && str[++k])
 		s[k] = str[k];
+	k = (k == -1) ? 0 : k;
 	s[k] = c;
 	return (s);
 }
@@ -57,7 +58,7 @@ void	ke_left(t_env *env)
 
 	temp = I_L2;
 	k = ft_strlen(I_L1) - 1;
-	if (I_L1 == NULL)
+	if (I_L1 == NULL || ft_strlen(I_L1) == 0)
 		return ;
 	I_L2 = ft_add_char_start(temp, I_L1[k]);
 	if (temp != NULL)
@@ -73,7 +74,7 @@ void	ke_right(t_env *env)
 	char	*temp;
 
 	temp = I_L1;
-	if (I_L2 == NULL)
+	if (I_L2 == NULL || ft_strlen(I_L2) == 0)
 		return ;
 	k = ft_str_inc_dup((I_L2));
 	I_L1 = ft_add_char_end(temp, *I_L2);
