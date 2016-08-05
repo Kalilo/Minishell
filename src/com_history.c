@@ -36,55 +36,13 @@ static void com_hist_add(t_env *env, char *str)
 		k--;
 	}
 	I_HIS[0] = s;
-//	I_H_POS = (str == NULL) ? -1 : I_H_POS;
+	I_H_POS = (str == NULL) ? -1 : I_H_POS;
 //	ft_putstr("History:\n"); 
 //	ft_env(I_HIS);
 }
 
 static void com_hist_next(t_env *env)
 {
-//	int		k;
-//	char	*str;
-
-	/*str = ft_strjoin(I_L1, I_L2);
-	k = find_string_pos(I_HIS, str) - 1;
-	//k = I_H_POS-- - 1;
-	printf("\t\t\tnext k = %i\n", k);//debug
-	if (k < 0 || k >= MAX_HIST || !I_HIS[k])
-	{
-		free(str);
-		if (I_L1 == NULL)
-			I_L1 = NULL;
-		I_C1 = 0;
-		return ;
-	}
-	com_hist_add(env, str);
-	if (I_L1 != NULL)
-		free(I_L1);
-	if (I_L2 != NULL)
-		free(I_L2);
-	I_L1 = ft_strdup(I_HIS[k]);
-	I_L2 = NULL;
-	I_C1 = ft_strlen(I_L1) - 1;*/
-
-/*	//	char	*str;
-
-	I_H_POS--;
-	if (I_H_POS - 1< 0)
-	{
-		I_H_POS++;
-		return ;
-	}
-//	str = ft_strjoin(I_L1, I_L2);
-//	com_hist_add(env, str);
-	if (I_L1 != NULL)
-		free(I_L1);
-	I_L1 = ft_strdup(I_HIS[I_H_POS]);
-	if (I_L2 != NULL)
-		free(I_L2);
-	I_L2 = NULL;
-	I_C2 = 0;
-	I_C1 = ft_strlen(I_L1) - 1;*/
 	if (I_HIS[0] == NULL || I_H_POS < 0)
 		return ;
 	if (I_H_POS > 0)
@@ -103,49 +61,6 @@ static void com_hist_next(t_env *env)
 
 static void com_hist_prev(t_env *env)
 {
-/*	int		k;
-	char	*str;
-
-	if (!I_HIS[0])
-		return ;
-	str = ft_strjoin(I_L1, I_L2);
-	k = find_string_pos(I_HIS, str) + 1;
-//	k = ++I_H_POS;
-	printf("\t\t\t prev k = %i\n", k);//debug
-	//k = (k < 0) ? 0 : k;
-	if (!I_HIS[k])
-	{
-		if (str != NULL)
-			free(str);
-		return ;
-	}
-	com_hist_add(env, str);
-	if (I_L1 != NULL)
-		free(I_L1);
-	if (I_L2 != NULL)
-		free(I_L2);
-	I_L1 = ft_strdup(I_HIS[k]);
-	I_C1 = ft_strlen(I_L1);
-	I_L2 = NULL;
-	I_C2 = 0;*/
-/*	
-//	char	*str;
-
-	if (I_H_POS + 1 < 0 || I_H_POS + 1 >= MAX_HIST || I_HIS[I_H_POS + 1] == NULL)
-		return ;
-	I_H_POS++;
-//I_H_POS = (ft_strcmp(I_HIS[I_H_POS], str)) ? I_H_POS + 1 : 0;
-//	str = ft_strjoin(I_L1, I_L2);
-//	com_hist_add(env, str);
-	if (I_L1 != NULL)
-		free(I_L1);
-	I_L1 = ft_strdup(I_HIS[I_H_POS]);
-	if (I_L2 != NULL)
-		free(I_L2);
-	I_L2 = NULL;
-	I_C2 = 0;
-	I_C1 = ft_strlen(I_L1) - 1;*/
-
 	if (I_HIS[0] == NULL || I_H_POS >= MAX_HIST)
 		return ;
 	if (I_HIS[I_H_POS] && !(I_H_POS < 0))
