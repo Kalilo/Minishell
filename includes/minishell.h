@@ -286,6 +286,16 @@ char			*ft_add_char_start(char *str, char c);
 char			*ft_add_char_end(char *str, char c);
 void			ke_left(t_env *env);
 void			ke_right(t_env *env);
+/*
+**		keys_he.c
+*/
+void			ke_home(t_env *env);
+void			ke_end(t_env *env);
+/*
+**		keys_w_jump.c
+*/
+void			ke_jump_left(t_env *env);
+void			ke_jump_right(t_env *env);
 
 /*
 **		New Functions Added
