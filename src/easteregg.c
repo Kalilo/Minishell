@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   easteregg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/09 15:19:16 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/04 12:49:20 by jlangman         ###   ########.fr       */
+/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
+/*   Updated: 2016/08/04 11:46:25 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	free2d(char **arr)
+void	easteregg(t_env *env, char **sa)
 {
-	int		k;
+	FILE	*fp;
+	FILE	*fopen();
+	int		i;
 
-	k = 0;
-	while (arr[k] != NULL)
+	fp = fopen("db.txt", "r");
+	while (i != EOF)
 	{
-		free(arr[k]);
-		k++;
+		ft_putchar(i);
+		i = getc(fp);
 	}
-	free(arr);
-}
-
-void	exit_prog(t_env *env)
-{
-	if (E_EN != NULL)
-		free2d(E_EN);
-	if (E_LI != NULL)
-		free(E_LI);
-	if (E_A != NULL)
-		free(E_A);
-	end_termios(env);
-	exit(1);
+	fclose(fp);
 }
