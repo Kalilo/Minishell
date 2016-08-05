@@ -1,6 +1,5 @@
 #include "../includes/minishell.h"
 
-
 /*
 **	Adds a char to the beginning of a string
 */
