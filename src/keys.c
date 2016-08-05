@@ -1,5 +1,11 @@
 #include "../includes/minishell.h"
 
+/*
+**	Had a few difficalties getting the right keys for some values,
+**		thus some of the key actions will have to be assigned to keys of our
+**		selection. So far the most promising are the unused F keys.
+*/
+
 void	key_handler(t_env *env, char *key)
 {
 	//put_bin((unsigned char *)key);//debug
@@ -17,4 +23,8 @@ void	key_handler(t_env *env, char *key)
 		ke_right(env);
 	else if (!ft_strcmp(K_LEFT, key))
 		ke_left(env);
+	else if (!ft_strcmp(K_F13, key))
+		ke_home(env);
+	else if (!ft_strcmp(K_F14, key))
+		ke_end(env);
 }
