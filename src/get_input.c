@@ -26,7 +26,7 @@ void	get_key(t_env *env)
 	return ;
 }
 
-void	print_line(char *line)
+void	print_line(char *line, char * line2)
 {
 	static int	k;
 	int			l;
@@ -42,6 +42,12 @@ void	print_line(char *line)
 		if (*line != '\n' && *line != '\v')
 			ft_putchar(line[l]);
 	k = l + 3;
+	l = -1;
+	while (line2 && line2[++l])
+		ft_putchar(line2[l]);
+	k += l + 1;
+	while (l-- > 0)
+		ft_putchar('\b');
 }
 
 int		get_input(t_env *env, int fd, char **line)
@@ -59,7 +65,7 @@ int		get_input(t_env *env, int fd, char **line)
 			get_key(env);
 		else
 			I_L1[++I_C1] = I_TMP;
-		print_line(I_L1);
+		print_line(I_L1, I_L2);
 	}
 	if (I_C1 + 1)
 		I_L1[I_C1] = 0;
