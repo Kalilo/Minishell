@@ -23,6 +23,8 @@ void	key_handler(t_env *env, char *key)
 		ke_right(env);
 	else if (!ft_strcmp(K_LEFT, key))
 		ke_left(env);
+	else if (!(ft_strcmp(K_DEL, key)))
+		ke_del(env);
 	/*else if (!ft_strcmp(K_F13, key))
 		ke_home(env);
 	else if (!ft_strcmp(K_F14, key))

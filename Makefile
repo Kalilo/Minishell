@@ -52,7 +52,8 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)keys_lr.c		\
 		$(SRC_PATH)easteregg.c		\
 		$(SRC_PATH)keys_he.c		\
-		$(SRC_PATH)keys_w_jump.c
+		$(SRC_PATH)keys_w_jump.c	\
+		$(SRC_PATH)keys_del.c
 	  
 BIN =  $(SRC:.c=.o)
 
