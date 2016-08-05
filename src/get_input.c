@@ -13,21 +13,23 @@
 
 void	get_key(t_env *env)
 {
-	char		key[4];
+	char		key[10];
+	int			k;
 
-	key[0] = I_TMP;
+	k = 0;
+	key[k] = I_TMP;
 	if (I_TMP == '\e')
 	{
-		read(1, &key[1], 1);
-		read(1, &key[2], 1);
-		if ('1' <= key[2] && key[2] <= '3')
+		read(1, &key[++k], 1);
+		read(1, &key[++k], 1);
+		if ('1' <= key[k] && key[k] <= '3')
 		{
-			read(1, &key[3], 1);
-			if (key[3] != '~')
-				read(1, &key[4], 1);
+			read(1, &key[++k], 1);
+			if (key[k] != '~')
+				read(1, &key[++k], 1);
 		}
 	}
-	key[3] = '\0';
+	key[++k] = '\0';
 	key_handler(env, key);
 	return ;
 }
