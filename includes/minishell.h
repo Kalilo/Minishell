@@ -266,7 +266,7 @@ void			put_bin(unsigned char *str);
 **		get_input.c
 */
 void			get_key(t_env *env);
-void			print_line(char *line);
+void			print_line(char *line, char *line2);
 int				get_input(t_env *env, int fd, char **line);
 /*
 **		keys.c
