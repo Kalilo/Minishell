@@ -32,6 +32,7 @@ char	*ft_add_char_end(char *str, char c)
 	s[k] = c;
 	return (s);
 }
+
 /*
 **	Copies everything but the first char from a string.
 */
