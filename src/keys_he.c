@@ -18,7 +18,6 @@ void	ke_home(t_env *env)
 	I_C2 = ft_strlen(I_L2) - 1;
 }
 
-
 /*
 **		Moves everything to the first string (I_L1)
 */
