@@ -65,7 +65,7 @@ static void com_hist_next(t_env *env)
 		free(I_L2);
 	I_L1 = ft_strdup(I_HIS[k]);
 	I_L2 = NULL;
-	I_C1 = ft_strlen(I_L1);*/
+	I_C1 = ft_strlen(I_L1) - 1;*/
 
 	//	char	*str;
 
@@ -84,7 +84,7 @@ static void com_hist_next(t_env *env)
 		free(I_L2);
 	I_L2 = NULL;
 	I_C2 = 0;
-	I_C1 = ft_strlen(I_L1);
+	I_C1 = ft_strlen(I_L1) - 1;
 }
 
 static void com_hist_prev(t_env *env)
@@ -130,7 +130,7 @@ static void com_hist_prev(t_env *env)
 		free(I_L2);
 	I_L2 = NULL;
 	I_C2 = 0;
-	I_C1 = ft_strlen(I_L1);
+	I_C1 = ft_strlen(I_L1) - 1;
 }
 
 int			com_history(t_env *env, int action)
