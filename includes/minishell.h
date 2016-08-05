@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/31 15:41:46 by ehansman         ###   ########.fr       */
+/*   Updated: 2016/08/04 13:11:56 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # include <termios.h>
 # include <sys/ioctl.h>
 # include <sys/stat.h>
+# include <stdio.h>
+# include <string.h>
 
 /*
 **Forbidden:
@@ -79,7 +81,7 @@
 # define SH_L "\r\e[32m$> \e[0m\e[36m"
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
-# define OWN_FUNCS "cd setenv unsetenv env exit "
+# define OWN_FUNCS "cd setenv unsetenv env exit help"
 # define AL_SYM "$()- "
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
@@ -91,6 +93,7 @@
 # define K_DOWN "\e[B"
 # define K_RIGHT "\e[C"
 # define K_LEFT "\e[D"
+
 
 /*
 **		Other
@@ -109,26 +112,30 @@
 */
 typedef struct	s_input
 {
-	char		**history;
-	int			hist_pos;
-	char		temp;
-	char		*line1;
-	char		*line2;
-	int			count1;
-	int			count2;
-}				t_input;
+	char			**history;
+	int				hist_pos;
+	char			temp;
+	char			*line1;
+	char			*line2;
+	int				count1;
+	int				count2;
+}					t_input;
 /*
 **		Global Enviroment
 */
-typedef struct	s_env
+typedef struct		s_env
 {
-	char		**environ;
-	int			env_size;
-	char		*line;
-	int			error;
-	char		*a;
-	t_input		input;
-}				t_env;
+	struct termios	term;
+	char			*term_name;
+	int				enter;
+	char			**ret;
+	char			**environ;
+	int				env_size;
+	char			*line;
+	int				error;
+	char			*a;
+	t_input			input;
+}					t_env;
 
 /*
 **Prototypes
@@ -141,6 +148,7 @@ int				allowed_character(char c);
 int				str_valid(t_env *env, char *str);
 int				arg_valid(char **sa, int i);
 int				check_line(char *line);
+void			ft_help(t_env *env, char **sa);
 /*
 **		command.c
 */
@@ -269,5 +277,13 @@ void			key_handler(t_env *env, char *key);
 */
 int				find_string_pos(char **arr, char *str);
 int				com_history(t_env *env, int action);
+
+/*
+**		New Functions Added
+*/
+int				end_termios(t_env *all);
+void			ft_print_enter(t_env *all);
+int				display(int c);
+void			easteregg(t_env *env, char **sa);
 
 #endif
