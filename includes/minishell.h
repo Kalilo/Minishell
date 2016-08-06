@@ -61,6 +61,7 @@
 # define I_C1 env->input.count1
 # define I_C2 env->input.count2
 # define I_CUR env->input.cur
+# define I_CB env->input.clipboard
 /*
 **		Error Messages
 */
@@ -130,6 +131,7 @@ typedef struct	s_input
 	char			*line2;
 	int				count1;
 	int				count2;
+	char			*clipboard;
 }					t_input;
 /*
 **		Global Enviroment
@@ -310,6 +312,12 @@ void			ke_jump_right(t_env *env);
 **		keys_del.c
 */
 void			ke_del(t_env *env);
+/*
+**		keys_cb.c
+*/
+void			copy_line(t_env *env);
+void			copy_l2(t_env *env);
+void			paste_l1(t_env *env);
 
 /*
 **		New Functions Added
