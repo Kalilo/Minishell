@@ -39,6 +39,8 @@ void	print_line(char *line, char * line2)
 	static int	k;
 	int			l;
 
+	if (line == NULL && line2 == NULL)
+		return ;
 	l = -1;
 	ft_putchar('\r');
 	while (++l < k)
@@ -47,11 +49,12 @@ void	print_line(char *line, char * line2)
 		ft_strlen(line) + 5 - ft_termsize(0) : -1;
 	ft_putstr(SH_L);
 	while (line[++l])
-		if (*line != '\n' && *line != '\v')
+		if (*line != '\n' && *line != '\v' && *line != '\r')
 			ft_putchar(line[l]);
 	k = l + 3;
 	l = -1;
-	while (line2 && line2[++l])
+	while (line2 && line2[++l] && *line != '\n' &&
+		*line != '\v' && *line != '\r')
 		ft_putchar(line2[l]);
 	k += l + 1;
 	while (l-- > 0)
@@ -65,6 +68,7 @@ int		get_input(t_env *env, int fd, char **line)
 	I_C1 = -1;
 	while (I_TMP != '\r' && I_TMP != '\n' && I_TMP != '\0')
 	{
+		print_line(I_L1, I_L2);
 		read(fd, &I_TMP, 1);
 		if (I_C1 + 2 % 50 == 0 || I_C1 == -1)
 			I_L1 = re_malloc(I_L1, I_C1 + 1);
@@ -73,7 +77,7 @@ int		get_input(t_env *env, int fd, char **line)
 			get_key(env);
 		else
 			I_L1[++I_C1] = I_TMP;
-		print_line(I_L1, I_L2);
+		//print_line(I_L1, I_L2);
 	}
 	if (I_C1 + 1)
 		I_L1[I_C1] = 0;
