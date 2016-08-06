@@ -30,13 +30,6 @@ void	ke_jump_right(t_env *env)
 	int		k;
 	char	*temp;
 
-	/*k = -1;
-	while (I_L2 && I_L2[k + 1] && (I_L2[k + 1] == '\t' ||
-		I_L2[k + 1] == ' '))
-		k++; 
-	while (I_L2 && I_L2[++k] && I_L2[k] != '\t' &&
-			I_L2[k] != ' ')
-		ke_right(env);*/
 	k = 0;
 	if (I_L2 == NULL || I_L2[k] == '\0')
 		return ;
