@@ -35,6 +35,7 @@ void	init_hist(t_env *env, char action)
 		I_L2 = NULL;
 		I_HIS = (char **)ft_strnew((sizeof(char *) * (MAX_HIST + 1)));
 		I_H_POS = -1;
+		I_CB = NULL;
 	}
 	else
 	{

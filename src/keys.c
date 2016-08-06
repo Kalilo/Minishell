@@ -6,7 +6,17 @@
 **		selection. So far the most promising are the unused F keys.
 */
 
-void	key_handler(t_env *env, char *key)
+static void	key_handler2(t_env *env, char *key)
+{
+	if (!ft_strcmp(K_F19, key))
+		paste_l1(env);
+	else if (!ft_strcmp(K_F18, key))
+		copy_line(env);
+	else if (!ft_strcmp(K_F17, key))
+		copy_l2(env);
+}
+
+void		key_handler(t_env *env, char *key)
 {
 	//put_bin((unsigned char *)key);//debug
 	//printf("Key Pressed: '%s'\n", key);//debug
@@ -33,4 +43,6 @@ void	key_handler(t_env *env, char *key)
 		ke_home(env);
 	else if (!ft_strcmp(K_F14, key))
 		ke_end(env);
+	else
+		key_handler2(env, key);
 }
