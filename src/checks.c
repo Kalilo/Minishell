@@ -61,13 +61,14 @@ int		check_line(char *line)
 
 void	ft_help(t_env *env, char **sa)
 {
-	printf("\n");
-	printf("\e[31mThese are the current functions you are able to use:\n");
-	printf("\e[32mecho:     Displays the input string on the std output.\n");
-	printf("cd:       Change the current directory to a new one.\n");
-	printf("env:      view the environment.\n");
-	printf("setenv:   set a new element in the environment.\n");
-	printf("unsetenv: unset an element in the environment.\n");
-	printf("help:     displays all available commands.\n");
-	printf("exit:     end the program.\n");
+	ft_putstr("\n");
+	ft_putstr("\e[31mThese are the current functions you are able to use:\n");
+	ft_putstr("\e[32mecho:     Displays the input string on the std output.\n");
+	ft_putstr("cd:       Change the current directory to a new one.\n");
+	ft_putstr("env:      view the environment.\n");
+	ft_putstr("setenv:   set a new element in the environment.\n");
+	ft_putstr("unsetenv: unset an element in the environment.\n");
+	ft_putstr("help:     displays all available commands.\n");
+	ft_putstr("F13/F14:  home/end keys.\n");
+	ft_putstr("exit:     end the program.\n");
 }
