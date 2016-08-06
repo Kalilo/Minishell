@@ -83,12 +83,9 @@ int			com_history(t_env *env, int action)
 {
 	int			k;
 
-	//ft_putchar('\r');
 	k = -1;
 	if (I_H_POS < 0)
 		I_CUR = ft_strjoin(I_L1, I_L2);
-	//while (++k < I_C1 + I_C2 + 4)
-	//	ft_putchar(' ');
 	if (action == HIST_STORE)
 		com_hist_add(env, NULL);
 	else if (action == HIST_NEXT && I_H_POS == 0)
