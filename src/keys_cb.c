@@ -28,6 +28,6 @@ void	paste_l1(t_env *env)
 	if (I_CB == NULL)
 		return ;
 	//remalloc first
-	ft_memcpy(&I_L1[I_C1], I_CB, ft_strlen(I_CB));
+	ft_memcpy(&I_L1[I_C1 + 1], I_CB, ft_strlen(I_CB));
 	I_C1 = ft_strlen(I_L1) - 1;
 }
