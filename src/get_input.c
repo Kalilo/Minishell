@@ -77,7 +77,6 @@ int		get_input(t_env *env, int fd, char **line)
 			get_key(env);
 		else
 			I_L1[++I_C1] = I_TMP;
-		//print_line(I_L1, I_L2);
 	}
 	if (I_C1 + 1)
 		I_L1[I_C1] = 0;
