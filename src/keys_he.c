@@ -14,7 +14,7 @@ void	ke_home(t_env *env)
 		free(I_L1);
 	if (I_L2 != NULL)
 		free(I_L2);
-	I_L1 = ft_strnew(50);
+	I_L1 = ft_strnew(51);
 	I_L2 = temp;
 	I_C1 = -1;
 	I_C2 = ft_strlen(I_L2) - 1;
