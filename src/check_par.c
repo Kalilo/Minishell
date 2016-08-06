@@ -11,7 +11,7 @@ static void	init_par(t_par *par, t_env *env)
 		P_STR = ft_strjoin(I_L1, I_L2);
 	else
 		P_STR = (I_L1 != NULL) ? ft_strdup(I_L1) : ft_strdup(I_L2);
-	par->k = -1;
+	P_K = -1;
 }
 
 static void	par_condition(t_par *par)
