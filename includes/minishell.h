@@ -114,10 +114,32 @@
 # define HIST_PREV 2
 # define MAX_HIST 50
 
+# define P_SI par->sing_quote
+# define P_DB par->dble_quote
+# define P_B par->brac
+# define P_AB par->ang_brac
+# define P_SB par->sqr_brac
+# define P_STR par->str
+# define P_K par->k
+# define P_SK P_STR[P_K]
+
 /*
 **Structures
 */
 
+/*
+**		Parenthesis check
+*/
+typedef struct		s_par
+{
+	int				sing_quote;
+	int				dble_quote;
+	int				brac;
+	int				ang_brac;
+	int				sqr_brac;
+	char			*str;
+	int				k;
+}					t_par;
 /*
 **		Input manipulation
 */
@@ -318,6 +340,10 @@ void			ke_del(t_env *env);
 void			copy_line(t_env *env);
 void			copy_l2(t_env *env);
 void			paste_l1(t_env *env);
+/*
+**		check_par.c
+*/
+int				check_par(t_env *env);
 
 /*
 **		New Functions Added

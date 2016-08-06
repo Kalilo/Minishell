@@ -72,8 +72,8 @@ int		main(void)
 		get_input(&env, 0, &line);
 		if (check_line(line))
 		{
-			printf("Line = '%s'\n", line);//debug
-			put_bin((unsigned char *)line);//debug
+			//printf("Line = '%s'\n", line);//debug
+			//put_bin((unsigned char *)line);//debug
 			if (ft_memcmp(line, CM_EXIT, CM_EXIT_S) == 0)
 				break ;
 			if (ft_strchr_f(line, '=') != 0)
