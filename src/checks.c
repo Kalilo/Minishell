@@ -63,12 +63,13 @@ void	ft_help(t_env *env, char **sa)
 {
 	ft_putstr("\n");
 	ft_putstr("\e[31mThese are the current functions you are able to use:\n");
-	ft_putstr("\e[32mecho:     Displays the input string on the std output.\n");
-	ft_putstr("cd:       Change the current directory to a new one.\n");
+	ft_putstr("\e[32mecho:     displays the input string on the std output.\n");
+	ft_putstr("cd:       change the current directory to a new one.\n");
 	ft_putstr("env:      view the environment.\n");
 	ft_putstr("setenv:   set a new element in the environment.\n");
 	ft_putstr("unsetenv: unset an element in the environment.\n");
 	ft_putstr("help:     displays all available commands.\n");
+	ft_putstr("F5/F6:    skip word left/right.\n");
 	ft_putstr("F13/F14:  home/end keys.\n");
 	ft_putstr("exit:     end the program.\n");
 }
