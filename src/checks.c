@@ -71,5 +71,8 @@ void	ft_help(t_env *env, char **sa)
 	ft_putstr("help:     displays all available commands.\n");
 	ft_putstr("F5/F6:    skip word left/right.\n");
 	ft_putstr("F13/F14:  home/end keys.\n");
+	ft_putstr("F17:      copies the line to the right of the cursor.\n");
+	ft_putstr("F18:      copies the line.\n");
+	ft_putstr("F19:      pastes the clipboard.\n");
 	ft_putstr("exit:     end the program.\n");
 }
