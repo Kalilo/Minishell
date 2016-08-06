@@ -51,7 +51,9 @@ static void com_hist_next(t_env *env)
 		I_H_POS++;
 	if (I_L1 != NULL)
 		free(I_L1);
-	I_L1 = ft_strdup(I_HIS[I_H_POS]);
+	I_L1 = ft_strnew(51);
+	ft_memcpy(I_L1, I_HIS[I_H_POS], ft_strlen(I_HIS[I_H_POS]));
+	//I_L1 = ft_strdup(I_HIS[I_H_POS]);
 	if (I_L2 != NULL)
 		free(I_L2);
 	I_L2 = NULL;
@@ -71,7 +73,9 @@ static void com_hist_prev(t_env *env)
 		I_H_POS--;
 	if (I_L1 != NULL)
 		free(I_L1);
-	I_L1 = ft_strdup(I_HIS[I_H_POS]);
+	I_L1 = ft_strnew(51);
+	ft_memcpy(I_L1, I_HIS[I_H_POS], ft_strlen(I_HIS[I_H_POS]));
+	//I_L1 = ft_strdup(I_HIS[I_H_POS]);
 	if (I_L2 != NULL)
 		free(I_L2);
 	I_L2 = NULL;
