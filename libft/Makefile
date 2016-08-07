@@ -6,7 +6,7 @@
 #    By: ggroener <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/15 07:50:12 by ggroener          #+#    #+#              #
-#    Updated: 2016/08/07 10:29:41 by ggroener         ###   ########.fr        #
+#    Updated: 2016/08/07 13:31:03 by khansman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -Ofast
+CFLAGS = -Wall -Wextra -Werror -Ofast -g3 -pedantic
 
 INCLUDES_PATH = includes/
 
@@ -100,8 +100,9 @@ SRCS_NAME = ft_atoi.c \
 			ft_strsub_free.c \
 			ft_strtrim_free.c \
 			ft_exit.c \
-			ft_replace_literal.c \
+			get_next_line.c \
 			ft_check_literal.c \
+			ft_replace_literal.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
@@ -111,26 +112,32 @@ OBJS_NAME = $(SRCS_NAME:.c=.o)
 
 OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 
+define colourecho
+	@tput setaf 4
+	@echo $1
+	@tput sgr0
+endef
+
 all: odir $(NAME)
 
 $(NAME): $(OBJS)
-	@echo " - Making $(NAME)"
+	@$(call colourecho, " - Making $(NAME)")
 	@ar -rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
-	@echo " - Compiling $<"
+	@$(call colourecho, " - Compiling $<")
 	@$(CC) $(CFLAGS) -o $@ -c $< -I$(INCLUDES_PATH)
 
 odir:
 	@mkdir -p $(OBJS_PATH)
 
 clean:
-	@echo " - Cleaning objs"
+	@$(call colourecho, " - Clearing Objects")
 	@rm -f $(OBJS)
 
 fclean: clean
-	@echo " - Cleaning executable"
+	@$(call colourecho, " - Cleaning Executable")
 	@rm -f $(NAME)
 
 re: fclean all
