@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/04 13:11:56 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/08/07 09:18:57 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 **#include <string.h>//debug!
 ** printf("\n");//debug
 */
-#include <stdio.h>//debug!
 
 /*
 **Defines
@@ -72,6 +71,7 @@
 # define P_STR par->str
 # define P_K par->k
 # define P_SK P_STR[P_K]
+
 /*
 **		Error Messages
 */
@@ -87,6 +87,7 @@
 # define E_MESS10 "\e[31mError: Variable already exists.\n"
 # define E_MESS11 ">>Take a deep breath and try again.<<\n"
 # define E_MESS12 E_MESS03 E_MESS11
+
 /*
 **		Stings
 */
@@ -147,7 +148,7 @@ typedef struct		s_par
 /*
 **		Input manipulation
 */
-typedef struct	s_input
+typedef struct		s_input
 {
 	char			**history;
 	int				hist_pos;
@@ -183,178 +184,178 @@ typedef struct		s_env
 /*
 **		checks.c
 */
-int				allowed_character(char c);
-int				str_valid(t_env *env, char *str);
-int				arg_valid(char **sa, int i);
-int				check_line(char *line);
-void			ft_help(t_env *env, char **sa);
+int					allowed_character(char c);
+int					str_valid(t_env *env, char *str);
+int					arg_valid(char **sa, int i);
+int					check_line(char *line);
+void				ft_help(t_env *env, char **sa);
 /*
 **		command.c
 */
-int				do_command(t_env *env, char *com);
-void			com_sep(t_env *env, char *s);
-void			command(t_env *env, char *s);
+int					do_command(t_env *env, char *com);
+void				com_sep(t_env *env, char *s);
+void				command(t_env *env, char *s);
 /*
 **		errors.c
 */
-int				error1(int err);
-int				error(int err);
+int					error1(int err);
+int					error(int err);
 /*
 **		exit.c
 */
-void			free2d(char **arr);
-void			exit_prog(t_env *env);
+void				free2d(char **arr);
+void				exit_prog(t_env *env);
 /*
 **		get_line.c
 */
-char			*re_malloc(char *line, size_t size);
-int				get_line(int fd, char **line);
+char				*re_malloc(char *line, size_t size);
+int					get_line(int fd, char **line);
 /*
 **		own_command.c
 */
-int				is_own(char *s);
+int					is_own(char *s);
 /*
 **		set_env.c
 */
-int				env_valid(char *s);
-void			set_env(t_env *env, char *s);
+int					env_valid(char *s);
+void				set_env(t_env *env, char *s);
 /*
 **		count.c
 */
-int				count(char *s, char c);
+int					count(char *s, char c);
 /*
 **		own_command.c
 */
-int				is_own(char *s);
-void			own_command(t_env *env, char **sa, char *s);
+int					is_own(char *s);
+void				own_command(t_env *env, char **sa, char *s);
 /*
 **		ft_strchr_f.c
 */
-int				ft_strchr_f(char *s, char c);
+int					ft_strchr_f(char *s, char c);
 /*
 **		get_env.c
 */
-char			*add_own(void);
-char			**get_env(char **environ);
-int				get_envsize(char **env);
+char				*add_own(void);
+char				**get_env(char **environ);
+int					get_envsize(char **env);
 /*
 **		ft_unset.c
 */
-void			ft_removestr(char *big, char *little);
-void			ft_unset(char ***sa, char *var);
+void				ft_removestr(char *big, char *little);
+void				ft_unset(char ***sa, char *var);
 /*
 **		ft_export.c
 */
-void			ft_unsetenv(t_env *env, char **sa);
-int				is_var(char *s1, char *s2);
-void			ft_setenv(t_env *env, char **sa);
-void			ft_export(char *sa[], int env_size, char *s);
+void				ft_unsetenv(t_env *env, char **sa);
+int					is_var(char *s1, char *s2);
+void				ft_setenv(t_env *env, char **sa);
+void				ft_export(char *sa[], int env_size, char *s);
 /*
 **		ft_env.c
 */
-void			ft_env(char **sa);
-void			call_env(t_env env, char *s);
-char			*find_var_val(t_env *env, const char *var);
-void			update_env(t_env *env, char *var, char *n);
+void				ft_env(char **sa);
+void				call_env(t_env env, char *s);
+char				*find_var_val(t_env *env, const char *var);
+void				update_env(t_env *env, char *var, char *n);
 /*
 **		find_path.c
 */
-int				scan_dir(char *s, char *path);
-char			*add_path(char	*path, char	*extension);
-char			*find_path(t_env *env, char s[]);
+int					scan_dir(char *s, char *path);
+char				*add_path(char	*path, char	*extension);
+char				*find_path(t_env *env, char s[]);
 /*
 **		echo.c
 */
-void			ft_echo(char **sa);
-void			ft_print_echo(char **sa);
+void				ft_echo(char **sa);
+void				ft_print_echo(char **sa);
 /*
 **		ft_cd.c
 */
-int				check(char **sa);
-void			cd_home(t_env *env);
-void			ft_cd(t_env *env, char **sa);
-t_env			*ft_cd_sub(t_env *env, char *sa, int count);
+int					check(char **sa);
+void				cd_home(t_env *env);
+void				ft_cd(t_env *env, char **sa);
+t_env				*ft_cd_sub(t_env *env, char *sa, int count);
 /*
 **		trim.c
 */
-char			*trim_start(char *str);
-void			trim_end(char **str);
-void			trim_str(char **str);
-int				trim_arr(char ***arr);
-void			rm_tabs(char **str);
+char				*trim_start(char *str);
+void				trim_end(char **str);
+void				trim_str(char **str);
+int					trim_arr(char ***arr);
+void				rm_tabs(char **str);
 /*
 **		signal.c
 */
-void			sig_handler(int signo);
-void			sigs(void);
+void				sig_handler(int signo);
+void				sigs(void);
 /*
 **		main.c
 */
-void			*back_up_env(void *env);
-int				main(void);
+void				*back_up_env(void *env);
+int					main(void);
 /*
 **		init_term.c
 */
-int				init_term(void);
-int				ft_termsize(int y);
+int					init_term(void);
+int					ft_termsize(int y);
 /*
 **		debug.c
 */
-void			put_bin(unsigned char *str);
+void				put_bin(unsigned char *str);
 /*
 **		get_input.c
 */
-void			get_key(t_env *env);
-void			print_line(char *line, char *line2);
-int				get_input(t_env *env, int fd, char **line);
+void				get_key(t_env *env);
+void				print_line(char *line, char *line2);
+int					get_input(t_env *env, int fd, char **line);
 /*
 **		keys.c
 */
-void			key_handler(t_env *env, char *key);
+void				key_handler(t_env *env, char *key);
 /*
 **		com_history.c
 */
-int				find_string_pos(char **arr, char *str);
-int				com_history(t_env *env, int action);
+int					find_string_pos(char **arr, char *str);
+int					com_history(t_env *env, int action);
 /*
 **		keys_lr.c
 */
-char			*ft_add_char_start(char *str, char c);
-char			*ft_add_char_end(char *str, char c);
-char			*ft_str_inc_dup(char *str);
-void			ke_left(t_env *env);
-void			ke_right(t_env *env);
+char				*ft_add_char_start(char *str, char c);
+char				*ft_add_char_end(char *str, char c);
+char				*ft_str_inc_dup(char *str);
+void				ke_left(t_env *env);
+void				ke_right(t_env *env);
 /*
 **		keys_he.c
 */
-void			ke_home(t_env *env);
-void			ke_end(t_env *env);
+void				ke_home(t_env *env);
+void				ke_end(t_env *env);
 /*
 **		keys_w_jump.c
 */
-void			ke_jump_left(t_env *env);
-void			ke_jump_right(t_env *env);
+void				ke_jump_left(t_env *env);
+void				ke_jump_right(t_env *env);
 /*
 **		keys_del.c
 */
-void			ke_del(t_env *env);
+void				ke_del(t_env *env);
 /*
 **		keys_cb.c
 */
-void			copy_line(t_env *env);
-void			copy_l2(t_env *env);
-void			paste_l1(t_env *env);
+void				copy_line(t_env *env);
+void				copy_l2(t_env *env);
+void				paste_l1(t_env *env);
 /*
 **		check_par.c
 */
-int				check_par(t_env *env);
+int					check_par(t_env *env);
 
 /*
 **		New Functions Added
 */
-int				end_termios(t_env *all);
-void			ft_print_enter(t_env *all);
-int				display(int c);
-void			easteregg(t_env *env, char **sa);
+int					end_termios(t_env *all);
+void				ft_print_enter(t_env *all);
+int					display(int c);
+void				easteregg(t_env *env, char **sa);
 
 #endif
