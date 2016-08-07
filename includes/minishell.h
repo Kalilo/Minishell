@@ -125,6 +125,7 @@
 
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
+# define MAIN_VAR t_env env; char *line; extern char **environ
 
 /*
 **Structures
