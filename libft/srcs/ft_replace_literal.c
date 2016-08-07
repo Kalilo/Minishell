@@ -12,18 +12,15 @@
 
 #include "../includes/libft.h"
 
+#define VAR1 char lit; char check; char *dest; size_t i; size_t j
+#define INIT_VAR i = -1; j = 0
+
 char	*ft_replace_literal(char *str)
 {
-	char	lit;
-	char	check;
-	char	*dest;
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
+	VAR1;
+	INIT_VAR;
 	dest = (char *)malloc(sizeof(char) * ft_strlen(str));
-	while (str[i] != '\0' && str[i])
+	while (str[++i] != '\0' && str[i])
 	{
 		if ((lit = ft_check_literal(str[i], str[i + 1], str[i + 2])) != 32)
 		{
@@ -41,7 +38,6 @@ char	*ft_replace_literal(char *str)
 		}
 		dest[j] = str[i];
 		check = 'n';
-		i++;
 		j++;
 	}
 	dest[j] = '\0';
