@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:25:14 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:35:08 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 09:06:10 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 **This function is not currently needed.
 */
+
 void	*back_up_env(void *env)
 {
 	static void *e;
@@ -58,12 +59,15 @@ void	init_state(t_env *env, char **line, char ***environ)
 	init_hist(env, 0);
 }
 
+/*
+**	Debug lines (put inside main if statement)
+**		printf("Line = '%s'\n", line);//debug
+**		put_bin((unsigned char *)line);//debug
+*/
+
 int		main(void)
 {
-	t_env		env;
-	char		*line;
-	extern char	**environ;
-
+	MAIN_VAR;
 	init_state(&env, &line, &environ);
 	back_up_env((void *)&env);
 	while (1)
@@ -72,8 +76,6 @@ int		main(void)
 		get_input(&env, 0, &line);
 		if (check_line(line))
 		{
-			//printf("Line = '%s'\n", line);//debug
-			//put_bin((unsigned char *)line);//debug
 			if (ft_memcmp(line, CM_EXIT, CM_EXIT_S) == 0)
 				break ;
 			if (ft_strchr_f(line, '=') != 0)
