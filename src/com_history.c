@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:56:15 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 08:56:17 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 09:51:05 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			find_string_pos(char **arr, char *str)
 **		ft_env(I_HIS);
 */
 
-static void com_hist_add(t_env *env, char *str)
+static void	com_hist_add(t_env *env, char *str)
 {
 	int		k;
 	char	*s;
@@ -57,7 +57,7 @@ static void com_hist_add(t_env *env, char *str)
 	I_H_POS = (str == NULL) ? -1 : I_H_POS;
 }
 
-static void com_hist_next(t_env *env)
+static void	com_hist_next(t_env *env)
 {
 	if (I_HIS[0] == NULL || I_H_POS < 0)
 		return ;
@@ -76,7 +76,7 @@ static void com_hist_next(t_env *env)
 	I_C2 = ft_strlen(I_L2) - 1;
 }
 
-static void com_hist_prev(t_env *env)
+static void	com_hist_prev(t_env *env)
 {
 	if (I_HIS[0] == NULL || I_H_POS >= MAX_HIST)
 		return ;

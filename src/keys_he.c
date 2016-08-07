@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:58:42 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 08:58:45 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 09:51:40 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 **		Moves everything to the second string (I_L2)
 */
+
 void	ke_home(t_env *env)
 {
 	char	*temp;
@@ -35,6 +36,7 @@ void	ke_home(t_env *env)
 /*
 **		Moves everything to the first string (I_L1)
 */
+
 void	ke_end(t_env *env)
 {
 	char	*temp;
