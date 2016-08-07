@@ -6,7 +6,7 @@
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 10:26:35 by ggroener          #+#    #+#             */
-/*   Updated: 2016/08/07 10:26:41 by ggroener         ###   ########.fr       */
+/*   Updated: 2016/08/07 13:34:21 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,30 @@
 
 char	ft_check_literal2(char a, char b)
 {
-	if (a == 92)
-	{
-		if (b == 92)
-			return ('\\');
-		if (b == '0')
-			return ('\0');
-		if (b == 't')
-			return ('t');
-		if (b == 39)
-			return (39);
-		if (b == 34)
-			return (34);
-		if (b == 'a')
-			return ('a');
-		if (b == 'b')
-			return ('b');
-		if (b == 'f')
-			return ('f');
-		if (b == 'n')
-			return ('n');
-		if (b == 'r')
-			return ('r');
-		if (b == 'v')
-			return ('v');
-	}
+	if (a != 92)
+		return (32);
+	if (b == 92)
+		return ('\\');
+	if (b == '0')
+		return ('\0');
+	if (b == 't')
+		return ('t');
+	if (b == 39)
+		return (39);
+	if (b == 34)
+		return (34);
+	if (b == 'a')
+		return ('a');
+	if (b == 'b')
+		return ('b');
+	if (b == 'f')
+		return ('f');
+	if (b == 'n')
+		return ('n');
+	if (b == 'r')
+		return ('r');
+	if (b == 'v')
+		return ('v');
 	return (32);
 }
 
