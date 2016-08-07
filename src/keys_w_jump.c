@@ -20,7 +20,7 @@ void	ke_jump_left(t_env *env)
 
 	k = ft_strlen(I_L1) - 1;
 	if (k < 0 || I_L1 == NULL)
-		return;
+		return ;
 	while (k > 0 && (I_L1[k] == ' ' || I_L1[k] == '\t'))
 		k--;
 	while (k > 0 && (I_L1[k] != ' ' && I_L1[k] != '\t'))
@@ -36,6 +36,11 @@ void	ke_jump_left(t_env *env)
 	I_C1 = ft_strlen(I_L1) - 1;
 	I_C2 = ft_strlen(I_L2) - 1;
 }
+
+/*
+**	Needed code: (line 61)
+**		I_L1 = re_malloc(I_L1, I_C1 + k);
+*/
 
 void	ke_jump_right(t_env *env)
 {
@@ -53,7 +58,6 @@ void	ke_jump_right(t_env *env)
 	if (k == 0)
 		return ;
 	temp = ft_strdup(&I_L2[k]);
-	//I_L1 = re_malloc(I_L1, I_C1 + k);
 	ft_memcpy(&I_L1[I_C1 + 1], I_L2, k);
 	I_C1 = ft_strlen(I_L1) - 1;
 	I_C2 = ft_strlen(temp) - 1;

@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:58:50 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 08:58:53 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 09:52:37 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 **	Adds a char to the beginning of a string
 */
+
 char	*ft_add_char_start(char *str, char c)
 {
 	char	*s;
@@ -31,6 +32,7 @@ char	*ft_add_char_start(char *str, char c)
 /*
 **	Adds a char to the end of a string
 */
+
 char	*ft_add_char_end(char *str, char c)
 {
 	int		k;
@@ -48,6 +50,7 @@ char	*ft_add_char_end(char *str, char c)
 /*
 **	Copies everything but the first char from a string.
 */
+
 char	*ft_str_inc_dup(char *str)
 {
 	char	*s;
@@ -76,7 +79,7 @@ void	ke_left(t_env *env)
 		free(temp);
 	I_L1[k] = '\0';
 	I_C1 = k - 1;
-	I_C2 = ft_strlen(I_L2) - 1;                    
+	I_C2 = ft_strlen(I_L2) - 1;
 }
 
 void	ke_right(t_env *env)
@@ -89,11 +92,10 @@ void	ke_right(t_env *env)
 		return ;
 	k = ft_str_inc_dup((I_L2));
 	I_L1 = ft_add_char_end(temp, *I_L2);
-	//	printf("\r\t\t\t\tk = %s, I_L1 = %s\n\r", k, I_L1);//debug
 	if (temp != NULL)
 		free(temp);
-	I_C1 = ft_strlen(I_L1) - 1;//I_C1 = (ft_strlen(I_L1) != 0) ? ft_strlen(I_L1) - 1 : 0;
-	I_C2 = ft_strlen(I_L2) - 1;//I_C2 = (ft_strlen(I_L2) != 0) ? ft_strlen(I_L2) - 1 : 0;
+	I_C1 = ft_strlen(I_L1) - 1;
+	I_C2 = ft_strlen(I_L2) - 1;
 	if (I_L2 != NULL)
 		free(I_L2);
 	I_L2 = k;
