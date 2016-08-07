@@ -6,57 +6,50 @@
 /*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/04 12:48:33 by jlangman          #+#    #+#             */
-/*   Updated: 2016/08/07 11:28:55 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/08/07 16:45:56 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
 /*
-int		ft_exit_shell(t_env *tmp, int i)
-{
-	ft_reset_termios(tmp);
-	exit(i);
-}
-
-int		init_term(t_env *tmp, int i)
-{
-	struct winsize	win;
-
-	if (tgetent(NULL, getenv("TERM")) < 1)
-	{
-		ft_putstr_fd("error: env TERM not set\n, 2");
-		return (0);
-	}
-	if (tcgetattr(0, &(tmp->term)) == -1)
-		return (0);
-	if (i == 1 && tcgetattr(0, &(tmp->bterm)) == -1)
-	   return (0);	
-	tmp->term.c_lflag &= ~(ICANON | ECHO);
-	tmp->term.c_cc[VMIN] = 1;
-	tmp->term.c_cc[VTIME] = 0;
-	ioctl(0, TIOCGWINSZ, &win);
-	tmp->nb_col = win.ws_col;
-	tmp->nb_row = win.ws_row;
-	if (tcsetattr(0, 0, &(tmp->term)) == -1)
-		return (0);
-	return (1);
-}
-
-int		ft_reset_termios(t_env *tmp)
-{
-	if (tcsetattr(0, 0, &(tmp->bterm)) == -1)
-		return (0);
-	return (1);
-}
-
-
-
-
-
+**int		ft_exit_shell(t_env *tmp, int i)
+**{
+**	ft_reset_termios(tmp);
+**	exit(i);
+**}
+**
+**int		init_term(t_env *tmp, int i)
+**{
+**	struct winsize	win;
+**
+**	if (tgetent(NULL, getenv("TERM")) < 1)
+**	{
+**		ft_putstr_fd("error: env TERM not set\n, 2");
+**		return (0);
+**	}
+**	if (tcgetattr(0, &(tmp->term)) == -1)
+**		return (0);
+**	if (i == 1 && tcgetattr(0, &(tmp->bterm)) == -1)
+**	   return (0);
+**	tmp->term.c_lflag &= ~(ICANON | ECHO);
+**	tmp->term.c_cc[VMIN] = 1;
+**	tmp->term.c_cc[VTIME] = 0;
+**	ioctl(0, TIOCGWINSZ, &win);
+**	tmp->nb_col = win.ws_col;
+**	tmp->nb_row = win.ws_row;
+**	if (tcsetattr(0, 0, &(tmp->term)) == -1)
+**		return (0);
+**	return (1);
+**}
+**
+**int		ft_reset_termios(t_env *tmp)
+**{
+**	if (tcsetattr(0, 0, &(tmp->bterm)) == -1)
+**		return (0);
+**	return (1);
+**}
 */
-
-
-
 
 static int	ft_init_deleg(char *str)
 {
