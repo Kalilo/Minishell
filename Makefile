@@ -57,7 +57,8 @@ SRC2 = 	$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)keys_w_jump.c	\
 		$(SRC_PATH)keys_del.c		\
 		$(SRC_PATH)keys_cb.c		\
-		$(SRC_PATH)check_par.c
+		$(SRC_PATH)check_par.c		\
+		$(SRC_PATH)cursor.c
 
 SRC = $(SRC1) $(SRC2)
 
