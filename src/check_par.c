@@ -71,5 +71,6 @@ int			check_par(t_env *env)
 	while (par.str[++(par.k)])
 		par_condition(&par);
 	free(par.str);
+	I_TMP2 = (par_valid(&par)) ? 0 : 1;
 	return (par_valid(&par));
 }

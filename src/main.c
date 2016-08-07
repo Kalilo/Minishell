@@ -28,26 +28,24 @@ void	*back_up_env(void *env)
 void	init_hist(t_env *env, char action)
 {
 	I_TMP = 0;
+	I_TMP2 = 0;
 	I_C1 = 0;
 	I_C2 = 0;
 	if (action == 0)
 	{
-		I_L1 = NULL;
-		I_L2 = NULL;
 		I_HIS = (char **)ft_strnew((sizeof(char *) * (MAX_HIST + 1)));
-		I_H_POS = -1;
 		I_CB = NULL;
 	}
 	else
 	{
 		if (I_L1 != NULL)
 			free(I_L1);
-		I_L1 = NULL;
 		if (I_L2 != NULL)
 			free(I_L2);
-		I_L2 = NULL;
-		I_H_POS = -1;
 	}
+	I_H_POS = -1;
+	I_L1 = NULL;
+	I_L2 = NULL;
 }
 
 void	init_state(t_env *env, char **line, char ***environ)
