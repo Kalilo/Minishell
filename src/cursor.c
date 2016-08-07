@@ -25,6 +25,6 @@ void	ft_cursor(void)
 	else
 	{
 		new->c_lflag = ECHONL;
-		k = 1;	
+		k = 1;
 	}
 }
