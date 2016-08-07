@@ -117,6 +117,8 @@
 # define K_F18 "\e[32~"
 # define K_F19 "\e[33~"
 # define K_DEL "\e[3~"
+# define K_HOME "\e[H"
+# define K_END "\e[F"
 
 /*
 **		Other
@@ -132,7 +134,6 @@
 # define FILE_F FILE	*fopen()
 # define E_FILE fopen("db.txt", "r")
 # define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
-
 
 /*
 **Structures

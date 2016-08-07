@@ -55,9 +55,9 @@ void		key_handler(t_env *env, char *key)
 		ke_jump_left(env);
 	else if (!ft_strcmp(K_F6, key))
 		ke_jump_right(env);
-	else if (!ft_strcmp(K_F13, key))
+	else if (!ft_strcmp(K_F13, key) || !ft_strcmp(K_HOME, key))
 		ke_home(env);
-	else if (!ft_strcmp(K_F14, key))
+	else if (!ft_strcmp(K_F14, key) || !ft_strcmp(K_END, key))
 		ke_end(env);
 	else
 		key_handler2(env, key);
