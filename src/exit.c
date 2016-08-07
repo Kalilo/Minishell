@@ -33,6 +33,6 @@ void	exit_prog(t_env *env)
 		free(E_LI);
 	if (E_A != NULL)
 		free(E_A);
-//	end_termios(env);
+	end_termios(env);
 	exit(1);
 }
