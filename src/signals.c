@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:59:35 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 08:59:38 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 09:23:07 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 ** before being called.
 **It will not be used for now.
 */
-void	restart(void)
+
+void		restart(void)
 {
 	t_env	*env;
 
@@ -29,8 +30,14 @@ void	restart(void)
 
 /*
 **This function takes control of the terminal.
+**
+**	Debug lines:
+**		new->c_lflag |= ISIG;
+**		new->c_lflag &= ~();//ECHOK | ECHOE | ECHOPRT | ECHONL);
+**		~(ICANON | ECHO | ECHOK | ECHOE | ECHONL | IEXTEN);
 */
-static void		ft_signal_set(void)
+
+static void	ft_signal_set(void)
 {
 	struct termios			*new;
 
@@ -38,18 +45,21 @@ static void		ft_signal_set(void)
 	tcgetattr(STDIN_FILENO, new);
 	new->c_iflag |= IGNBRK;
 	new->c_lflag = ECHONL;
-	//new->c_lflag |= ISIG;
-	//new->c_lflag &= ~();//ECHOK | ECHOE | ECHOPRT | ECHONL);
-			//~(ICANON | ECHO | ECHOK | ECHOE | ECHONL | IEXTEN);
 	new->c_cc[VMIN] = 1;
 	new->c_cc[VTIME] = 0;
 	tcsetattr(STDIN_FILENO, TCSANOW, new);
 	return ;
 }
 
-void	sig_handler(int signo)
+/*
+**This function recieves the signals.
+**
+**	Debug line (start)
+**		printf("\e[93mSignal recieved: '%d'\n", signo);//debug
+*/
+
+void		sig_handler(int signo)
 {
-	printf("\e[93mSignal recieved: '%d'\n", signo);//debug
 	if (signo == SIGHUP || signo == SIGQUIT || signo == SIGKILL ||
 		signo == SIGTERM || signo == SIGUSR1 || signo == SIGTTIN ||
 		signo == SIGUSR2)
@@ -65,7 +75,7 @@ void	sig_handler(int signo)
 	}
 }
 
-void	sigs(void)
+void		sigs(void)
 {
 	int		k;
 
