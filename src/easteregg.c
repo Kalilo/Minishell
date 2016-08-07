@@ -15,10 +15,10 @@
 void	easteregg(t_env *env, char **sa)
 {
 	FILE	*fp;
-	FILE	*fopen();
 	int		i;
 
-	fp = fopen("db.txt", "r");
+	FILE_F;
+	fp = E_FILE;
 	while (i != EOF)
 	{
 		ft_putchar(i);

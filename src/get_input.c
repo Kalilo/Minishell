@@ -1,11 +1,12 @@
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_line.c                                         :+:      :+:    :+:   */
+/*   get_input.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/09 15:24:49 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:25:00 by khansman         ###   ########.fr       */
+/*   Created: 2016/08/07 09:34:53 by khansman          #+#    #+#             */
+/*   Updated: 2016/08/07 09:36:23 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +35,7 @@ void	get_key(t_env *env)
 	return ;
 }
 
-void	print_line(char *line, char * line2)
+void	print_line(char *line, char *line2)
 {
 	static int	k;
 	int			l;
