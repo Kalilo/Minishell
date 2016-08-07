@@ -24,7 +24,7 @@ LIB_INCL = -L. libft/includes/libft.h $^ -ltermcap
 
 LIB_A = -lm libft/libft.a
 
-SRC =	$(SRC_PATH)checks.c			\
+SRC1 =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)command.c		\
 		$(SRC_PATH)count.c			\
 		$(SRC_PATH)errors.c			\
@@ -39,7 +39,8 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)set_env.c		\
 		$(SRC_PATH)ft_env.c			\
 		$(SRC_PATH)find_path.c		\
-		$(SRC_PATH)ft_echo.c		\
+
+SRC2 = 	$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)ft_cd.c			\
 		$(SRC_PATH)trim.c			\
 		$(SRC_PATH)signals.c		\
@@ -57,7 +58,9 @@ SRC =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)keys_del.c		\
 		$(SRC_PATH)keys_cb.c		\
 		$(SRC_PATH)check_par.c
-	  
+
+SRC = $(SRC1) $(SRC2)
+
 BIN =  $(SRC:.c=.o)
 
 define colorecho
@@ -115,7 +118,9 @@ format: norme me
 
 norme:
 	@$(call colorecho2, "Normenette:\n")
-	@norminette $(SRC) $(INCL)
+	@norminette $(SRC1)
+	@norminette $(SRC2)
+	@norminette $(INCL)
 
 me: qme
 	@$(call colorecho2, "Author:")
