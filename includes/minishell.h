@@ -364,6 +364,10 @@ void				paste_l1(t_env *env);
 **		check_par.c
 */
 int					check_par(t_env *env);
+/*
+**		cursor.c
+*/
+void				ft_cursor(void);
 
 /*
 **		New Functions Added

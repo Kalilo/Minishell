@@ -36,6 +36,8 @@ void		restart(void)
 **		new->c_lflag |= ISIG;
 **		new->c_lflag &= ~();//ECHOK | ECHOE | ECHOPRT | ECHONL);
 **		~(ICANON | ECHO | ECHOK | ECHOE | ECHONL | IEXTEN);
+**	Temp: 536871320 (Free movement)
+**	Temp2: 16 (ECHONL)
 */
 
 static void	ft_signal_set(void)
