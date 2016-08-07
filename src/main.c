@@ -28,6 +28,7 @@ void	*back_up_env(void *env)
 void	init_hist(t_env *env, char action)
 {
 	I_TMP = 0;
+	I_TMP2 = 0;
 	I_C1 = 0;
 	I_C2 = 0;
 	if (action == 0)

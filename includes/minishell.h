@@ -56,6 +56,7 @@
 # define I_HIS env->input.history
 # define I_H_POS env->input.hist_pos
 # define I_TMP env->input.temp
+# define I_TMP2 env->input.temp2
 # define I_L1 env->input.line1
 # define I_L2 env->input.line2
 # define I_C1 env->input.count1
@@ -92,6 +93,7 @@
 **		Stings
 */
 # define SH_L "\r\e[32m$> \e[0m\e[36m"
+# define SH_Q "\r\e[32mdquote> \e[0m\e[36m"
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit help"
@@ -155,6 +157,7 @@ typedef struct		s_input
 	char			**history;
 	int				hist_pos;
 	char			temp;
+	char			temp2;
 	char			*cur;
 	char			*line1;
 	char			*line2;
@@ -308,7 +311,7 @@ void				put_bin(unsigned char *str);
 **		get_input.c
 */
 void				get_key(t_env *env);
-void				print_line(char *line, char *line2);
+void				print_line(t_env *env);
 int					get_input(t_env *env, int fd, char **line);
 /*
 **		keys.c
