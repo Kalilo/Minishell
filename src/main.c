@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:25:14 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 09:06:10 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 11:08:22 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,26 @@ void	*back_up_env(void *env)
 void	init_hist(t_env *env, char action)
 {
 	I_TMP = 0;
-	I_TMP2 = 0;
 	I_C1 = 0;
 	I_C2 = 0;
 	if (action == 0)
 	{
+		I_L1 = NULL;
+		I_L2 = NULL;
 		I_HIS = (char **)ft_strnew((sizeof(char *) * (MAX_HIST + 1)));
+		I_H_POS = -1;
 		I_CB = NULL;
 	}
 	else
 	{
 		if (I_L1 != NULL)
 			free(I_L1);
+		I_L1 = NULL;
 		if (I_L2 != NULL)
 			free(I_L2);
+		I_L2 = NULL;
+		I_H_POS = -1;
 	}
-	I_H_POS = -1;
-	I_L1 = NULL;
-	I_L2 = NULL;
 }
 
 void	init_state(t_env *env, char **line, char ***environ)

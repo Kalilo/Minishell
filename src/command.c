@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:18:14 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 08:56:26 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 14:09:42 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,18 @@ int		do_command(t_env *env, char *com)
 	char	*str;
 	char	**arr;
 	pid_t	forked;
+	pid_t	pid2;
+//	t_env	*pid;
+//	t_env	*listen;
 
 	str = NULL;
 	arr = NULL;
 	forked = fork();
+	pid2 = fork();
+	env->pid = forked;
+//	listen->pid2 = pid2;
+//	if (pid2 > 0)
+//		get_input(env, 0, &str);
 	if (forked == 0)
 	{
 		arr = ft_strsplit(com, ' ');
@@ -34,6 +42,7 @@ int		do_command(t_env *env, char *com)
 	}
 	else
 		wait(0);
+//	kill(pid2, SIGKILL);
 	return (1);
 }
 

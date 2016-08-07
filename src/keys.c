@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:58:22 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 08:58:24 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 14:40:14 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ static void	key_handler2(t_env *env, char *key)
 		copy_line(env);
 	else if (!ft_strcmp(K_F17, key))
 		copy_l2(env);
+	else if (CTRL_C == *key)
+		ft_ctrl_c(env);
+	else if (CTRL_Z == *key)
+		ft_ctrl_z(env);
 }
 
 /*

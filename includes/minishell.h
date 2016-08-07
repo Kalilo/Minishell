@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 09:18:57 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 14:41:59 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <dirent.h>
 # include <curses.h>
 # include <term.h>
-# include "../libft/includes/libft.h"
+# include "../libft/libft.h"
 # include <termcap.h>
 # include <termios.h>
 # include <sys/ioctl.h>
@@ -56,7 +56,6 @@
 # define I_HIS env->input.history
 # define I_H_POS env->input.hist_pos
 # define I_TMP env->input.temp
-# define I_TMP2 env->input.temp2
 # define I_L1 env->input.line1
 # define I_L2 env->input.line2
 # define I_C1 env->input.count1
@@ -93,7 +92,6 @@
 **		Stings
 */
 # define SH_L "\r\e[32m$> \e[0m\e[36m"
-# define SH_Q "\r\e[32mdquote> \e[0m\e[36m"
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit help"
@@ -117,8 +115,10 @@
 # define K_F18 "\e[32~"
 # define K_F19 "\e[33~"
 # define K_DEL "\e[3~"
+# define CTRL_C	3
+# define CTRL_Z 26
 # define K_HOME "\e[H"
-# define K_END "\e[F"
+# define K_END	"\e[F"
 
 /*
 **		Other
@@ -133,7 +133,6 @@
 # define MAIN_VAR t_env env; char *line; extern char **environ
 # define FILE_F FILE	*fopen()
 # define E_FILE fopen("db.txt", "r")
-# define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
 
 /*
 **Structures
@@ -160,7 +159,6 @@ typedef struct		s_input
 	char			**history;
 	int				hist_pos;
 	char			temp;
-	char			temp2;
 	char			*cur;
 	char			*line1;
 	char			*line2;
@@ -173,7 +171,12 @@ typedef struct		s_input
 */
 typedef struct		s_env
 {
+	pid_t			pid2;
+	pid_t			pid;
 	struct termios	term;
+	struct termios	bterm;
+	int				nb_col;
+	int				nb_row;
 	char			*term_name;
 	int				enter;
 	char			**ret;
@@ -296,6 +299,7 @@ void				rm_tabs(char **str);
 */
 void				sig_handler(int signo);
 void				sigs(void);
+void				restart(void);
 /*
 **		main.c
 */
@@ -314,7 +318,7 @@ void				put_bin(unsigned char *str);
 **		get_input.c
 */
 void				get_key(t_env *env);
-void				print_line(t_env *env);
+void				print_line(char *line, char *line2);
 int					get_input(t_env *env, int fd, char **line);
 /*
 **		keys.c
@@ -361,9 +365,12 @@ int					check_par(t_env *env);
 /*
 **		New Functions Added
 */
-int					end_termios(t_env *all);
+int					ft_reset_termios(t_env *tmp);
 void				ft_print_enter(t_env *all);
 int					display(int c);
 void				easteregg(t_env *env, char **sa);
+int					exit_shell(t_env *tmp, int i);
+void				ft_ctrl_c(t_env *env);
+void				ft_ctrl_z(t_env *env);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:58:28 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 08:58:31 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 13:49:44 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,14 @@ void	paste_l1(t_env *env)
 		return ;
 	ft_memcpy(&I_L1[I_C1 + 1], I_CB, ft_strlen(I_CB));
 	I_C1 = ft_strlen(I_L1) - 1;
+}
+
+void	ft_ctrl_c(t_env *env)
+{
+	kill(env->pid, SIGKILL);
+}
+
+void	ft_ctrl_z(t_env *env)
+{
+	restart();
 }

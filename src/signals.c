@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:59:35 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 09:23:07 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/07 14:10:44 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void		restart(void)
 
 	env = (t_env *)back_up_env(NULL);
 	ft_putstr("\e[31mRestarting...");
-	execve("./minishell", NULL, E_EN);
+	ft_putchar('\n');
+	execve("./21sh", NULL, E_EN);
 	exit(0);
 }
 
@@ -60,9 +61,7 @@ static void	ft_signal_set(void)
 
 void		sig_handler(int signo)
 {
-	if (signo == SIGHUP || signo == SIGQUIT || signo == SIGKILL ||
-		signo == SIGTERM || signo == SIGUSR1 || signo == SIGTTIN ||
-		signo == SIGUSR2)
+	if (signo == SIGKILL)
 	{
 		ft_putstr("\e[31mExiting Program.\n");
 		exit(0);

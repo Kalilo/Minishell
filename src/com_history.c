@@ -112,8 +112,7 @@ int			com_history(t_env *env, int action)
 			free(I_L1);
 		if (I_L2 != NULL)
 			free(I_L2);
-		I_L1 = ft_strnew(51);
-		ft_memcpy(I_L1, I_CUR, ft_strlen(I_CUR));
+		I_L1 = ft_strdup(I_CUR);
 		I_C1 = ft_strlen(I_L1) - 1;
 		I_C2 = 0;
 	}
