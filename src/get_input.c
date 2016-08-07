@@ -35,28 +35,28 @@ void	get_key(t_env *env)
 	return ;
 }
 
-void	print_line(char *line, char *line2)
+void	print_line(t_env *env)
 {
 	static int	k;
 	int			l;
 
-	if (line == NULL && line2 == NULL)
+	if (I_L1 == NULL && I_L2 == NULL)
 		return ;
 	l = -1;
 	ft_putchar('\r');
 	while (++l < k)
 		ft_putchar(' ');
-	l = (ft_strlen(line) >= ft_termsize(0) - 4) ?
-		ft_strlen(line) + 5 - ft_termsize(0) : -1;
-	ft_putstr(SH_L);
-	while (line[++l])
-		if (*line != '\n' && *line != '\v' && *line != '\r')
-			ft_putchar(line[l]);
+	l = (ft_strlen(I_L1) >= ft_termsize(0) - 4) ?
+		ft_strlen(I_L1) + 5 - ft_termsize(0) : -1;
+	(I_TMP2 == 0) ? ft_putstr(SH_L) : ft_putstr(SH_Q);
+	while (I_L1 && I_L1[++l])
+		if (I_L1[l] != '\n' && I_L1[l] != '\v' && I_L1[l] != '\r')
+			ft_putchar(I_L1[l]);
 	k = l + 3;
 	l = -1;
-	while (line2 && line2[++l] && *line != '\n' &&
-		*line != '\v' && *line != '\r')
-		ft_putchar(line2[l]);
+	while (I_L2 && I_L2[++l])
+		if (I_L2[l] != '\n' && I_L2[l] != '\v' && I_L2[l] != '\r')
+			ft_putchar(I_L2[l]);
 	k += l + 1;
 	while (l-- > 0)
 		ft_putchar('\b');
@@ -67,9 +67,10 @@ int		get_input(t_env *env, int fd, char **line)
 	I_TMP = 23;
 	I_L1 = NULL;
 	I_C1 = -1;
-	while (I_TMP != '\r' && I_TMP != '\n' && I_TMP != '\0')
+	while ((I_TMP != '\r' && I_TMP != '\n' && I_TMP != '\0')
+		|| !check_par(env))
 	{
-		print_line(I_L1, I_L2);
+		print_line(env);
 		read(fd, &I_TMP, 1);
 		if (I_C1 + 2 % 50 == 0 || I_C1 == -1)
 			I_L1 = re_malloc(I_L1, I_C1 + 1);
