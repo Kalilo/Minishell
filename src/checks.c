@@ -61,8 +61,8 @@ int		check_line(char *line)
 
 void	ft_help(t_env *env, char **sa)
 {
-	ft_putstr("\e[31m\n");
-	ft_putstr("These are the current functions and keys you are able to use:\n");
+	ft_putstr("\e[31mThese are the current functions\n");
+	ft_putstr(" and keys you are able to use:\n");
 	ft_putstr("\e[32mecho:     displays the input string on the std output.\n");
 	ft_putstr("cd:       change the current directory to a new one.\n");
 	ft_putstr("env:      view the environment.\n");

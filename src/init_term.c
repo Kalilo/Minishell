@@ -22,10 +22,10 @@ static int	ft_init_deleg(char *str)
 
 int			init_term(void)
 {
-	int		k;
-	int		result;
-	char	*error;
-	char	*type;
+	int				k;
+	int				result;
+	char			*error;
+	char			*type;
 
 	k = 0;
 	type = getenv("TERM");
@@ -46,7 +46,7 @@ int			init_term(void)
 	return (k);
 }
 
-int		ft_termsize(int y)
+int			ft_termsize(int y)
 {
 	int				ret;
 	struct ttysize	twin;
@@ -63,36 +63,4 @@ int		ft_termsize(int y)
 		exit(0);
 	}
 	return (ret);
-}
-
-int		end_termios(t_env *all)
-{
-	write(1, "end_termios entered", 19);
-	all->term.c_lflag |= (ICANON | ECHO);
-	if (tcsetattr(0, 0, &(all->term)) == -1)
-		return (0);
-	tputs(tgetstr("te", NULL), 1, display);
-	tputs(tgetstr("ve", NULL), 1, display);
-	if (all->enter)
-		ft_print_enter(all);
-	return (1);
-}
-
-void	ft_print_enter(t_env *all)
-{
-	int	i;
-
-	i = 0;
-	while (all->ret[i])
-	{
-		ft_putstr(all->ret[i]);
-		if (all->ret[i + 1])
-			ft_putchar(32);
-		i++;
-	}
-}
-
-int		display(int c)
-{
-	return (write(2, &c, 1));
 }
