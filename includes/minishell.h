@@ -53,6 +53,7 @@
 # define E_LI env->line
 # define E_ER env->error
 # define E_A env->a
+
 # define I_HIS env->input.history
 # define I_H_POS env->input.hist_pos
 # define I_TMP env->input.temp
@@ -62,6 +63,15 @@
 # define I_C2 env->input.count2
 # define I_CUR env->input.cur
 # define I_CB env->input.clipboard
+
+# define P_SI par->sing_quote
+# define P_DB par->dble_quote
+# define P_B par->brac
+# define P_AB par->ang_brac
+# define P_SB par->sqr_brac
+# define P_STR par->str
+# define P_K par->k
+# define P_SK P_STR[P_K]
 /*
 **		Error Messages
 */
@@ -85,8 +95,7 @@
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit help"
 # define AL_SYM "$()- "
-# define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
-# define ERROR_6 else ft_putstr(E_MESS06)
+
 /*
 **		keys
 */
@@ -114,14 +123,8 @@
 # define HIST_PREV 2
 # define MAX_HIST 50
 
-# define P_SI par->sing_quote
-# define P_DB par->dble_quote
-# define P_B par->brac
-# define P_AB par->ang_brac
-# define P_SB par->sqr_brac
-# define P_STR par->str
-# define P_K par->k
-# define P_SK P_STR[P_K]
+# define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
+# define ERROR_6 else ft_putstr(E_MESS06)
 
 /*
 **Structures
