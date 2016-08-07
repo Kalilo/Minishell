@@ -6,13 +6,13 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:17:46 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/02 12:03:29 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/08/07 09:02:32 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int	allowed_character(char c)
+int		allowed_character(char c)
 {
 	if (ft_isalnum(c))
 		return (1);
@@ -21,7 +21,7 @@ int	allowed_character(char c)
 	return (0);
 }
 
-int	str_valid(t_env *env, char *str)
+int		str_valid(t_env *env, char *str)
 {
 	int		k;
 
@@ -35,7 +35,7 @@ int	str_valid(t_env *env, char *str)
 	return (1);
 }
 
-int	arg_valid(char **sa, int i)
+int		arg_valid(char **sa, int i)
 {
 	int		k;
 
@@ -61,8 +61,8 @@ int		check_line(char *line)
 
 void	ft_help(t_env *env, char **sa)
 {
-	ft_putstr("\n");
-	ft_putstr("\e[31mThese are the current functions and keys you are able to use:\n");
+	ft_putstr("\e[31m\n");
+	ft_putstr("These are the current functions and keys you are able to use:\n");
 	ft_putstr("\e[32mecho:     displays the input string on the std output.\n");
 	ft_putstr("cd:       change the current directory to a new one.\n");
 	ft_putstr("env:      view the environment.\n");
