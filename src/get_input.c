@@ -35,31 +35,50 @@ void	get_key(t_env *env)
 	return ;
 }
 
+void	print_quote(t_env *env)
+{
+	char	*line;
+	char	*temp;
+
+	if (I_L1 != NULL && I_L2 != NULL)
+		line = ft_strjoin(I_L1, I_L2);
+	else
+		line = (I_L1 != NULL) ? ft_strdup(I_L1) : ft_strdup(I_L2);
+	temp = ft_strrchr(line, '\n');
+	if (temp == NULL)
+		return ;
+	while (*++temp)
+		ft_putchar(*temp);
+	free(line);
+}
+
 void	print_line(t_env *env)
 {
-	static int	k;
+	int			k;
 	int			l;
 
 	if (I_L1 == NULL && I_L2 == NULL)
 		return ;
 	l = -1;
-	ft_putchar('\r');
-	while (++l < k)
-		ft_putchar(' ');
+	k = ft_termsize(0);
+	CL_LINE;
 	l = (ft_strlen(I_L1) >= ft_termsize(0) - 4) ?
 		ft_strlen(I_L1) + 5 - ft_termsize(0) : -1;
 	(I_TMP2 == 0) ? ft_putstr(SH_L) : ft_putstr(SH_Q);
-	while (I_L1 && I_L1[++l])
-		if (I_L1[l] != '\n' && I_L1[l] != '\v' && I_L1[l] != '\r')
-			ft_putchar(I_L1[l]);
-	k = l + 3;
-	l = -1;
-	while (I_L2 && I_L2[++l])
-		if (I_L2[l] != '\n' && I_L2[l] != '\v' && I_L2[l] != '\r')
-			ft_putchar(I_L2[l]);
-	k += l + 1;
-	while (l-- > 0)
-		ft_putchar('\b');
+	if (I_TMP2 == 0)
+	{
+		while (I_L1 && I_L1[++l])
+			if (I_L1[l] != '\n' && I_L1[l] != '\v' && I_L1[l] != '\r')
+				ft_putchar(I_L1[l]);
+		l = -1;
+		while (I_L2 && I_L2[++l])
+			if (I_L2[l] != '\n' && I_L2[l] != '\v' && I_L2[l] != '\r')
+				ft_putchar(I_L2[l]);
+		while (l-- > 0)
+			ft_putchar('\b');
+	}
+	else
+		print_quote(env);
 }
 
 int		get_input(t_env *env, int fd, char **line)
