@@ -25,7 +25,7 @@
 # include <dirent.h>
 # include <curses.h>
 # include <term.h>
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 # include <termcap.h>
 # include <termios.h>
 # include <sys/ioctl.h>
