@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ggroener <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/07/10 12:36:35 by ehansman          #+#    #+#              #
-#    Updated: 2016/07/10 12:36:37 by ehansman         ###   ########.fr        #
+#    Created: 2016/05/15 07:50:12 by ggroener          #+#    #+#              #
+#    Updated: 2016/08/07 10:29:41 by ggroener         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,140 +14,125 @@ NAME = libft.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Ofast
 
-SRC_PATH = ./src/
+INCLUDES_PATH = includes/
 
-INCLUDES = /includes/libft.h
+SRCS_PATH = srcs/
 
-SRC = $(SRC_PATH)ft_strlen.c	\
-	  $(SRC_PATH)ft_putstr.c	\
-	  $(SRC_PATH)ft_strdup.c	\
-	  $(SRC_PATH)ft_strcpy.c	\
-	  $(SRC_PATH)ft_putchar.c	\
-	  $(SRC_PATH)ft_strncpy.c	\
-	  $(SRC_PATH)ft_strchr.c	\
-	  $(SRC_PATH)ft_strrchr.c	\
-	  $(SRC_PATH)ft_strstr.c	\
-	  $(SRC_PATH)ft_strnstr.c	\
-	  $(SRC_PATH)ft_strcmp.c	\
-	  $(SRC_PATH)ft_atoi.c		\
-	  $(SRC_PATH)ft_isalpha.c	\
-	  $(SRC_PATH)ft_isdigit.c	\
-	  $(SRC_PATH)ft_isalnum.c	\
-	  $(SRC_PATH)ft_isascii.c	\
-	  $(SRC_PATH)ft_isprint.c	\
-	  $(SRC_PATH)ft_toupper.c	\
-	  $(SRC_PATH)ft_tolower.c	\
-	  $(SRC_PATH)ft_memset.c	\
-	  $(SRC_PATH)ft_bzero.c		\
-	  $(SRC_PATH)ft_memcpy.c	\
-	  $(SRC_PATH)ft_memccpy.c	\
-	  $(SRC_PATH)ft_strnew.c	\
-	  $(SRC_PATH)ft_strdel.c	\
-	  $(SRC_PATH)ft_strclr.c	\
-	  $(SRC_PATH)ft_striter.c	\
-	  $(SRC_PATH)ft_striteri.c	\
-	  $(SRC_PATH)ft_strcat.c	\
-	  $(SRC_PATH)ft_strsplit.c	\
-	  $(SRC_PATH)ft_strsub.c	\
-	  $(SRC_PATH)ft_intcmp.c	\
-	  $(SRC_PATH)ft_strjoin.c	\
-	  $(SRC_PATH)ft_2charcmp.c	\
-	  $(SRC_PATH)ft_3charcmp.c	\
-	  $(SRC_PATH)ft_memchr.c	\
-	  $(SRC_PATH)ft_memcmp.c	\
-	  $(SRC_PATH)ft_rmpadding.c	\
-	  $(SRC_PATH)ft_count_char.c		\
-	  $(SRC_PATH)ft_check_dquote.c		\
-	  $(SRC_PATH)ft_check_literal.c		\
-	  $(SRC_PATH)ft_replace_literal.c	\
-	  $(SRC_PATH)ft_atoi_isdigit.c		\
-	  $(SRC_PATH)ft_strncmp.c			\
-	  $(SRC_PATH)ft_putstr_fd.c			\
-	  $(SRC_PATH)ft_putendl_fd.c
+SRCS_NAME = ft_atoi.c \
+			ft_bzero.c \
+			ft_isalnum.c \
+			ft_isalpha.c \
+			ft_isascii.c \
+			ft_isdigit.c \
+			ft_isprint.c \
+			ft_itoa.c \
+			ft_memalloc.c \
+			ft_memccpy.c \
+			ft_memchr.c \
+			ft_memcmp.c \
+			ft_memcpy.c \
+			ft_memdel.c \
+			ft_memmove.c \
+			ft_memset.c \
+			ft_putchar.c \
+			ft_putchar_fd.c \
+			ft_putendl.c \
+			ft_putendl_fd.c \
+			ft_putnbr.c \
+			ft_putnbr_fd.c \
+			ft_putstr.c \
+			ft_putstr_fd.c \
+			ft_strcat.c \
+			ft_strchr.c \
+			ft_strclr.c \
+			ft_strcmp.c \
+			ft_strcpy.c \
+			ft_strdel.c \
+			ft_strdup.c \
+			ft_strequ.c \
+			ft_striter.c \
+			ft_striteri.c \
+			ft_strjoin.c \
+			ft_strlcat.c \
+			ft_strlen.c \
+			ft_strmap.c \
+			ft_strmapi.c \
+			ft_strncat.c \
+			ft_strncmp.c \
+			ft_strncpy.c \
+			ft_strnequ.c \
+			ft_strnew.c \
+			ft_strnstr.c \
+			ft_strrchr.c \
+			ft_strsplit.c \
+			ft_strstr.c \
+			ft_strsub.c \
+			ft_strtrim.c \
+			ft_tolower.c \
+			ft_toupper.c \
+			ft_lstnew.c \
+			ft_lstdelone.c \
+			ft_lstdel.c \
+			ft_lstadd.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
+			ft_strjoin_free1.c \
+			ft_strjoin_free2.c \
+			ft_strjoin_free3.c \
+			ft_atod.c \
+			ft_strcount.c \
+			ft_strisdigit.c \
+			ft_ltoa.c \
+			ft_ultoa.c \
+			ft_ltoa_base.c \
+			ft_ultoa_base.c \
+			ft_putwchar.c \
+			ft_putwchar_fd.c \
+			ft_putwstr.c \
+			ft_putwstr_fd.c \
+			ft_wstrlen.c \
+			ft_wstrsub.c \
+			ft_atol.c \
+			ft_putul.c \
+			ft_putul_fd.c \
+			ft_strsub_free.c \
+			ft_strtrim_free.c \
+			ft_exit.c \
+			ft_replace_literal.c \
+			ft_check_literal.c \
 
-OBJ = $(SRC_PATH)ft_strlen.o	\
-	  $(SRC_PATH)ft_putstr.o	\
-	  $(SRC_PATH)ft_strdup.o	\
-	  $(SRC_PATH)ft_strcpy.o	\
-	  $(SRC_PATH)ft_putchar.o	\
-	  $(SRC_PATH)ft_strncpy.o	\
-	  $(SRC_PATH)ft_strchr.o	\
-	  $(SRC_PATH)ft_strrchr.o	\
-	  $(SRC_PATH)ft_strstr.o	\
-	  $(SRC_PATH)ft_strnstr.o	\
-	  $(SRC_PATH)ft_strcmp.o	\
-	  $(SRC_PATH)ft_atoi.o		\
-	  $(SRC_PATH)ft_isalpha.o	\
-	  $(SRC_PATH)ft_isdigit.o	\
-	  $(SRC_PATH)ft_isalnum.o	\
-	  $(SRC_PATH)ft_isascii.o	\
-	  $(SRC_PATH)ft_isprint.o	\
-	  $(SRC_PATH)ft_toupper.o	\
-	  $(SRC_PATH)ft_tolower.o	\
-	  $(SRC_PATH)ft_memset.o	\
-	  $(SRC_PATH)ft_bzero.o		\
-	  $(SRC_PATH)ft_memcpy.o	\
-	  $(SRC_PATH)ft_memccpy.o	\
-	  $(SRC_PATH)ft_strnew.o	\
-	  $(SRC_PATH)ft_strdel.o	\
-	  $(SRC_PATH)ft_strclr.o	\
-	  $(SRC_PATH)ft_striter.o	\
-	  $(SRC_PATH)ft_striteri.o	\
-	  $(SRC_PATH)ft_strcat.o	\
-	  $(SRC_PATH)ft_strsplit.o	\
-	  $(SRC_PATH)ft_strsub.o	\
-	  $(SRC_PATH)ft_intcmp.o	\
-	  $(SRC_PATH)ft_strjoin.o	\
-	  $(SRC_PATH)ft_memchr.o	\
-	  $(SRC_PATH)ft_2charcmp.o	\
-	  $(SRC_PATH)ft_3charcmp.o	\
-	  $(SRC_PATH)ft_rmpadding.o	\
-	  $(SRC_PATH)ft_count_char.o		\
-	  $(SRC_PATH)ft_check_dquote.o		\
-	  $(SRC_PATH)ft_replace_literal.o	\
-	  $(SRC_PATH)ft_check_literal.o		\
-	  $(SRC_PATH)ft_memcmp.o	\
-	  $(SRC_PATH)ft_atoi_isdigit.o \
-	  $(SRC_PATH)ft_strncmp.o		\
-      $(SRC_PATH)ft_putstr_fd.o			\
-	  $(SRC_PATH)ft_putendl_fd.o
+SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
-define colorecho
-      @tput setaf 4
-      @echo $1
-      @tput sgr0
-endef
+OBJS_PATH = objs/
 
-all: $(NAME)
+OBJS_NAME = $(SRCS_NAME:.c=.o)
 
-$(NAME):
-	@$(call colorecho, "Crystal is preparing to make your libft")
-	@$(CC) $(FLAGS) -c $(SRC) -I $(INCLUDES)
-	@$(call colorecho, "Crystal has created all your object files...")
-	@mv *.o src/
-	@$(call colorecho, "Crystal has successfully moved all the" \
-		" object files to src/")
-	@$(call colorecho, "Crystal is preparing to create your libft..")	
-	@ar rc $(NAME) $(OBJ)
-	@ranlib	$(NAME)
-	@$(call colorecho, "Crystal has successfully created your libft")
+OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
+
+all: odir $(NAME)
+
+$(NAME): $(OBJS)
+	@echo " - Making $(NAME)"
+	@ar -rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c
+	@echo " - Compiling $<"
+	@$(CC) $(CFLAGS) -o $@ -c $< -I$(INCLUDES_PATH)
+
+odir:
+	@mkdir -p $(OBJS_PATH)
 
 clean:
-	@rm -f $(OBJ)
-	@$(call colorecho, "Crystal has removed all object files.\n")
+	@echo " - Cleaning objs"
+	@rm -f $(OBJS)
 
 fclean: clean
+	@echo " - Cleaning executable"
 	@rm -f $(NAME)
-	@$(call colorecho, "Crystal has removed the executable.\n")
-	@rm -f $(INCLUDES:.h=.h.gch)
 
 re: fclean all
-	@$(call colorecho, "Crystal has successfully recompiled your" \
-		" libft.\n")
 
-norme:
-	norminette $(SRC)
-	@$(call colorecho, "Crystal has successfully normed all your" \
-		" source files.\n")
+.PHONY: clean fclean re odir
