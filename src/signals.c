@@ -71,6 +71,7 @@ void		sig_handler(int signo)
 	if (signo == SIGTRAP || signo == SIGBUS || signo == SIGABRT ||
 		signo == SIGSEGV || signo == SIGSYS)
 	{
+		ft_putstr( "\033[2J\033[1;1H");
 		ft_putstr("\e[31mError: an unexpected error occured.\n");
 		exit(0);
 	}
