@@ -131,6 +131,7 @@
 # define MAIN_VAR t_env env; char *line; extern char **environ
 # define FILE_F FILE	*fopen()
 # define E_FILE fopen("db.txt", "r")
+# define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
 
 /*
 **Structures
