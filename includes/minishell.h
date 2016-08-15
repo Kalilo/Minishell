@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 15:23:37 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/08/15 14:02:38 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,6 +282,8 @@ char				*find_path(t_env *env, char s[]);
 */
 void				ft_echo(char **sa);
 void				ft_print_echo(char **sa);
+void    			ft_doflag(char c);
+void    			ft_dostuff(char c);
 /*
 **		ft_cd.c
 */
