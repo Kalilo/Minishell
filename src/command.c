@@ -26,7 +26,7 @@ int		do_command(t_env *env, char *com)
 	if (forked == 0)
 	{
 		arr = ft_strsplit(com, ' ');
-		execve(com, arr, E_EN);
+		execve(arr[0], arr, E_EN);
 		str = find_path(env, arr[0]);
 		if (str == NULL)
 			ft_putstr(E_MESS02);
