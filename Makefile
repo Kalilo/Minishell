@@ -6,7 +6,7 @@
 #    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/10 12:36:11 by ehansman          #+#    #+#              #
-#    Updated: 2016/08/04 11:34:44 by jlangman         ###   ########.fr        #
+#    Updated: 2016/08/22 11:41:35 by jlangman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ define colorecho2
       @tput sgr0
 endef
 
-all: $(NAME) qme
+all: $(NAME)
 
 $(NAME):
 	@$(call colorecho,"\nPreparing to compile $(NAME)...")
@@ -123,10 +123,6 @@ norme:
 	@norminette $(SRC2)
 	@norminette $(INCL)
 
-me: qme
+me:
 	@$(call colorecho2, "Author:")
 	cat -e author
-
-qme:
-	@rm -Rf author
-	@whoami > author
