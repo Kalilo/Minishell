@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:24:08 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/09 15:32:56 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/22 11:26:48 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,11 @@ char	**get_env(char **environ)
 	i = 0;
 	while (environ[i])
 	{
-		if (!(env[i] = (char *)malloc(sizeof(char) * ft_strlen(environ[i]))))
+		if (!(env[i] = ft_strdup(environ[i])))
 		{
 			ft_putstr(E_MESS04);
 			exit(0);
 		}
-		env[i] = environ[i];
 		i++;
 	}
 	env[i++] = add_own();

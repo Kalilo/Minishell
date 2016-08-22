@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:22:37 by khansman          #+#    #+#             */
-/*   Updated: 2016/07/10 13:47:02 by khansman         ###   ########.fr       */
+/*   Updated: 2016/08/22 11:28:10 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ void	ft_unsetenv(t_env *env, char **sa)
 	while (E_EN[k] != NULL &&
 			ft_strncmp(E_EN[k], sa[1], ft_strlen(sa[1])) != 0)
 		k++;
-	if (k < E_SI)
-	{
-		ft_putstr(E_MESS08);
-		return ;
-	}
 	if (E_EN[k] != NULL &&
 			ft_strncmp(E_EN[k], sa[1], ft_strlen(sa[1])) == 0)
 	{
