@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/05 10:50:07 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/05 11:34:48 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@
 # define HIST_STORE 0
 # define HIST_NEXT 1
 # define HIST_PREV 2
-# define MAX_HIST 100
+# define MAX_HIST 500
 
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
@@ -175,15 +175,9 @@ typedef struct		s_input
 **		Global Enviroment
 */
 typedef struct		s_env
-{
-	char			****cmds;
-	char			**envp;
+{	
 	pid_t			pid;
 	struct termios	term;
-	struct termios	bterm;
-	int				nb_col;
-	int				nb_row;
-	char			*term_name;
 	int				enter;
 	char			**ret;
 	char			**environ;
