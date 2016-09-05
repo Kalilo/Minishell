@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/15 14:02:38 by rlutsch          ###   ########.fr       */
+/*   Updated: 2016/09/05 10:50:07 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <sys/uio.h>
 # include <stdlib.h>
 # include <signal.h>
+# include <fcntl.h>
 # include <dirent.h>
 # include <curses.h>
 # include <term.h>
@@ -128,7 +129,7 @@
 # define HIST_STORE 0
 # define HIST_NEXT 1
 # define HIST_PREV 2
-# define MAX_HIST 50
+# define MAX_HIST 100
 
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
@@ -175,6 +176,8 @@ typedef struct		s_input
 */
 typedef struct		s_env
 {
+	char			****cmds;
+	char			**envp;
 	pid_t			pid;
 	struct termios	term;
 	struct termios	bterm;
@@ -310,6 +313,7 @@ void				restart(void);
 */
 void				*back_up_env(void *env);
 int					main(void);
+void				print_promt(void);
 /*
 **		init_term.c
 */
@@ -371,6 +375,12 @@ int					check_par(t_env *env);
 */
 void				ft_cursor(void);
 
+
+/*
+**		utils.c
+*/
+char	**find(char **src, char *to_find);
+
 /*
 **		New Functions Added
 */
@@ -380,7 +390,10 @@ void				ft_print_enter(t_env *all);
 int					display(int c);
 void				easteregg(t_env *env, char **sa);
 int					exit_shell(t_env *tmp, int i);
-void				ft_ctrl_c(t_env *env);
-void				ft_ctrl_z(t_env *env);
+void				signal_gest(void);
+void				list_history(t_env *env, char **sa);
+//void				ft_ctrl_c(int sig);
+//void				ft_ctrl_z(int sig);
+
 
 #endif
