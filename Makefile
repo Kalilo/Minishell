@@ -128,5 +128,6 @@ me: qme
 	cat -e author
 
 qme:
-	@rm -Rf author
-	@whoami > author
+	@if [ ! -f author ]; then \
+		whoami>author;git add author; \
+	fi
