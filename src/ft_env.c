@@ -66,7 +66,7 @@ char	*find_var_val(t_env *env, const char *var)
 		{
 			seeked = ft_strchr(E_EN[k], '=');
 			seeked++;
-			chdir(seeked);
+			//chdir(seeked); //appears to be missplaced
 			return (seeked);
 		}
 		k++;
