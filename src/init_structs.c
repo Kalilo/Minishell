@@ -14,6 +14,9 @@
 
 void	init_t_sub_var(t_sub_var *var)
 {
+	/*
+	** This function seg faults. Don't know why yet.
+	*/
 	var->s1 = NULL;
 	var->s2 = NULL;
 	var->s3 = NULL;

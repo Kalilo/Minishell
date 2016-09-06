@@ -157,6 +157,9 @@ typedef struct		s_sub_var
 	char			*s1;
 	char			*s2;
 	char			*s3;
+	char			*value;
+	char			*p1;
+	char			*result;
 	int				k;
 	int				l;
 	int				m;
@@ -408,8 +411,8 @@ void				init_t_env(t_env *env);
 /*
 **		sub_var.c
 */
-int					sub_var(t_env *env, char *str);
-int					scan_for_var(t_env *env, char *str);
+char				*sub_var(t_env *env, char *str);
+int					scan_for_var(t_env *env, char **str);
 
 /*
 **		New Functions Added
