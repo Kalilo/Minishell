@@ -14,7 +14,9 @@
 # define MINISHELL_H
 
 /*
-**Includes
+** --------
+** Includes
+** --------
 */
 # include <sys/wait.h>
 # include <unistd.h>
@@ -42,7 +44,9 @@
 */
 
 /*
-**Defines
+** -------
+** Defines
+** -------
 */
 
 /*
@@ -140,7 +144,9 @@
 # define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
 
 /*
-**Structures
+** ----------
+** Structures
+** ----------
 */
 
 /*
@@ -190,7 +196,9 @@ typedef struct		s_env
 }					t_env;
 
 /*
-**Prototypes
+** ----------
+** Prototypes
+** ----------
 */
 
 /*
