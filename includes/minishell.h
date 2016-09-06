@@ -150,6 +150,20 @@
 */
 
 /*
+**		Variables for sub_var
+*/
+typedef struct		s_sub_var
+{
+	char			*s1;
+	char			*s2;
+	char			*s3;
+	int				k;
+	int				l;
+	int				m;
+	int				len;
+}					t_sub_var;
+
+/*
 **		Parenthesis check
 */
 typedef struct		s_par
@@ -377,12 +391,25 @@ int					check_par(t_env *env);
 **		cursor.c
 */
 void				ft_cursor(void);
-
-
 /*
 **		utils.c
 */
-char	**find(char **src, char *to_find);
+char				**find(char **src, char *to_find);
+/*
+**		ft_unit_len.c
+*/
+int					ft_len_until(char *str, char c);
+/*
+**		init_structs.c
+*/
+void				init_t_sub_var(t_sub_var *var);
+void				init_t_par(t_par *par);
+void				init_t_env(t_env *env);
+/*
+**		sub_var.c
+*/
+int					sub_var(t_env *env, char *str);
+int					scan_for_var(t_env *env, char *str);
 
 /*
 **		New Functions Added
