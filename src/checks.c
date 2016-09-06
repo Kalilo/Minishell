@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:17:46 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 09:02:32 by khansman         ###   ########.fr       */
+/*   Updated: 2016/09/06 12:53:31 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void	ft_help(t_env *env, char **sa)
 	ft_putstr("F17:      copies the line to the right of the cursor.\n");
 	ft_putstr("F18:      copies the line.\n");
 	ft_putstr("F19:      pastes the clipboard.\n");
+	ft_putstr("history:	 Displays a list of the previous commands used.\n");
 	ft_putstr("exit:     end the program.\n");
 }

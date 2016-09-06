@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:25:14 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/06 09:30:01 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/06 12:49:57 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		main(void)
 	while (1)
 	{
 		ft_putstr(SH_L);
+		signal_gest();
 		get_input(&env, 0, &line);
 		if (check_line(line))
 		{
