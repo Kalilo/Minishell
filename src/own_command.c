@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:25:31 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 10:32:01 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/05 12:13:41 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		is_own(char *s)
 		return (1);
 	if (ft_memcmp(s, "easter", 6) == 0)
 		return (1);
+	if (ft_memcmp(s, "history", 7) == 0)
+		return (1);
 	return (0);
 }
 
@@ -47,6 +49,8 @@ void	own_command(t_env *env, char **sa, char *s)
 		ft_help(env, sa);
 	else if (ft_memcmp(sa[0], "easter", 6) == 0)
 		easteregg(env, sa);
+	else if (ft_memcmp(sa[0], "history", 7) == 0)
+		list_history(env, sa);
 	else
 		ft_putstr(E_MESS05);
 }
