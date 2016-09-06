@@ -14,11 +14,10 @@
 
 
 
-int	sub_var(t_env *env, char *str)
+char	*sub_var(t_env *env, char *str)
 {
 	t_sub_var	var;
 
-	init_t_sub_var(&var);
 	var.len = ft_strlen(str);
 	var.s1 = ft_strnew(var.len);
 	var.s2 = ft_strnew(var.len);
@@ -29,18 +28,29 @@ int	sub_var(t_env *env, char *str)
 	var.m = (var.l) ? ft_len_until(&str[var.l], ' ') : 0;
 	ft_strncpy(var.s2, &str[var.l], var.m);
 	ft_strncpy(var.s3, &str[var.l + var.m], var.len - var.m - var.l);
-	ft_putendl(var.s1);
-	ft_putendl(var.s2);
-	ft_putendl(var.s3);
+
+	printf("s1 = '%s'\n", var.s1);
+	printf("s2 = '%s'\n", var.s2);
+	printf("s3 = '%s'\n", var.s3);
+
+	var.value = ft_strdup(find_var_val(env, var.s2));
+	printf("value = '%s'\n", var.value);
+
+	var.p1 = ft_strjoin(var.s1, var.value);
+	printf("p1 = '%s'\n", var.p1);
+	var.result = ft_strjoin(var.p1, var.s3);
+	printf("result = '%s'\n", var.result);
+
+	return (var.result);
 }
 
-int	scan_for_var(t_env *env, char *str)
+int		scan_for_var(t_env *env, char **str)
 {
 	int			k;
 
 	k = -1;
-	while (str[++k])
-		if (str[k] == '$')
-			sub_var(env, str);
+	while (*str[++k])
+		if (*str[k] == '$')
+			*str = sub_var(env, *str);
 	return (k > 0);
 }
