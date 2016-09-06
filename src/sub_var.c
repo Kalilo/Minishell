@@ -23,16 +23,18 @@ int	sub_var(t_env *env, char *str)
 	var.s1 = ft_strnew(var.len);
 	var.s2 = ft_strnew(var.len);
 	var.s3 = ft_strnew(var.len);
-	var.l = ft_unit_len(str, '$');
+	var.l = ft_len_until(str, '$');
 	ft_strncpy(var.s1, str, var.l);
 	(str[var.l]) ? var.l++ : var.l;
 	var.m = (var.l) ? ft_len_until(&str[var.l], ' ') : 0;
 	ft_strncpy(var.s2, &str[var.l], var.m);
 	ft_strncpy(var.s3, &str[var.l + var.m], var.len - var.m - var.l);
-	
+	ft_putendl(var.s1);
+	ft_putendl(var.s2);
+	ft_putendl(var.s3);
 }
 
-int	find_var(t_env *env, char *str)
+int	scan_for_var(t_env *env, char *str)
 {
 	int			k;
 
