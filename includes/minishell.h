@@ -130,6 +130,7 @@
 # define HIST_NEXT 1
 # define HIST_PREV 2
 # define MAX_HIST 500
+# define LINE_LEN 300
 
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)

@@ -16,7 +16,7 @@ char	*re_malloc(char *line, size_t size)
 {
 	char				*tmp;
 
-	tmp = ft_strnew(size + 50);
+	tmp = ft_strnew(size + LINE_LEN);
 	if (size > 0)
 	{
 		tmp = ft_strcpy(tmp, line);
@@ -35,7 +35,7 @@ int		get_line(int fd, char **line)
 	read(fd, &buff, 1);
 	while (buff != '\n' && buff != '\0')
 	{
-		if (k + 1 % 50 == 0 || k == 0)
+		if (k + 1 % LINE_LEN == 0 || k == 0)
 			l = re_malloc(l, k);
 		l[k] = buff;
 		if (buff != 0)
