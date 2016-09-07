@@ -15,9 +15,9 @@ int		ft_len_until(char *str, char c)
 	int		k;
 
 	k = 0;
-	if (!str)
+	if (!str || !str[0])
 		return (0);
-	while (str[0] && str[k] != c)
+	while (str[k] != c)
 		k++;
 	return (k);
 }
