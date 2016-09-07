@@ -71,6 +71,7 @@
 
 # define P_SI par->sing_quote
 # define P_DB par->dble_quote
+# define P_BQ par->back_quote
 # define P_B par->brac
 # define P_AB par->ang_brac
 # define P_SB par->sqr_brac
@@ -98,8 +99,15 @@
 /*
 **		Stings
 */
-# define SH_L "\r\e[32m$> \e[0m\e[36m"
-# define SH_Q "\r\e[32mdquote> \e[0m\e[36m"
+# define SH_L "\r\e[32m$>\e[0m\e[36m"
+# define SH_DQ "\r\e[32mdquote>\e[0m\e[36m"
+# define SH_SQ "\r\e[32msquote>\e[0m\e[36m"
+# define SH_BQ "\r\e[32mbquote>\e[0m\e[36m"
+# define SH_BSL "\r\e[32m>\e[0m\e[36m"
+# define SH_B "\r\e[32mbrac>\e[0m\e[36m"
+# define SH_AB "\r\e[32mabrac>\e[0m\e[36m"
+# define SH_SB "\r\e[32msbrac>\e[0m\e[36m"
+# define SH_Q SH_B
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit help"
@@ -179,6 +187,7 @@ typedef struct		s_par
 	int				sqr_brac;
 	char			*str;
 	char			b_slash;
+	char			back_quote;
 	int				k;
 }					t_par;
 /*
