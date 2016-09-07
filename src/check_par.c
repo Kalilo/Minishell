@@ -69,6 +69,24 @@ static int	par_valid(t_par *par)
 	return (1);
 }
 
+void		check_b_slash(t_par *par)
+{
+	P_K = 0;
+	while (P_STR[P_K])
+	{
+		if (P_SK == '\\')
+		{
+			while (P_SK && !ft_isalnum(P_SK))
+				P_K++;
+			if (!ft_isalnum(P_SK))
+			{
+				P_B_SL = 1;
+			}
+		}
+		P_K++;
+	}
+}
+
 int			check_par(t_env *env)
 {
 	t_par	par;
@@ -81,6 +99,7 @@ int			check_par(t_env *env)
 	while (par.str[++(par.k)])
 		par_condition(&par);
 	free(par.str);
+	check_b_slash(&par);
 	result = (par_valid(&par));
 	I_TMP2 = (result) ? 0 : 1;
 	return (result);
