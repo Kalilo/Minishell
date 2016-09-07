@@ -154,13 +154,13 @@
 */
 typedef struct		s_sub_var
 {
+	char			*s;
 	char			*s1;
 	char			*s2;
 	char			*s3;
 	char			*value;
 	char			*p1;
 	char			*result;
-	int				k;
 	int				l;
 	int				m;
 	int				len;
