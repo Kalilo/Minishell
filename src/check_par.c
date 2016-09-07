@@ -45,9 +45,6 @@ static void	par_condition(t_par *par)
 		P_SI++;
 	else if (P_SK == '"')
 		P_DB++;
-	else if ((P_SK == '\\') && (P_STR[P_K + 1] == '\n') 
-			&& ((P_STR[P_K + 2] == '\0') || (P_STR[P_K + 2] == '\r')))
-		P_B_SL++;
 }
 
 static int	par_valid(t_par *par)
