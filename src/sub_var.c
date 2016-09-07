@@ -28,29 +28,22 @@ char	*sub_var(t_env *env, char *str)
 	var.m = (var.l) ? ft_len_until(&str[var.l], ' ') : 0;
 	ft_strncpy(var.s2, &str[var.l], var.m);
 	ft_strncpy(var.s3, &str[var.l + var.m], var.len - var.m - var.l);
-
-	printf("s1 = '%s'\n", var.s1);
-	printf("s2 = '%s'\n", var.s2);
-	printf("s3 = '%s'\n", var.s3);
-
 	var.value = ft_strdup(find_var_val(env, var.s2));
-	printf("value = '%s'\n", var.value);
-
 	var.p1 = ft_strjoin(var.s1, var.value);
-	printf("p1 = '%s'\n", var.p1);
 	var.result = ft_strjoin(var.p1, var.s3);
-	printf("result = '%s'\n", var.result);
-
 	return (var.result);
 }
 
-int		scan_for_var(t_env *env, char **str)
+int		scan_for_var(t_env *env, char **s)
 {
 	int			k;
+	char		*str;
 
 	k = -1;
-	while (*str[++k])
-		if (*str[k] == '$')
-			*str = sub_var(env, *str);
+	str = *s;
+	while (str[++k])
+		if (str[k] == '$')
+			str = sub_var(env, str);
+	*s = str;
 	return (k > 0);
 }
