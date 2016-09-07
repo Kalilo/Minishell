@@ -26,11 +26,16 @@ char	*sub_var(t_env *env, char *str)
 	ft_strncpy(var.s1, str, var.l);
 	(str[var.l]) ? var.l++ : var.l;
 	var.m = (var.l) ? ft_len_until(&str[var.l], ' ') : 0;
-	ft_strncpy(var.s2, &str[var.l], var.m);
-	ft_strncpy(var.s3, &str[var.l + var.m], var.len - var.m - var.l);
+	(var.m) ? ft_strncpy(var.s2, &str[var.l], var.m) : (void)var.m;
+	if (var.l + var.m < var.len)
+		ft_strncpy(var.s3, &str[var.l + var.m], var.len - (var.m - var.l));
 	var.value = ft_strdup(find_var_val(env, var.s2));
 	var.p1 = ft_strjoin(var.s1, var.value);
 	var.result = ft_strjoin(var.p1, var.s3);
+	free(var.s1);
+	free(var.s2);
+	free(var.s3);
+	free(var.value);
 	return (var.result);
 }
 
@@ -38,12 +43,20 @@ int		scan_for_var(t_env *env, char **s)
 {
 	int			k;
 	char		*str;
+	char		*tmp;
 
 	k = -1;
 	str = *s;
 	while (str[++k])
 		if (str[k] == '$')
+		{
 			str = sub_var(env, str);
+			if (*s != NULL)
+			{
+				free(*s);
+				*s = NULL;
+			}
+		}
 	*s = str;
 	return (k > 0);
 }

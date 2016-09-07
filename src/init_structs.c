@@ -20,7 +20,6 @@ void	init_t_sub_var(t_sub_var *var)
 	var->s1 = NULL;
 	var->s2 = NULL;
 	var->s3 = NULL;
-	var->k = -1;
 	var->l = 0;
 	var->len = 0;
 }
