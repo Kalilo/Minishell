@@ -75,6 +75,7 @@
 # define P_AB par->ang_brac
 # define P_SB par->sqr_brac
 # define P_STR par->str
+# define P_B_SL par->b_slash
 # define P_K par->k
 # define P_SK P_STR[P_K]
 
@@ -177,6 +178,7 @@ typedef struct		s_par
 	int				ang_brac;
 	int				sqr_brac;
 	char			*str;
+	char			b_slash;
 	int				k;
 }					t_par;
 /*

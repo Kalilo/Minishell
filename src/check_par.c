@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:55:39 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 08:55:41 by khansman         ###   ########.fr       */
+/*   Updated: 2016/09/07 12:58:23 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	init_par(t_par *par, t_env *env)
 	P_B = 0;
 	P_AB = 0;
 	P_SB = 0;
+	P_B_SL = 0;
 	if (I_L1 != NULL && I_L2 != NULL)
 		P_STR = ft_strjoin(I_L1, I_L2);
 	else
@@ -44,6 +45,9 @@ static void	par_condition(t_par *par)
 		P_SI++;
 	else if (P_SK == '"')
 		P_DB++;
+	else if ((P_SK == '\\') && (P_STR[P_K + 1] == '\n') 
+			&& ((P_STR[P_K + 2] == '\0') || (P_STR[P_K + 2] == '\r')))
+		P_B_SL++;
 }
 
 static int	par_valid(t_par *par)
@@ -58,12 +62,36 @@ static int	par_valid(t_par *par)
 		return (0);
 	if (P_DB != 0 && P_DB % 2 != 0)
 		return (0);
+	if (P_B_SL)
+		return (0);
+	if (P_B_SL)
+		return (0);
 	return (1);
+}
+
+void		check_b_slash(t_par *par)
+{
+	P_K = 0;
+	while (P_STR[P_K])
+	{
+		if (P_SK == '\\')
+		{
+			while (P_SK && !ft_isalnum(P_SK))
+				P_K++;
+			if (!ft_isalnum(P_SK))
+			{
+				P_B_SL = 1;
+			}
+		}
+		P_K++;
+	}
 }
 
 int			check_par(t_env *env)
 {
 	t_par	par;
+	char	result;
+	char	*tmp;
 
 	if (I_L1 == NULL && I_L2 == NULL)
 		return (-1);
@@ -71,6 +99,8 @@ int			check_par(t_env *env)
 	while (par.str[++(par.k)])
 		par_condition(&par);
 	free(par.str);
-	I_TMP2 = (par_valid(&par)) ? 0 : 1;
-	return (par_valid(&par));
+	check_b_slash(&par);
+	result = (par_valid(&par));
+	I_TMP2 = (result) ? 0 : 1;
+	return (result);
 }
