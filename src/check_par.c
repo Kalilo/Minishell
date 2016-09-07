@@ -20,6 +20,7 @@ static void	init_par(t_par *par, t_env *env)
 	P_AB = 0;
 	P_SB = 0;
 	P_B_SL = 0;
+	P_BQ = 0;
 	if (I_L1 != NULL && I_L2 != NULL)
 		P_STR = ft_strjoin(I_L1, I_L2);
 	else
@@ -45,6 +46,8 @@ static void	par_condition(t_par *par)
 		P_SI++;
 	else if (P_SK == '"')
 		P_DB++;
+	else if (P_SK == '`')
+		P_BQ = (P_BQ) ? 0 : 1;
 }
 
 static int	par_valid(t_par *par)
@@ -62,6 +65,8 @@ static int	par_valid(t_par *par)
 	if (P_B_SL)
 		return (0);
 	if (P_B_SL)
+		return (0);
+	if (P_BQ)
 		return (0);
 	return (1);
 }

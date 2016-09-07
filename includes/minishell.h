@@ -107,7 +107,7 @@
 # define SH_B "\r\e[32mbrac>\e[0m\e[36m"
 # define SH_AB "\r\e[32mabrac>\e[0m\e[36m"
 # define SH_SB "\r\e[32msbrac>\e[0m\e[36m"
-# define SH_Q SH_B
+# define SH_Q SH_BSL
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit help"
