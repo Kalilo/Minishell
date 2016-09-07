@@ -59,6 +59,8 @@ char	*find_var_val(t_env *env, const char *var)
 	int		k;
 
 	k = 0;
+	if (var == NULL)
+		return (NULL);
 	seeked = NULL;
 	while (E_EN[k] != NULL)
 	{
@@ -66,7 +68,6 @@ char	*find_var_val(t_env *env, const char *var)
 		{
 			seeked = ft_strchr(E_EN[k], '=');
 			seeked++;
-			//chdir(seeked); //appears to be missplaced
 			return (seeked);
 		}
 		k++;
