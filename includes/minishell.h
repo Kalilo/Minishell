@@ -14,7 +14,9 @@
 # define MINISHELL_H
 
 /*
-**Includes
+** --------
+** Includes
+** --------
 */
 # include <sys/wait.h>
 # include <unistd.h>
@@ -42,7 +44,9 @@
 */
 
 /*
-**Defines
+** -------
+** Defines
+** -------
 */
 
 /*
@@ -130,6 +134,7 @@
 # define HIST_NEXT 1
 # define HIST_PREV 2
 # define MAX_HIST 500
+# define LINE_LEN 300
 
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
@@ -139,8 +144,27 @@
 # define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
 
 /*
-**Structures
+** ----------
+** Structures
+** ----------
 */
+
+/*
+**		Variables for sub_var
+*/
+typedef struct		s_sub_var
+{
+	char			*s;
+	char			*s1;
+	char			*s2;
+	char			*s3;
+	char			*value;
+	char			*p1;
+	char			*result;
+	int				l;
+	int				m;
+	int				len;
+}					t_sub_var;
 
 /*
 **		Parenthesis check
@@ -189,7 +213,9 @@ typedef struct		s_env
 }					t_env;
 
 /*
-**Prototypes
+** ----------
+** Prototypes
+** ----------
 */
 
 /*
@@ -368,12 +394,25 @@ int					check_par(t_env *env);
 **		cursor.c
 */
 void				ft_cursor(void);
-
-
 /*
 **		utils.c
 */
-char	**find(char **src, char *to_find);
+char				**find(char **src, char *to_find);
+/*
+**		ft_unit_len.c
+*/
+int					ft_len_until(char *str, char c);
+/*
+**		init_structs.c
+*/
+void				init_t_sub_var(t_sub_var *var);
+void				init_t_par(t_par *par);
+void				init_t_env(t_env *env);
+/*
+**		sub_var.c
+*/
+char				*sub_var(t_env *env, char *str);
+int					scan_for_var(t_env *env, char **str);
 
 /*
 **		New Functions Added

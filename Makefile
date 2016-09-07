@@ -62,7 +62,7 @@ SRC2 = 	$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)cursor.c			\
 		$(SRC_PATH)list_history.c
 
-SRC = $(SRC1) $(SRC2)
+SRC = $(SRC1) $(SRC2) $(SRC_PATH)ft_unit_len.c $(SRC_PATH)init_structs.c $(SRC_PATH)sub_var.c
 
 BIN =  $(SRC:.c=.o)
 
