@@ -77,6 +77,7 @@ int		main(void)
 		{
 			if (ft_memcmp(line, CM_EXIT, CM_EXIT_S) == 0)
 				break ;
+			scan_for_var(&env, &line);
 			if (ft_strchr_f(line, '=') != 0)
 				set_env(&env, line);
 			else

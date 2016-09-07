@@ -91,7 +91,7 @@ int		get_input(t_env *env, int fd, char **line)
 	{
 		print_line(env);
 		read(fd, &I_TMP, 1);
-		if (I_C1 + 2 % 50 == 0 || I_C1 == -1)
+		if (I_C1 + 2 % LINE_LEN == 0 || I_C1 == -1)
 			I_L1 = re_malloc(I_L1, I_C1 + 1);
 		if (!ft_isprint(I_TMP) && I_TMP != '\0' && I_TMP != '\r'
 				&& I_TMP != '\n')
