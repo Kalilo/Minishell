@@ -13,12 +13,12 @@ DIR		*open_dir(char *path)
 	}
 }
 
-void	read_dir(DIR *fd, t_env *env)
+void	read_dir(DIR *fd)
 {
 	struct dirent	*dir;
 
 	if ((dir = readdir(fd)) != NULL)
-		env->dirp = dir;
+		return;
 	else
 		ft_putendl(DIR_ERROR2);
 }

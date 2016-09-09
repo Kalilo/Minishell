@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:58:22 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/05 11:40:28 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/09 13:49:40 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	key_handler2(t_env *env, char *key)
 		copy_line(env);
 	else if (!ft_strcmp(K_F17, key))
 		copy_l2(env);
+//		auto_complete();
 //	else if (CTRL_C == *key)
 //		ft_ctrl_c(env);
 //	else if (CTRL_Z == *key)
@@ -40,6 +41,7 @@ static void	key_handler2(t_env *env, char *key)
 
 void		key_handler(t_env *env, char *key)
 {
+//	put_bin(key);
 	if (*key == K_BKSP && I_C1 >= 0)
 	{
 		I_L1[I_C1--] = '\0';
@@ -63,6 +65,8 @@ void		key_handler(t_env *env, char *key)
 		ke_home(env);
 	else if (!ft_strcmp(K_F14, key) || !ft_strcmp(K_END, key))
 		ke_end(env);
+	else if (!ft_strcmp(K_TAB, key))
+		ft_putendl("hello");
 	else
 		key_handler2(env, key);
 }

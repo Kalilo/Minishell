@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/09 12:40:13 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/09 13:49:32 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@
 # define K_DOWN "\e[B"
 # define K_RIGHT "\e[C"
 # define K_LEFT "\e[D"
-# define K_TAB "\e[10~"
+# define K_TAB "\e9"
 # define K_F5 "\e[15~"
 # define K_F6 "\e[17~"
 # define K_F13 "\e[25~"
@@ -258,7 +258,7 @@ void				command(t_env *env, char *s);
  *
  */
 DIR					*open_dir(char *path);
-void				read_dir(DIR *fd, t_env *env);
+void				read_dir(DIR *fd);
 void				close_dir(DIR *fd);
 /*
 **		errors.c
