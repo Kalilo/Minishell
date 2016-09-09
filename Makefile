@@ -6,7 +6,7 @@
 #    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/10 12:36:11 by ehansman          #+#    #+#              #
-#    Updated: 2016/09/05 10:33:19 by jlangman         ###   ########.fr        #
+#    Updated: 2016/09/09 12:13:16 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ SRC1 =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)ft_env.c			\
 		$(SRC_PATH)find_path.c		\
 		$(SRC_PATH)ctrl_keys.c		\
+		$(SRC_PATH)dir_manage.c		\
+		$(SRC_PATH)auto_complete.c	\
 
 SRC2 = 	$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)ft_cd.c			\
@@ -60,7 +62,7 @@ SRC2 = 	$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)keys_cb.c		\
 		$(SRC_PATH)check_par.c		\
 		$(SRC_PATH)cursor.c			\
-		$(SRC_PATH)list_history.c
+		$(SRC_PATH)list_history.c	\
 
 SRC = $(SRC1) $(SRC2) $(SRC_PATH)ft_unit_len.c $(SRC_PATH)init_structs.c $(SRC_PATH)sub_var.c
 
