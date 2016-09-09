@@ -61,6 +61,10 @@ int		trim_arr(char ***arr)
 	return (k);
 }
 
+/*
+**	Added functionality to trim brackets.
+*/
+
 void	rm_tabs(char **str)
 {
 	int		k;
@@ -68,7 +72,7 @@ void	rm_tabs(char **str)
 	k = 0;
 	while (str[0][k] != '\0')
 	{
-		if (str[0][k] == '\t')
+		if (str[0][k] == '\t' || str[0][k] == '(' || str[0][k] == ')')
 			str[0][k] = ' ';
 		k++;
 	}
