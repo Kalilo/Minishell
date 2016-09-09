@@ -6,7 +6,7 @@
 /*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 12:35:02 by ehansman          #+#    #+#             */
-/*   Updated: 2016/07/31 12:04:26 by ehansman         ###   ########.fr       */
+/*   Updated: 2016/09/09 11:43:25 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ t_env	*ft_cd_sub(t_env *env, char *sa, int count)
 		return (env);
 	if (ft_strcmp(sa, "~") == 0)
 		cd_home(env);
+	else if (ft_strcmp(sa, "-") == 0)
+		cd_prev(env);
 	else if (ft_strcmp(sa, ".") == 0)
 		return (env);
 	else if (scan_slash(sa) == 0)
