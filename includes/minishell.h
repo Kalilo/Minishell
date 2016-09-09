@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/06 13:02:54 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/09 11:00:23 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -321,6 +321,7 @@ void    			ft_dostuff(char c);
 /*
 **		ft_cd.c
 */
+void				cd_prev(t_env *env);
 int					check(char **sa);
 void				cd_home(t_env *env);
 void				ft_cd(t_env *env, char **sa);

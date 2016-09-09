@@ -6,11 +6,20 @@
 /*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/31 12:01:12 by ehansman          #+#    #+#             */
-/*   Updated: 2016/07/31 12:04:23 by ehansman         ###   ########.fr       */
+/*   Updated: 2016/09/09 11:42:34 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+void	cd_prev(t_env *env)
+{
+	char	*prev;
+
+	prev = find_var_val(env, "OLDPWD=");
+	chdir(prev);
+	update_env(env, "PWD", prev);
+}
 
 int		check(char **sa)
 {
