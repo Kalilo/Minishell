@@ -42,6 +42,7 @@ void		restart(void)
 ** Commented out the following two lines:
 ** new->c_cc[VMIN] = 1;
 ** new->c_cc[VTIME] = 0;
+** new->c_iflag |= IGNBRK;
 */
 
 static void	ft_signal_set(void)
@@ -50,7 +51,6 @@ static void	ft_signal_set(void)
 
 	new = (struct termios *)malloc(sizeof(struct termios));
 	tcgetattr(STDIN_FILENO, new);
-	new->c_iflag |= IGNBRK;
 	new->c_lflag = ECHONL;	
 	tcsetattr(STDOUT_FILENO, TCSANOW, new);
 	free(new);
