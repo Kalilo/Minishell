@@ -9,8 +9,9 @@ void	auto_complete(void)
 	fd = open_dir("./");
 	if (fd != NULL)
 	{
-		while ((dirp = readdir(fd)) != NULL)
-			puts(dirp->d_name);
+//		while ((dirp = readdir(fd)) != NULL)
+		dirp = readdir(fd);
+		puts(dirp->d_name);
 		close_dir(fd);
 	}
 }
