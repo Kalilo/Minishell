@@ -6,7 +6,7 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 10:06:53 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/08/15 14:14:45 by rlutsch          ###   ########.fr       */
+/*   Updated: 2016/09/09 12:03:22 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ void	ft_echo(char **av)
 	while (av[x++])
 		if (av[x])
 		{
-			if (av[x][0] == '-')	
+			if (av[x][0] == '-')
 				ft_dostuff(av[x++][1]);
 			while (av[x][i])
+			{
+				if (av[x][i] == 92)
 				{
-					if (av[x][i] == 92)
-					{
-						i++;
-						ft_doflag(av[x][i++]);
-					}
-					if (av[x][i] != '"')
-						ft_putchar(av[x][i]);
 					i++;
+					ft_doflag(av[x][i++]);
 				}
+				if (av[x][i] != '"')
+					ft_putchar(av[x][i]);
+				i++;
+			}
 			i = 0;
 			ft_putstr(" ");
 		}
@@ -68,4 +68,3 @@ void	ft_dostuff(char c)
 	if (c == 'n')
 		;
 }
-
