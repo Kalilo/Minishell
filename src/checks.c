@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:17:46 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/06 12:53:31 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/10 10:38:32 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		check_line(char *line)
 void	ft_help(t_env *env, char **sa)
 {
 	ft_putstr("\e[31mThese are the current functions\n");
-	ft_putstr(" and keys you are able to use:\n");
+	ft_putstr(" and keys you are able to use:\n\n");
 	ft_putstr("\e[32mecho:     displays the input string on the std output.\n");
 	ft_putstr("cd:       change the current directory to a new one.\n");
 	ft_putstr("env:      view the environment.\n");
@@ -74,6 +74,6 @@ void	ft_help(t_env *env, char **sa)
 	ft_putstr("F17:      copies the line to the right of the cursor.\n");
 	ft_putstr("F18:      copies the line.\n");
 	ft_putstr("F19:      pastes the clipboard.\n");
-	ft_putstr("history:	 Displays a list of the previous commands used.\n");
+	ft_putstr("history:  Displays a list of the previous commands used.\n");
 	ft_putstr("exit:     end the program.\n");
 }
