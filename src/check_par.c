@@ -20,6 +20,7 @@ static void	init_par(t_par *par, t_env *env)
 	P_AB = 0;
 	P_SB = 0;
 	P_B_SL = 0;
+	P_STR = NULL;
 	if (I_L1 != NULL && I_L2 != NULL)
 		P_STR = ft_strjoin(I_L1, I_L2);
 	else
@@ -88,16 +89,16 @@ int			check_par(t_env *env)
 {
 	t_par	par;
 	char	result;
-	char	*tmp;
 
 	if (I_L1 == NULL && I_L2 == NULL)
 		return (-1);
 	init_par(&par, env);
 	while (par.str[++(par.k)])
 		par_condition(&par);
-	free(par.str);
 	check_b_slash(&par);
 	result = (par_valid(&par));
 	I_TMP2 = (result) ? 0 : 1;
+	if (par.str)
+		free(par.str);
 	return (result);
 }
