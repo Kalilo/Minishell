@@ -36,16 +36,14 @@ static void	com_hist_add(t_env *env, char *str)
 	int		k;
 	char	*s;
 
-	s = (str == NULL) ? ft_strjoin(I_L1, I_L2) : ft_strdup(str);
-	if (ft_strlen(s) == 0 || !ft_strcmp(s, I_HIS[0]))
+	if ((s = (str == NULL) ? ft_strjoin(I_L1, I_L2) : ft_strdup(str)) == NULL)
 		return ;
+	if (!ft_strcmp(s, I_HIS[0]))
+		FREE_RET;
 	k = -1;
 	while (I_HIS[++k] && k < MAX_HIST)
 		if (!ft_strcmp(I_HIS[k], s) && str != NULL)
-		{
-			free(s);
-			return ;
-		}
+			FREE_RET;
 	if (k >= MAX_HIST - 1)
 		free(I_HIS[k]);
 	while (k > 0)
@@ -102,7 +100,7 @@ int			com_history(t_env *env, int action)
 	int			k;
 
 	k = -1;
-	if (I_H_POS < 0)
+	if (I_H_POS < 0 && (I_L1 || I_L2))
 	{
 		(I_CUR) ? free(I_CUR) : (void)I_CUR;
 		I_CUR = ft_strjoin(I_L1, I_L2);
@@ -111,12 +109,10 @@ int			com_history(t_env *env, int action)
 		com_hist_add(env, NULL);
 	else if (action == HIST_NEXT && I_H_POS == 0)
 	{
-		if (I_L1 != NULL)
-			free(I_L1);
-		if (I_L2 != NULL)
-			free(I_L2);
-		I_L1 = ft_strnew(LINE_LEN);
-		ft_memcpy(I_L1, I_CUR, ft_strlen(I_CUR));
+		(I_L1 != NULL) ? free(I_L1) : (void)I_L1;
+		(I_L2 != NULL) ? free(I_L2) : (void)I_L2;
+		I_L1 = (I_CUR) ? ft_strnew(LINE_LEN) : I_L1;
+		(I_CUR) ? ft_memcpy(I_L1, I_CUR, ft_strlen(I_CUR)) : (void)I_CUR;
 		I_C1 = ft_strlen(I_L1) - 1;
 		I_C2 = 0;
 	}

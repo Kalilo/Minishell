@@ -147,10 +147,11 @@
 
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
-# define MAIN_VAR t_env env; char *line; extern char **environ
+# define MAIN_VAR t_env env; extern char **environ
 # define FILE_F FILE	*fopen()
 # define E_FILE fopen("db.txt", "r")
 # define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
+# define FREE_RET {free(s);return;}
 
 /*
 ** ----------
