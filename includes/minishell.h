@@ -18,6 +18,7 @@
 ** Includes
 ** --------
 */
+# include "prc.h"
 # include <sys/wait.h>
 # include <unistd.h>
 # include <sys/types.h>

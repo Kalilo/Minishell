@@ -18,7 +18,10 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 SRC_PATH = ./src/
 
-INCL = includes/minishell.h
+
+#INCL = includes/minishell.h
+
+INCL = -I includes/ -I libft/includes
 
 LIB_INCL = -L. libft/includes/libft.h $^ -ltermcap
 
@@ -60,9 +63,40 @@ SRC2 = 	$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)keys_cb.c		\
 		$(SRC_PATH)check_par.c		\
 		$(SRC_PATH)cursor.c			\
-		$(SRC_PATH)list_history.c
+		$(SRC_PATH)list_history.c	\
+		
 
-SRC = $(SRC1) $(SRC2) $(SRC_PATH)ft_unit_len.c $(SRC_PATH)init_structs.c $(SRC_PATH)sub_var.c
+SRC3 =	$(SRC_PATH)ft_unit_len.c \
+		$(SRC_PATH)init_structs.c \
+		$(SRC_PATH)sub_var.c	\
+		$(SRC_PATH)ft_lexer.c \
+		$(SRC_PATH)ft_read_path.c \
+		$(SRC_PATH)check_pipes.c  \
+		$(SRC_PATH)create_path.c \
+		$(SRC_PATH)ft_execevn.c \
+
+#PIPE_SRC = ft_lexer.c \
+			ft_read_path.c \
+			#ft_make_pipelst.c \
+			ft_split.c \
+			is_operands.c \
+			ft_fill_tab.c \
+			ft_pipecode_path.c \
+			ft_ar_lft.c \
+			ft_and.c \
+			ft_or.c \
+			ft_ar_rgt.c \
+			read_right_path.c \
+			read_left_path.c \
+			read_left_path_tool.c \
+			ft_semicol.c \
+			pipe.c \
+
+#PIPE_SRCS = $(addprefix pipe/, $(PIPE_SRC))
+
+#SRC += $(PIPE_SRCS)
+
+SRC += $(SRC1) $(SRC2) $(SRC3)
 
 BIN =  $(SRC:.c=.o)
 
@@ -82,7 +116,7 @@ all: $(NAME)
 
 $(NAME):
 	@$(call colorecho,"\nPreparing to compile $(NAME)...")
-	@make re -C libft/
+	#@make re -C libft/
 	@$(CC) $(C_FLAGS) -c $(SRC) $(INCL)
 	@mv *.o src/
 	@$(call colorecho,"Library has successfully compiled and object" \
@@ -96,14 +130,14 @@ clean:
 	@rm -f $(BIN)
 	@$(call colorecho, "All object files have been removed. Please" \
 		"ensure no sourcefiles have accidently been removed.")
-	@make clean -C libft/
+	#@make clean -C libft/
 
 fclean: clean
 	@rm -f $(NAME)
-	@make fclean -C libft/
+	#@make fclean -C libft/
 	@$(call colorecho, "The executables ./$(NAME) and " \
 		"./libft has been removed")
-	@rm -f $(INCL:.h=.h.gch)
+#	@rm -f $(INCL:.h=.h.gch)
 
 re: fclean all
 	@clear
@@ -123,6 +157,7 @@ norme:
 	@$(call colorecho2, "Normenette:\n")
 	@norminette $(SRC1)
 	@norminette $(SRC2)
+	@norminette $(SRC3)
 	@norminette $(INCL)
 
 qme:
