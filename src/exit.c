@@ -35,6 +35,10 @@ void	exit_prog(t_env *env)
 		free(E_LI);
 	if (E_A != NULL)
 		free(E_A);
+	if (I_L1)
+		free(I_L1);
+	if (I_L2)
+		free(I_L2);
 	end_termios(env);
 	exit(1);
 }
