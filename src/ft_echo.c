@@ -6,13 +6,13 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 10:06:53 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/09/10 13:34:14 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/10 13:39:28 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	ft_doflag(char c)
+void		ft_doflag(char c)
 {
 	if (c == 'n')
 		ft_putchar(10);
@@ -34,7 +34,7 @@ void	ft_doflag(char c)
 		ft_putchar(11);
 }
 
-void	ft_dostuff(char c)
+void		ft_dostuff(char c)
 {
 	if (c == 'n')
 		ft_putstr("\e[47m%\e[36m\e[0m");
@@ -58,7 +58,7 @@ static void	helper(char *av)
 	}
 }
 
-void	ft_echo(char **av)
+void		ft_echo(char **av)
 {
 	int	x;
 	int	flag;
