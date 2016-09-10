@@ -39,7 +39,11 @@ void	exit_prog(t_env *env)
 		free(I_L1);
 	if (I_L2)
 		free(I_L2);
-//end_termios(env);
+	if (env->l)
+		free(env->l);
+	if (I_CUR)
+		free(I_CUR);
+//	end_termios(env);
 	ft_bzero(env, sizeof(t_env));
 	exit(1);
 }
