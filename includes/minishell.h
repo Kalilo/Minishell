@@ -217,6 +217,7 @@ typedef struct		s_env
 	char			**ret;
 	char			**environ;
 	int				env_size;
+	char			*l;
 	char			*line;
 	int				error;
 	char			*a;

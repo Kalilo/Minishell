@@ -45,7 +45,7 @@ char	**get_env(char **environ)
 		}
 		i++;
 	}
-	env[i++] = add_own();
+	//env[i++] = add_own();
 	env[i] = NULL;
 	return (env);
 }
