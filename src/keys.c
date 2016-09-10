@@ -12,6 +12,11 @@
 
 #include "../includes/minishell.h"
 
+
+void		toggle_mode(t_env *env)
+{
+}
+
 /*
 **	Had a few difficalties getting the right keys for some values,
 **		thus some of the key actions will have to be assigned to keys of our
@@ -30,6 +35,8 @@ static void	key_handler2(t_env *env, char *key)
 		copy_line(env);
 	else if (!ft_strcmp(K_F17, key))
 		copy_l2(env);
+	else if (!ft_strcmp(K_F15, key))
+		toggle_mode(env);
 }
 
 /*
