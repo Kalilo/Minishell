@@ -16,6 +16,10 @@
 **	Had a few difficalties getting the right keys for some values,
 **		thus some of the key actions will have to be assigned to keys of our
 **		selection. So far the most promising are the unused F keys.
+**
+**	Old code:
+**		else if (CTRL_C == *key) ft_ctrl_c(env);
+**		else if (CTRL_Z == *key) ft_ctrl_z(env);
 */
 
 static void	key_handler2(t_env *env, char *key)
@@ -26,10 +30,6 @@ static void	key_handler2(t_env *env, char *key)
 		copy_line(env);
 	else if (!ft_strcmp(K_F17, key))
 		copy_l2(env);
-//	else if (CTRL_C == *key)
-//		ft_ctrl_c(env);
-//	else if (CTRL_Z == *key)
-//		ft_ctrl_z(env);
 }
 
 /*
