@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:56:15 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/05 11:54:25 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/10 09:53:31 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	com_hist_add(t_env *env, char *str)
 	char	*s;
 
 	s = (str == NULL) ? ft_strjoin(I_L1, I_L2) : ft_strdup(str);
-	if (ft_strlen(s) == 0 || !ft_strcmp(s, I_HIS[0]))
+	if (ft_strlen(s) == 0)// || !ft_strcmp(s, I_HIS[0]))
 		return ;
 	k = -1;
 	while (I_HIS[++k] && k < MAX_HIST)
