@@ -43,6 +43,7 @@ void		restart(void)
 ** new->c_cc[VMIN] = 1;
 ** new->c_cc[VTIME] = 0;
 ** new->c_iflag |= IGNBRK;
+** Cause of the signal issue: new->c_lflag = ECHONL;
 */
 
 static void	ft_signal_set(void)
@@ -51,7 +52,7 @@ static void	ft_signal_set(void)
 
 	new = (struct termios *)malloc(sizeof(struct termios));
 	tcgetattr(STDIN_FILENO, new);
-	new->c_lflag = ECHONL;	
+	new->c_lflag &= ~(ICANON | ECHONL);
 	tcsetattr(STDOUT_FILENO, TCSANOW, new);
 	free(new);
 	return ;
