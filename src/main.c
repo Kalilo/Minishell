@@ -92,5 +92,5 @@ int		main(void)
 			init_hist(&env, 1);
 		}
 	}
-	exit(1);
+	exit_prog(&env);
 }

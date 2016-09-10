@@ -103,7 +103,10 @@ int			com_history(t_env *env, int action)
 
 	k = -1;
 	if (I_H_POS < 0)
+	{
+		(I_CUR) ? free(I_CUR) : (void)I_CUR;
 		I_CUR = ft_strjoin(I_L1, I_L2);
+	}
 	if (action == HIST_STORE)
 		com_hist_add(env, NULL);
 	else if (action == HIST_NEXT && I_H_POS == 0)
