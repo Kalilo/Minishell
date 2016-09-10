@@ -29,6 +29,8 @@ void	exit_prog(t_env *env)
 {
 	if (E_EN != NULL)
 		free2d(E_EN);
+	if (I_HIS != NULL)
+		free2d(I_HIS);
 	if (E_LI != NULL)
 		free(E_LI);
 	if (E_A != NULL)
