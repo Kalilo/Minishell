@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 09:34:53 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 09:36:23 by khansman         ###   ########.fr       */
+/*   Updated: 2016/09/10 16:05:33 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,17 @@ void	print_line(t_env *env)
 	l = -1;
 	k = ft_termsize(0);
 	CL_LINE;
-	l = (ft_strlen(I_L1) >= ft_termsize(0) - 4) ?
-		ft_strlen(I_L1) + 5 - ft_termsize(0) : -1;
+	l = (ft_strlen(I_L1) >= ft_termsize(0) -5) ?
+		ft_strlen(I_L1) + 5 - (ft_termsize(0) -1): -1;
 	(I_TMP2 == 0) ? ft_putstr(SH_L) : ft_putstr(SH_Q);
 	if (I_TMP2 == 0)
 	{
 		while (I_L1 && I_L1[++l])
 			if (I_L1[l] != '\n' && I_L1[l] != '\v' && I_L1[l] != '\r')
 				ft_putchar(I_L1[l]);
+		k -= l + 5;
 		l = -1;
-		while (I_L2 && I_L2[++l])
+		while (I_L2 && I_L2[++l] && l < k)
 			if (I_L2[l] != '\n' && I_L2[l] != '\v' && I_L2[l] != '\r')
 				ft_putchar(I_L2[l]);
 		while (l-- > 0)
