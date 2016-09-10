@@ -43,6 +43,9 @@ void	init_hist(t_env *env, char action)
 		if (I_L2 != NULL)
 			free(I_L2);
 	}
+	if (I_CUR)
+		free(I_CUR);
+	I_CUR = NULL;
 	I_H_POS = -1;
 	I_L1 = NULL;
 	I_L2 = NULL;
