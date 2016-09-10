@@ -211,7 +211,7 @@ typedef struct		s_input
 **		Global Enviroment
 */
 typedef struct		s_env
-{	
+{
 	pid_t			pid;
 	struct termios	term;
 	int				enter;
@@ -318,8 +318,8 @@ char				*find_path(t_env *env, char s[]);
 */
 void				ft_echo(char **sa);
 void				ft_print_echo(char **sa);
-void    			ft_doflag(char c);
-void    			ft_dostuff(char c);
+void				ft_doflag(char c);
+void				ft_dostuff(char c);
 /*
 **		ft_cd.c
 */
@@ -439,8 +439,17 @@ void				easteregg(t_env *env, char **sa);
 int					exit_shell(t_env *tmp, int i);
 void				signal_gest(void);
 void				list_history(t_env *env, char **sa);
-//void				ft_ctrl_c(int sig);
-//void				ft_ctrl_z(int sig);
 
+/*
+** -----
+** Other
+** -----
+*/
+
+/*
+**		Old Prototypes:
+** void				ft_ctrl_c(int sig);
+** void				ft_ctrl_z(int sig);
+*/
 
 #endif
