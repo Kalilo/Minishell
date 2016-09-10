@@ -78,9 +78,9 @@ static void	com_hist_next(t_env *env)
 
 static void	com_hist_prev(t_env *env)
 {
-	if (I_HIS[0] == NULL || I_H_POS >= MAX_HIST)
+	if (I_HIS == NULL || I_HIS[0] == NULL || I_H_POS >= MAX_HIST)
 		return ;
-	if (I_HIS[I_H_POS] && !(I_H_POS < 0))
+	if ((I_H_POS < 0 || I_HIS[I_H_POS]) && !(I_H_POS < 0))
 		I_H_POS++;
 	else if (I_H_POS < 0)
 		I_H_POS = 0;
