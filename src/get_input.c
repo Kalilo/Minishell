@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 09:34:53 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/10 16:05:33 by rlutsch          ###   ########.fr       */
+/*   Updated: 2016/09/10 16:14:08 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	print_line(t_env *env)
 	l = -1;
 	k = ft_termsize(0);
 	CL_LINE;
-	l = (ft_strlen(I_L1) >= ft_termsize(0) -5) ?
-		ft_strlen(I_L1) + 5 - (ft_termsize(0) -1): -1;
+	l = (ft_strlen(I_L1) >= ft_termsize(0) - 5) ?
+		ft_strlen(I_L1) + 5 - (ft_termsize(0) - 1) : -1;
 	(I_TMP2 == 0) ? ft_putstr(SH_L) : ft_putstr(SH_Q);
 	if (I_TMP2 == 0)
 	{
@@ -78,8 +78,7 @@ void	print_line(t_env *env)
 		while (l-- > 0)
 			ft_putchar('\b');
 	}
-	else
-		print_quote(env);
+	else print_quote(env);
 }
 
 int		get_input(t_env *env, int fd, char **line)
