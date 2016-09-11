@@ -49,6 +49,7 @@ void	init_hist(t_env *env, char action)
 
 void	init_state(t_env *env, char **line, char ***environ)
 {
+	ft_bzero(env, sizeof(t_env));
 	sigs();
 	env->environ = get_env(*environ);
 	env->env_size = get_envsize(env->environ);
