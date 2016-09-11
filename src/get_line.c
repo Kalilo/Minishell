@@ -20,8 +20,10 @@ char	*re_malloc(char *line, size_t size)
 	if (size > 0)
 	{
 		tmp = ft_strcpy(tmp, line);
-		free(line);
+		FREE_(line);
 	}
+	else
+		FREE_(line);
 	return (tmp);
 }
 
