@@ -84,9 +84,12 @@ int		main(void)
 			if (ft_strchr_f(line, '=') != 0)
 				set_env(&env, line);
 			else
-				com_sep(&env, line);
-			if (line != NULL)
-				free(line);
+			{
+				//com_sep(&env, line);
+				link_files(&env, line);
+			}
+			//if (line != NULL)
+				//free(line);
 			line = NULL;
 			com_history(&env, HIST_STORE);
 			init_hist(&env, 1);

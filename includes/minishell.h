@@ -441,5 +441,9 @@ void				list_history(t_env *env, char **sa);
 //void				ft_ctrl_c(int sig);
 //void				ft_ctrl_z(int sig);
 
+/*
+**		links pipes to everything found in link_files.c
+*/
+void			link_files(t_env *env, char *line);
 
 #endif
