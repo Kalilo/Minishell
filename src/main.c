@@ -85,9 +85,11 @@ int		main(void)
 				set_env(&env, env.l);
 			else
 				com_sep(&env, env.l);
-			com_history(&env, HIST_STORE);
-			init_hist(&env, 1);
 		}
+		else
+			FREE_(env.l);
+		com_history(&env, HIST_STORE);
+		init_hist(&env, 1);
 		ft_signal_set();
 	}
 	exit_prog(&env);
