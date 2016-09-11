@@ -87,7 +87,7 @@ int			init_term(void)
 
 int			ft_termsize(int y)
 {
-	size_t				ret;
+	size_t			ret;
 	struct ttysize	twin;
 	struct winsize	win;
 

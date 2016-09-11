@@ -78,7 +78,8 @@ void	print_line(t_env *env)
 		while (l-- > 0)
 			ft_putchar('\b');
 	}
-	else print_quote(env);
+	else
+		print_quote(env);
 }
 
 int		get_input(t_env *env, int fd, char **line)

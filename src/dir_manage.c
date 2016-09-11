@@ -30,7 +30,7 @@ void	read_dir(DIR *fd)
 	struct dirent	*dir;
 
 	if ((dir = readdir(fd)) != NULL)
-		return;
+		return ;
 	else
 		ft_putendl(DIR_ERROR2);
 }
