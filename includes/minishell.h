@@ -155,6 +155,7 @@
 # define FREE_RET {free(s);return;}
 # define FREE_L1 if (I_L1 != NULL) {free(I_L1);I_L2=NULL;}
 # define FREE_L2 if (I_L2 != NULL) {free(I_L2);I_L2=NULL;}
+# define FREE_(x) if (x != NULL) {free(x);x=NULL;}
 
 /*
 ** ----------
