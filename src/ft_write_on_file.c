@@ -58,6 +58,6 @@ int				ft_write_on_file(t_edit **lst, char **env)
 	}
 	write(fd, "\n", 1);
 	close(fd);
-	free(file);
+	FREE_(file);
 	return (0);
 }

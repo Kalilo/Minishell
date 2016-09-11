@@ -44,7 +44,7 @@ static void		lunch_cmd(char *cmd, char **argv, t_data *data)
 	{
 		tmp = ft_strjoin(paths[i], cmd);
 		ret = execve(tmp, argv, data->env);
-		free(tmp);
+		FREE_(tmp);
 		if (ret > -1)
 			exit(0);
 	}

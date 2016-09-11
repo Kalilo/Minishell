@@ -84,16 +84,16 @@ t_pipe			*ft_make_pipelst(char *str)
 	i = 0;
 	start = NULL;
 	s = ft_strtrim(str);
-	free(str);
+	FREE_(str);
 	arr = ft_split(s);
-	free(s);
+	FREE_(s);
 	while (arr[i] != '\0')
 	{
 		make_list_item(arr[i], &start);
-		free(arr[i]);
+		FREE_(arr[i]);
 		i++;
 	}
-	free(arr[i]);
-	free(arr);
+	FREE_(arr[i]);
+	FREE_(arr);
 	return (start);
 }

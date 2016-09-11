@@ -41,9 +41,7 @@ void	init_hist(t_env *env, char action)
 		FREE_L1;
 		FREE_L2;
 	}
-	if (I_CUR)
-		free(I_CUR);
-	I_CUR = NULL;
+	FREE_(I_CUR);
 	I_H_POS = -1;
 	I_L1 = NULL;
 	I_L2 = NULL;
@@ -77,7 +75,7 @@ int		main(void)
 		ft_putstr(SH_L);
 		signal_gest();
 		get_input(&env, 0, &env.l);
-		if (check_line(env.l))
+		if (check_line(env.l) && env.l)
 		{
 			if (ft_memcmp(env.l, CM_EXIT, CM_EXIT_S) == 0)
 				break ;
@@ -86,7 +84,6 @@ int		main(void)
 				set_env(&env, env.l);
 			else
 				com_sep(&env, env.l);
-			env.l = NULL;
 			com_history(&env, HIST_STORE);
 			init_hist(&env, 1);
 		}
