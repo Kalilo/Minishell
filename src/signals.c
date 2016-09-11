@@ -46,7 +46,7 @@ void		restart(void)
 ** Cause of the signal issue: new->c_lflag = ECHONL;
 */
 
-static void	ft_signal_set(void)
+void		ft_signal_set(void)
 {
 	struct termios			*new;
 

@@ -18,7 +18,7 @@ int				store_history(t_env *env, int i)
 	int			k;
 
 	j = 0;
-	I_HPR = (char **)malloc(sizeof(char *) * i);
+	I_HPR = (char **)malloc(sizeof(char *) * (i + 1));
 	k = i - 1;
 	while (k >= 0 && j < i)
 	{
