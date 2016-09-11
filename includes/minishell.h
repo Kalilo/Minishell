@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/09 13:49:32 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:20:47 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@
 
 # define I_HIS env->input.history
 # define I_H_POS env->input.hist_pos
+# define I_HPR env->input.print
 # define I_TMP env->input.temp
 # define I_TMP2 env->input.temp2
 # define I_L1 env->input.line1
@@ -203,6 +204,7 @@ typedef struct		s_input
 {
 	char			**history;
 	int				hist_pos;
+	char			**print;
 	char			temp;
 	char			temp2;
 	char			*cur;
@@ -454,6 +456,11 @@ void				easteregg(t_env *env, char **sa);
 int					exit_shell(t_env *tmp, int i);
 void				signal_gest(void);
 void				list_history(t_env *env, char **sa);
+int					store_history(t_env *env, int i);
+int					search_history(t_env *env, char *str, int i);
+void				free_history(t_env *env);
+char				**re_2d_malloc(char **arr, size_t size);
+char				***re_3d_malloc(char ***arr, size_t size);
 //void				ft_ctrl_c(int sig);
 //void				ft_ctrl_z(int sig);
 

@@ -6,7 +6,7 @@
 #    By: ggroener <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/15 07:50:12 by ggroener          #+#    #+#              #
-#    Updated: 2016/08/07 13:31:03 by khansman         ###   ########.fr        #
+#    Updated: 2016/09/11 13:00:20 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ INCLUDES_PATH = includes/
 
 SRCS_PATH = srcs/
 
-SRCS_NAME = ft_atoi.c \
+SRCS_NAME = ft_itoa_base.c \
+			ft_atoi.c \
 			ft_bzero.c \
 			ft_isalnum.c \
 			ft_isalpha.c \
