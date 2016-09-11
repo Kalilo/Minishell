@@ -50,7 +50,7 @@ static void		lunch_cmd(char *cmd, char **argv, t_data *data)
 	}
 	ret = execve(cmd, argv, data->env);
 	if (ret == -1)
-		ft_putstr("Command can't be executed, check permission or existence\n");
+		ft_putstr(E_MESS03);
 	exit(0);
 }
 

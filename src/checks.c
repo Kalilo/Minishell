@@ -36,14 +36,6 @@ int		str_valid(t_env *env, char *str)
 	return (1);
 }
 
-//int		arg_valid(char **sa, int i)
-//{
-//	int		k;
-//
-//	k = 0;
-//	return (1);
-//}
-
 int		check_line(char *line)
 {
 	int		check;

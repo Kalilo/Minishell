@@ -62,6 +62,10 @@ void	com_sep(t_env *env, char *s)
 	}
 }
 
+/*
+**	replaced do command with link_files
+*/
+
 void	command(t_env *env, char *s)
 {
 	char	**sa;
@@ -75,6 +79,5 @@ void	command(t_env *env, char *s)
 		own_command(env, sa, s);
 	else
 		link_files(env, env->l);
-	//	do_command(env, s);
 	free2d(sa);
 }

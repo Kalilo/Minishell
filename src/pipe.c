@@ -6,7 +6,7 @@
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 08:58:05 by ggroener          #+#    #+#             */
-/*   Updated: 2016/09/06 08:58:07 by ggroener         ###   ########.fr       */
+/*   Updated: 2016/09/11 15:07:51 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static void		fork_father(int *fd, t_pipe **tmp, t_data *environ)
 	exit(0);
 }
 
-static int		fork_child(int fork_ret2, int *fd, t_pipe **tmp, t_data *environ)
+static int		fork_child(int fork_ret2, int *fd, t_pipe **tmp, \
+		t_data *environ)
 {
 	if ((fork_ret2 = fork()) == -1)
 		return (-1);
@@ -44,7 +45,8 @@ static int		fork_child(int fork_ret2, int *fd, t_pipe **tmp, t_data *environ)
 	return (0);
 }
 
-static void		end_function_pipe(int *fd, int fork_ret, int fork_ret2, int ret)
+static void		end_function_pipe(int *fd, int fork_ret, \
+		int fork_ret2, int ret)
 {
 	close(fd[1]);
 	close(fd[0]);
