@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easteregg.c                                        :+:      :+:    :+:   */
+/*   setup_pipe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/09/10 11:12:53 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/10 11:12:55 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
-
-void	easteregg(t_env *env, char **sa)
+void	setup_pipe(t_data env)
 {
-	(void)	env;
-	(void)	sa;
-	FILE	*fp;
-	int		i;
-
-	i = 0;
-	FILE_F;
-	fp = E_FILE;
-	while (i != EOF)
-	{
-		ft_putchar(i);
-		i = getc(fp);
-	}
-	fclose(fp);
+	env = 
 }

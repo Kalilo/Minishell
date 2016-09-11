@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easteregg.c                                        :+:      :+:    :+:   */
+/*   is_operands.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/09/07 13:01:16 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/07 13:01:18 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	easteregg(t_env *env, char **sa)
+int		is_space(char c)
 {
-	(void)	env;
-	(void)	sa;
-	FILE	*fp;
-	int		i;
+	return (c == ' ' || c == '\t');
+}
 
-	i = 0;
-	FILE_F;
-	fp = E_FILE;
-	while (i != EOF)
-	{
-		ft_putchar(i);
-		i = getc(fp);
-	}
-	fclose(fp);
+int		is_operands(char c)
+{
+	if (c == '>' || c == '<' || c == '&' || c == '|' ||
+		c == '(' || c == ')' || c == ';')
+		return (1);
+	else
+		return (0);
 }

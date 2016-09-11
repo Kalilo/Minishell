@@ -4,6 +4,7 @@ a.out
 *.o
 *.swp
 .*.c.*
+._*
 ._*.pdf
 ._*.txt
 *.json
@@ -14,3 +15,4 @@ a.out
 minishell
 21sh
 42sh
+*.plist

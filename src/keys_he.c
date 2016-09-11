@@ -23,10 +23,8 @@ void	ke_home(t_env *env)
 	if (I_L1 == NULL)
 		return ;
 	temp = (I_L2 != NULL) ? ft_strjoin(I_L1, I_L2) : ft_strdup(I_L1);
-	if (I_L1 != NULL)
-		free(I_L1);
-	if (I_L2 != NULL)
-		free(I_L2);
+	FREE_L1;
+	FREE_L2;
 	I_L1 = ft_strnew(LINE_LEN);
 	I_L2 = temp;
 	I_C1 = -1;

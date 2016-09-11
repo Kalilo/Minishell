@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easteregg.c                                        :+:      :+:    :+:   */
+/*   ft_or.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/09/07 14:16:00 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/07 14:16:01 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	easteregg(t_env *env, char **sa)
+int		ft_or(t_pipe **and, t_data *env)
 {
-	(void)	env;
-	(void)	sa;
-	FILE	*fp;
-	int		i;
+	int		ret;
 
-	i = 0;
-	FILE_F;
-	fp = E_FILE;
-	while (i != EOF)
-	{
-		ft_putchar(i);
-		i = getc(fp);
-	}
-	fclose(fp);
+	ret = 0;
+	if ((ret = ft_read_path((*and)->rgt, env, 1)) < 0)
+		ret = ft_read_path((*and)->lft, env, 1);
+	return (ret);
 }

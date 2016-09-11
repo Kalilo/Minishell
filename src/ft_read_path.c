@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easteregg.c                                        :+:      :+:    :+:   */
+/*   ft_read_path.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/09/07 12:12:40 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/07 12:12:42 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	easteregg(t_env *env, char **sa)
+int				ft_read_path(t_pipe *tree, t_data *env, int flag)
 {
-	(void)	env;
-	(void)	sa;
-	FILE	*fp;
-	int		i;
+	int		temp;
 
-	i = 0;
-	FILE_F;
-	fp = E_FILE;
-	while (i != EOF)
+	temp = 0;
+	if (!tree)
+		return (-1);
+	if (tree)
 	{
-		ft_putchar(i);
-		i = getc(fp);
+		if (tree->code < COM)
+			temp = ft_pipecode_path(&tree, env, flag);
+		else if (tree->code == COM)
+			temp = ft_execve(tree->name, tree->argv, env);
 	}
-	fclose(fp);
+	return (temp);
 }

@@ -6,42 +6,13 @@
 /*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/07 10:06:53 by cdebruyn          #+#    #+#             */
-/*   Updated: 2016/09/09 12:03:22 by rlutsch          ###   ########.fr       */
+/*   Updated: 2016/09/10 13:39:28 by jlangman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	ft_echo(char **av)
-{
-	int	x;
-	int	i;
-
-	x = 0;
-	i = 0;
-	while (av[x++])
-		if (av[x])
-		{
-			if (av[x][0] == '-')
-				ft_dostuff(av[x++][1]);
-			while (av[x][i])
-			{
-				if (av[x][i] == 92)
-				{
-					i++;
-					ft_doflag(av[x][i++]);
-				}
-				if (av[x][i] != '"')
-					ft_putchar(av[x][i]);
-				i++;
-			}
-			i = 0;
-			ft_putstr(" ");
-		}
-	ft_putchar('\n');
-}
-
-void	ft_doflag(char c)
+void		ft_doflag(char c)
 {
 	if (c == 'n')
 		ft_putchar(10);
@@ -63,8 +34,47 @@ void	ft_doflag(char c)
 		ft_putchar(11);
 }
 
-void	ft_dostuff(char c)
+void		ft_dostuff(char c)
 {
 	if (c == 'n')
-		;
+		ft_putstr("\e[47m%\e[36m\e[0m");
+}
+
+static void	helper(char *av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (av[i] == 92)
+		{
+			i++;
+			ft_doflag(av[i++]);
+		}
+		if (av[i] != '"')
+			ft_putchar(av[i]);
+		i++;
+	}
+}
+
+void		ft_echo(char **av)
+{
+	int	x;
+	int	flag;
+
+	flag = 0;
+	x = 0;
+	while (av[x++])
+		if (av[x])
+		{
+			if (!ft_strcmp(av[x], "-n"))
+				flag = 1;
+			else
+				helper(av[x]);
+			(av[x][0] != '-' && av[x + 1]) ? ft_putstr(" ") : (void)flag;
+		}
+	if (flag == 1)
+		ft_dostuff(av[1][1]);
+	ft_putchar('\n');
 }

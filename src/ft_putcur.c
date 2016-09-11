@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easteregg.c                                        :+:      :+:    :+:   */
+/*   ft_putcur.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/09/11 10:22:57 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/11 10:22:59 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	easteregg(t_env *env, char **sa)
+int		ft_pcur(t_edit **lst)
 {
-	(void)	env;
-	(void)	sa;
-	FILE	*fp;
+	t_edit	*tmp;
 	int		i;
 
 	i = 0;
-	FILE_F;
-	fp = E_FILE;
-	while (i != EOF)
+	tmp = *lst;
+	while (!(tmp->video) && tmp->next)
 	{
-		ft_putchar(i);
-		i = getc(fp);
+		i++;
+		tmp = tmp->next;
 	}
-	fclose(fp);
+	if (i > 0)
+		return (i);
+	return (0);
 }

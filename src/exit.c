@@ -29,10 +29,14 @@ void	exit_prog(t_env *env)
 {
 	if (E_EN != NULL)
 		free2d(E_EN);
-	if (E_LI != NULL)
-		free(E_LI);
-	if (E_A != NULL)
-		free(E_A);
-	end_termios(env);
+	if (I_HIS != NULL)
+		free2d(I_HIS);
+	FREE_L1;
+	FREE_L2;
+	if (env->l)
+		free(env->l);
+	if (I_CUR)
+		free(I_CUR);
+	ft_bzero(env, sizeof(t_env));
 	exit(1);
 }
