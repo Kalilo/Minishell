@@ -38,8 +38,8 @@ void	init_hist(t_env *env, char action)
 	}
 	else
 	{
-		(I_L1 != NULL) ? free(I_L1) : (void)I_L1;
-		(I_L2 != NULL) ? free(I_L2) : (void)I_L2;
+		FREE_L1;
+		FREE_L2;
 	}
 	if (I_CUR)
 		free(I_CUR);
