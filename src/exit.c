@@ -31,10 +31,8 @@ void	exit_prog(t_env *env)
 		free2d(E_EN);
 	if (I_HIS != NULL)
 		free2d(I_HIS);
-	if (I_L1)
-		free(I_L1);
-	if (I_L2)
-		free(I_L2);
+	FREE_L1;
+	FREE_L2;
 	if (env->l)
 		free(env->l);
 	if (I_CUR)
