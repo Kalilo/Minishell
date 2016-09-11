@@ -80,7 +80,6 @@ SRC3 =	$(SRC_PATH)ft_unit_len.c 		\
 		$(SRC_PATH)ft_pipecode_path.c 	\
 		$(SRC_PATH)ft_and.c 			\
 		$(SRC_PATH)ft_ar_lft.c 			\
-		$(SRC_PATH)ft_pipecode_path.c 	\
 		$(SRC_PATH)ft_ar_rgt.c 			\
 		$(SRC_PATH)read_left_path.c 	\
 		$(SRC_PATH)ft_sigleton.c 		\
@@ -100,6 +99,10 @@ SRC3 =	$(SRC_PATH)ft_unit_len.c 		\
 		$(SRC_PATH)ft_fill_tab.c 		\
 		$(SRC_PATH)ft_or.c 				\
 		$(SRC_PATH)ft_semicol.c 		\
+		$(SRC_PATH)ft_filled_lste.c 	\
+		$(SRC_PATH)ft_tputs.c 		 	\
+		$(SRC_PATH)link_files.c			\
+
 		
 
 #PIPE_SRCS = $(addprefix pipe/, $(PIPE_SRC))

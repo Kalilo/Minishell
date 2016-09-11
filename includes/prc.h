@@ -13,6 +13,7 @@
 #ifndef PRC_H
 # define PRC_H
 
+# include "minishell.h"
 # define ENTER (key[0] == 10 && key[1] == 0 && key[2] == 0 && key[3] == 0)
 # define FT_FILE "/.42sh_history"
 # define SEMICOL 0
@@ -28,7 +29,6 @@
 # include <termcap.h>
 # include <termios.h>
 # include <sys/ioctl.h>
-# include "minishell.h"
 
 typedef struct			s_envcp
 {
@@ -159,7 +159,6 @@ int				l_list(t_edit **lst_e);
 int				ft_pcur(t_edit **lst);
 int				ft_create_hst(t_hist **hst, char **env);
 void			ft_clean_thist(t_hist **hst);
-
 
 
 #endif
