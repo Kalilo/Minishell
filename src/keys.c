@@ -40,7 +40,6 @@ static void	key_handler2(t_env *env, char *key)
 
 void		key_handler(t_env *env, char *key)
 {
-//	put_bin(key);
 	if (*key == K_BKSP && I_C1 >= 0)
 	{
 		I_L1[I_C1--] = '\0';
