@@ -6,7 +6,7 @@
 /*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 11:19:23 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/10 10:55:25 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/11 13:45:41 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,72 +27,59 @@ static void		clear_history(t_env *env)
 	}
 }
 
-static void		search_history(char *str, t_env *env)
+static void		print_history(t_env *env, int i)
 {
-	int		i;
+	int		j;
 
-	i = -1;
-	while (I_HIS[++i])
+	j = i + 15;
+	while (I_HPR[i] && i < j)
 	{
-		if (ft_strcmp(I_HIS[i], str) == 0)
-		{
-			ft_putnbr(i);
-			ft_putstr("	");
-			ft_putendl(I_HIS[i]);
-		}
-	}	
-}
-
-static void		sort_history(t_env *env, char **sa)
-{
-	if (ft_strcmp(sa[1], "-c") == 0)
-		clear_history(env);
-	else
-	{
-		ft_putstr("\n");
-		search_history(sa[1], env);
+		ft_putendl(I_HPR[i]);
+		i++;
 	}
+
 }
 
-static void		print_history(t_env *env, int i, int j)
+static int		manage_extras(t_env *env, char *com, int i, int j)
 {
-	ft_putnbr(j);
-	ft_putstr("	");
-	ft_putendl(I_HIS[i]);
+	int		k;
+
+	k = 0;
+	if (com != NULL)
+	{
+		if (ft_strcmp(com, "-c") == 0)
+		{
+			clear_history(env);
+			return (0);
+		}
+		else
+		{
+			k = search_history(env, com, i - 1);
+			print_history(env, j - k - 1);
+			return (0);
+		}
+	}
+	return (-1);
 }
-
-/*void			store_history(t_env *env, int i, int j)
-{
-
-}*/
 
 void			list_history(t_env *env, char **sa)
 {
 	int		i;
 	int		j;
-	int		k;
 
 	i = 0;
-	j = 1;
-	if (sa[1] != NULL)
-		sort_history(env, sa);
+	j = 0;
+	ft_putstr("\n");
+	while (I_HIS[i])
+		i++;
+	j = store_history(env, i);;
+	if (manage_extras(env, sa[1], i, j) == 0)
+		return;
+	if (j > 14)
+		j = j - 15;
 	else
-	{
-		ft_putstr("\n");
-		while (I_HIS[i])
-			i++;
-		i--;
-		if (i > 14)
-		{
-			j = i - 14;
-			i = 14;
-		}
-		while (i >= 0)
-		{
-			store_history(env, i, j);
-			print_history(env, i, j);
-			i--;
-			j++;
-		}
-	}
+		j = 0;
+	print_history(env, j);
+	free_history(env);
 }
+

@@ -6,7 +6,7 @@
 #    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/10 12:36:11 by ehansman          #+#    #+#              #
-#    Updated: 2016/09/09 12:13:16 by cdebruyn         ###   ########.fr        #
+#    Updated: 2016/09/11 13:27:50 by cdebruyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,8 @@ SRC1 =	$(SRC_PATH)checks.c			\
 		$(SRC_PATH)ctrl_keys.c		\
 		$(SRC_PATH)dir_manage.c		\
 		$(SRC_PATH)auto_complete.c	\
+		$(SRC_PATH)re_malloc.c		\
+		$(SRC_PATH)sort_history.c	\
 
 SRC2 = 	$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)ft_cd.c			\

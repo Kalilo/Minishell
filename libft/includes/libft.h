@@ -6,7 +6,7 @@
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 09:26:28 by ggroener          #+#    #+#             */
-/*   Updated: 2016/08/07 10:31:45 by ggroener         ###   ########.fr       */
+/*   Updated: 2016/09/11 13:04:36 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <fcntl.h>
 
 # define BUFF_SIZE 32
+# define BASE_STR static char *b = "0123456789ABCDEF";
+# define BASE_STR2 char *base = "0123456789abcdef";
 
 typedef struct		s_list
 {
@@ -30,6 +32,16 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_base_var
+{
+	long int		num;
+	long int 		l;
+	unsigned int	k;
+	long int		ba;
+	char			*str;
+}					t_base_var;
+
+char				*ft_itoa_base(int value, int base);
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *s1, const void *s2, size_t n);
