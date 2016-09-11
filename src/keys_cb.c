@@ -55,7 +55,6 @@ void	ft_ctrl_c(t_env *env)
 
 void	ft_ctrl_z(t_env *env)
 {
-	(void) env;
-
+	(void)env;
 	restart();
 }

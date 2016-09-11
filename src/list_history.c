@@ -37,7 +37,6 @@ static void		print_history(t_env *env, int i)
 		ft_putendl(I_HPR[i]);
 		i++;
 	}
-
 }
 
 static int		manage_extras(t_env *env, char *com, int i, int j)
@@ -72,9 +71,9 @@ void			list_history(t_env *env, char **sa)
 	ft_putstr("\n");
 	while (I_HIS[i])
 		i++;
-	j = store_history(env, i);;
+	j = store_history(env, i);
 	if (manage_extras(env, sa[1], i, j) == 0)
-		return;
+		return ;
 	if (j > 14)
 		j = j - 15;
 	else
@@ -82,4 +81,3 @@ void			list_history(t_env *env, char **sa)
 	print_history(env, j);
 	free_history(env);
 }
-

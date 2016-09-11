@@ -35,8 +35,8 @@ void	ft_signal_2(t_data **data, t_edit **lst)
 
 int		ft_strcmp_spe42(const char *s1, const char *s2)
 {
-	int	result;
-	int	i;
+	int		result;
+	int		i;
 
 	if (!s1 || !s2)
 		return (0);
@@ -52,11 +52,13 @@ int		ft_strcmp_spe42(const char *s1, const char *s2)
 	}
 	return (result = *((unsigned char *)s1 + i) - *((unsigned char *)s2 + i));
 }
+
 /*
-**		goes into ft_create_hst.c 
+**		goes into ft_create_hst.c
 **		goes into ft_filled_lste.c
 **		goes into ft_tputs.c
 */
+
 void	begin_read(t_hist **hst, t_edit **lst, t_data *data)
 {
 	(void)*lst;

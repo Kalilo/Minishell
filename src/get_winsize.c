@@ -12,7 +12,10 @@
 
 #include <sys/ioctl.h>
 
-// Take out this function if not needed
+/*
+**Take out this function if not needed
+*/
+
 void	get_winsize(struct winsize *ws)
 {
 	ioctl(1, TIOCGWINSZ, ws);

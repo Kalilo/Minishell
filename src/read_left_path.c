@@ -56,8 +56,6 @@ static int	in_while(char **key, t_data **data, t_hist **hst, t_edit **lst)
 	{
 		if (read(0, *key, 6) == -1)
 			return (-1);
-		//if (ft_sigleton(0) == 0)
-		//	ft_check_key(*key, lst, hst, (*data)->env_tr);
 		if ((value = ft_sigleton(0)) == 3)
 		{
 			ft_signal_2(data, lst);

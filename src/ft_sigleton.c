@@ -12,7 +12,10 @@
 
 #include "../includes/minishell.h"
 
-// Take out this function if not needed
+/*
+**Take out this function if not needed
+*/
+
 int			ft_sigleton(int i)
 {
 	static int		value = 0;

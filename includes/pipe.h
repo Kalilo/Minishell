@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRC_H
-# define PRC_H
+#ifndef PIPE_H
+# define PIPE_H
 
-# include "minishell.h"
 # define ENTER (key[0] == 10 && key[1] == 0 && key[2] == 0 && key[3] == 0)
 # define FT_FILE "/.42sh_history"
 # define SEMICOL 0
@@ -25,66 +24,66 @@
 # define DB_AR_RIGHT 6
 # define DB_AR_LEFT 7
 # define COM 8
+# include "minishell.h"
 # include <term.h>
 # include <termcap.h>
 # include <termios.h>
 # include <sys/ioctl.h>
 
-typedef struct			s_envcp
+typedef struct		s_envcp
 {
-	char				*buf;
-	struct termios		term;
-	char				**env;
-	struct termios		term_cpy;
-}						t_envcp;
-
+	char			*buf;
+	struct termios	term;
+	char			**env;
+	struct termios	term_cpy;
+}					t_envcp;
 
 /*
-**		used in read_left_path_tool.c 
+**		used in read_left_path_tool.c
 */
 
-typedef struct			s_edit
+typedef struct		s_edit
 {
-	char				c;
-	int					video;
-	struct s_edit		*next;
-	struct s_edit		*prev;
-}						t_edit;
+	char			c;
+	int				video;
+	struct s_edit	*next;
+	struct s_edit	*prev;
+}					t_edit;
 
 /*
-**		used in read_left_path_tool.c 
+**		used in read_left_path_tool.c
 */
 
-typedef struct			s_hist
+typedef struct		s_hist
 {
-	int					valid;
-	struct s_edit		*ptr;
-	struct s_hist		*next;
-	struct s_hist		*prev;
-}						t_hist;
+	int				valid;
+	struct s_edit	*ptr;
+	struct s_hist	*next;
+	struct s_hist	*prev;
+}					t_hist;
 
-typedef struct			s_help
+typedef struct		s_help
 {
-	char				*key;
-	int					cmp;
-}						t_help;
+	char			*key;
+	int				cmp;
+}					t_help;
 
-typedef struct	s_arrlft
+typedef struct		s_arrlft
 {
-	int			fd;
-	char		*key;
-}				t_arrlft;
+	int				fd;
+	char			*key;
+}					t_arrlft;
 
-typedef struct	s_data
+typedef struct		s_data
 {
-	char		**env;
-	char		*home;
-	char		*old_pwd;
-	char		*pwd;
-	char		*path;
-	t_envcp		**env_tr;
-	t_arrlft	arrlft;
-}				t_data;
+	char			**env;
+	char			*home;
+	char			*old_pwd;
+	char			*pwd;
+	char			*path;
+	t_envcp			**env_tr;
+	t_arrlft		arrlft;
+}					t_data;
 
 typedef struct		s_pipe
 {
@@ -141,24 +140,23 @@ int					ft_check_pipes(t_pipe **lst);
 
 /*
 ** 		Function begin_read us these, see on define.
-**		used in read_left_path_tool.c 
+**		used in read_left_path_tool.c
 ** 		void	begin_read(t_hist **hst, t_edit **lst, t_data *data);
-**		goes into ft_create_hst.c 
+**		goes into ft_create_hst.c
 **		goes into ft_filled_lste.c
 **		goes into ft_tputs.c
 */
-int				ft_filled_lste(char *key, t_edit **lst, t_hist **hst);
-int				ft_create_hst(t_hist **hst, char **env);
-int				ft_tputs(char *str);
-int				ft_sigleton(int i);
-void			ft_jumprint(t_edit **lst);
-void			get_winsize(struct winsize *ws);
-char			*ft_create_string(t_edit *lst);
-int				ft_write_on_file(t_edit **lst, char **env);
-int				l_list(t_edit **lst_e);
-int				ft_pcur(t_edit **lst);
-int				ft_create_hst(t_hist **hst, char **env);
-void			ft_clean_thist(t_hist **hst);
-
+int					ft_filled_lste(char *key, t_edit **lst, t_hist **hst);
+int					ft_create_hst(t_hist **hst, char **env);
+int					ft_tputs(char *str);
+int					ft_sigleton(int i);
+void				ft_jumprint(t_edit **lst);
+void				get_winsize(struct winsize *ws);
+char				*ft_create_string(t_edit *lst);
+int					ft_write_on_file(t_edit **lst, char **env);
+int					l_list(t_edit **lst_e);
+int					ft_pcur(t_edit **lst);
+int					ft_create_hst(t_hist **hst, char **env);
+void				ft_clean_thist(t_hist **hst);
 
 #endif

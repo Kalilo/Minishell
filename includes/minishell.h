@@ -249,8 +249,8 @@ typedef struct		s_env
 */
 
 /*
- *
- */
+**  missing info
+*/
 void				auto_complete(void);
 /*
 **		checks.c
@@ -267,8 +267,8 @@ int					do_command(t_env *env, char *com);
 void				com_sep(t_env *env, char *s);
 void				command(t_env *env, char *s);
 /*
- *
- */
+**  missing info
+*/
 DIR					*open_dir(char *path);
 void				read_dir(DIR *fd);
 void				close_dir(DIR *fd);
@@ -471,13 +471,11 @@ int					search_history(t_env *env, char *str, int i);
 void				free_history(t_env *env);
 char				**re_2d_malloc(char **arr, size_t size);
 char				***re_3d_malloc(char ***arr, size_t size);
-//void				ft_ctrl_c(int sig);
-//void				ft_ctrl_z(int sig);
 
 /*
 **		links pipes to everything found in link_files.c
 */
-void			link_files(t_env *env, char *line);
+void				link_files(t_env *env, char *line);
 
 /*
 ** -----

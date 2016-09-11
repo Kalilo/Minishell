@@ -14,12 +14,12 @@
 
 void	easteregg(t_env *env, char **sa)
 {
-	(void)	env;
-	(void)	sa;
 	FILE	*fp;
 	int		i;
 
 	i = 0;
+	(void)env;
+	(void)sa;
 	FILE_F;
 	fp = E_FILE;
 	while (i != EOF)

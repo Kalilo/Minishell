@@ -12,7 +12,10 @@
 
 #include "../includes/minishell.h"
 
-// Take out this function if not needed
+/*
+**Take out this function if not needed
+*/
+
 void		ft_jumprint(t_edit **lst)
 {
 	int				jump;
@@ -22,7 +25,6 @@ void		ft_jumprint(t_edit **lst)
 	get_winsize(&ws);
 	i = 0;
 	jump = ((l_list(lst) + 3) / ws.ws_col) - ((ft_pcur(lst) + 3) / ws.ws_col);
-	//if (!((l_list(lst) + 3) % ws.ws_col) == 0)
 	if (((l_list(lst) + 3) % ws.ws_col) != 0)
 	{
 		while (i < jump)

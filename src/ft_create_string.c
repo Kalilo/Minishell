@@ -12,7 +12,10 @@
 
 #include "../includes/minishell.h"
 
-// Take out this function if not needed
+/*
+**Take out this function if not needed
+*/
+
 char		*ft_create_string(t_edit *lst)
 {
 	int		i;

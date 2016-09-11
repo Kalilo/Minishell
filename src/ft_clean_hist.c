@@ -12,7 +12,10 @@
 
 #include "../includes/minishell.h"
 
-//Try to take out!
+/*
+**Take out this function if not needed
+*/
+
 static void		clean_lst_e(t_edit **lst)
 {
 	t_edit		*tmp;

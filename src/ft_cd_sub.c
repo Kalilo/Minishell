@@ -42,8 +42,8 @@ char	*clip_path(char *path, int count)
 	int		i;
 	int		j;
 	char	*new_path;
-	(void) count;
 
+	(void)count;
 	i = 0;
 	j = 0;
 	new_path = (char *)malloc(sizeof(char *) * ft_strlen(path));

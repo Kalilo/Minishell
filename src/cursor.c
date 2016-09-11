@@ -15,8 +15,8 @@
 void	ft_cursor(void)
 {
 	struct termios	*new;
-	static int		k = 0;
-	
+	static int		k;
+
 	new = NULL;
 	if (k != 0)
 	{

@@ -12,8 +12,6 @@
 
 #include "../includes/minishell.h"
 
-
-
 char	*sub_var(t_env *env, char *str)
 {
 	t_sub_var	var;
@@ -28,7 +26,7 @@ char	*sub_var(t_env *env, char *str)
 	var.m = (var.l) ? ft_len_until(&str[var.l], ' ') : 0;
 	(var.m) ? ft_strncpy(var.s2, &str[var.l], var.m) : (void)var.m;
 	if (var.l + var.m < var.len)
-	ft_strncpy(var.s3, &str[var.l + var.m], var.len - (var.m - var.l));
+		ft_strncpy(var.s3, &str[var.l + var.m], var.len - (var.m - var.l));
 	var.value = find_var_val(env, var.s2);
 	var.p1 = (var.value) ? ft_strjoin(var.s1, var.value) : ft_strdup(var.s1);
 	var.result = ft_strjoin(var.p1, var.s3);

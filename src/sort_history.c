@@ -14,8 +14,8 @@
 
 int				store_history(t_env *env, int i)
 {
-	int 	j;
-	int		k;
+	int			j;
+	int			k;
 
 	j = 0;
 	I_HPR = (char **)malloc(sizeof(char *) * i);
@@ -26,12 +26,12 @@ int				store_history(t_env *env, int i)
 				ft_itoa(j + 1), "	"), I_HIS[k]);
 		k--;
 		j++;
-	}	
+	}
 	I_HPR[j] = NULL;
 	return (j);
 }
 
-int			search_history(t_env *env, char *str, int i)
+int				search_history(t_env *env, char *str, int i)
 {
 	while (i >= 0)
 	{
@@ -42,14 +42,14 @@ int			search_history(t_env *env, char *str, int i)
 	return (i);
 }
 
-void	free_history(t_env *env)
+void			free_history(t_env *env)
 {
-	int		j;
+	int			j;
 
 	j = 0;
 	if (I_HPR != NULL)
 	{
-		while(I_HPR[j])
+		while (I_HPR[j])
 		{
 			if (I_HPR[j] != NULL)
 			{
