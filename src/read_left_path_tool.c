@@ -62,6 +62,6 @@ void	begin_read(t_hist **hst, t_edit **lst, t_data *data)
 	(void)*lst;
 	ft_create_hst(hst, data->env);
 	ft_filled_lste("", lst, hst);
-	ft_putstr_fd("Heredoc> ", STDIN_FILENO);
+	ft_putstr_fd("heredoc> ", STDIN_FILENO);
 	ft_tputs("sc");
 }

@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void			free_list(t_pipe **lst)
+static void			free_pipe_list(t_pipe **lst)
 {
 	t_pipe	*tmp;
 	int		i;
@@ -37,7 +37,7 @@ static void			free_list(t_pipe **lst)
 	}
 }
 
-static int			add_next_to_argv(t_pipe **lst)
+static int			add_to_argv(t_pipe **lst)
 {
 	t_pipe	*tmp;
 	t_pipe	*tmp2;
@@ -65,20 +65,20 @@ static int			add_next_to_argv(t_pipe **lst)
 	return (0);
 }
 
-static int			clean_list(t_pipe **lst)
+static int			clean_pipe_list(t_pipe **lst)
 {
 	t_pipe	*tmp;
 
 	tmp = *lst;
 	while (tmp)
 	{
-		add_next_to_argv(&tmp);
+		add_to_argv(&tmp);
 		tmp = tmp->next;
 	}
 	return (1);
 }
 
-static int			check_list(t_pipe **lst)
+static int			check_pipe_list(t_pipe **lst)
 {
 	t_pipe	*tmp;
 	int		i;
@@ -111,20 +111,20 @@ int					ft_lexer(char *str, t_data *env)
 {
 	int		ret;
 	t_pipe	*lst;
-	t_pipe	*tree;
+	t_pipe	*path;
 	int		i;
 
 	ret = 0;
 	i = 0;
 	lst = ft_make_pipelst(str);
-	clean_list(&lst);
-	if (!check_list(&lst))
+	clean_pipe_list(&lst);
+	if (!check_pipe_list(&lst))
 	{
-		free_list(&lst);
+		free_pipe_list(&lst);
 		return (0);
 	}
-	tree = ft_create_path(&lst);
-	ret = ft_read_path(tree, env, 1);
-	free_list(&lst);
+	path = ft_create_path(&lst);
+	ret = ft_read_path(path, env, 1);
+	free_pipe_list(&lst);
 	return (1);
 }

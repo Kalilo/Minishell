@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void		add_end_2(char *str, int prior, int code, t_pipe **start)
+static void		init_add_to_end(char *str, int prior, int code, t_pipe **start)
 {
 	t_pipe	*tmp;
 
@@ -32,7 +32,7 @@ static void		add_end_2(char *str, int prior, int code, t_pipe **start)
 	tmp->next->nbr = 0;
 }
 
-static void		add_end(char *str, int prior, int code, t_pipe **start)
+static void		add_to_end(char *str, int prior, int code, t_pipe **start)
 {
 	if (!*start)
 	{
@@ -49,29 +49,29 @@ static void		add_end(char *str, int prior, int code, t_pipe **start)
 		(*start)->stat = 0;
 	}
 	else
-		add_end_2(str, prior, code, start);
+		init_add_to_end(str, prior, code, start);
 }
 
 static void		make_list_item(char *str, t_pipe **start)
 {
 	if (str[0] == ';')
-		add_end(str, 0, SEMICOL, start);
+		add_to_end(str, 0, SEMICOL, start);
 	else if (str[0] == '>' && str[1] == '>')
-		add_end(str, 3, DB_AR_RIGHT, start);
+		add_to_end(str, 3, DB_AR_RIGHT, start);
 	else if (str[0] == '|' && str[1] == '|')
-		add_end(str, 1, OR, start);
+		add_to_end(str, 1, OR, start);
 	else if (str[0] == '&' && str[1] == '&')
-		add_end(str, 1, AND, start);
+		add_to_end(str, 1, AND, start);
 	else if (str[0] == '>')
-		add_end(str, 3, AR_RIGHT, start);
+		add_to_end(str, 3, AR_RIGHT, start);
 	else if (str[0] == '<' && str[1] == '<')
-		add_end(str, 3, DB_AR_LEFT, start);
+		add_to_end(str, 3, DB_AR_LEFT, start);
 	else if (str[0] == '<')
-		add_end(str, 3, AR_LEFT, start);
+		add_to_end(str, 3, AR_LEFT, start);
 	else if (str[0] == '|' && str[1] == '\0')
-		add_end(str, 2, PIPE, start);
+		add_to_end(str, 2, PIPE, start);
 	else
-		add_end(str, 4, COM, start);
+		add_to_end(str, 4, COM, start);
 }
 
 t_pipe			*ft_make_pipelst(char *str)
