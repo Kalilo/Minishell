@@ -12,7 +12,7 @@
 
 NAME = 42sh
 
-CFLAGS = -Wall -Wextra -Werror -g 
+CFLAGS = -Wall -Wextra -Werror -g -g3
 
 CC = gcc
 
