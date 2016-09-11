@@ -61,8 +61,43 @@ SRCS_NAME2 =	ft_echo.c \
 
 SRCS_NAME3 = ft_unit_len.c \
 			 init_structs.c \
+			 sub_var.c		\
 
-SRCS_NAME4 = sub_var.c
+SRCS_NAME4 =	ft_unit_len.c 		\
+				init_structs.c 		\
+				sub_var.c			\
+				ft_lexer.c 			\
+				ft_read_path.c 		\
+				check_pipes.c  		\
+				create_path.c 		\
+				ft_execve.c 		\
+				ft_get_pipe_path.c 	\
+				ft_make_pipelst.c 	\
+				ft_pipecode_path.c 	\
+				ft_and.c 			\
+				ft_ar_lft.c 		\
+				ft_ar_rgt.c 		\
+				read_left_path.c 	\
+				ft_sigleton.c 		\
+				ft_jumprint.c 		\
+				get_winsize.c		\
+				ft_create_string.c  \
+				ft_write_on_file.c	\
+				l_list.c			\
+				ft_putcur.c 		\
+				read_right_path.c 	\
+				read_left_path_tool.c \
+				ft_create_hst.c 	\
+				ft_clean_hist.c		\
+				pipe.c 				\
+				ft_split.c 			\
+				is_operands.c 		\
+				ft_fill_tab.c 		\
+				ft_or.c 			\
+				ft_semicol.c 		\
+				ft_filled_lste.c 	\
+				ft_tputs.c 		 	\
+				link_files.c		\
 
 SRCS4 = $(addprefix $(SRCS_PATH), $(SRCS_NAME4))
 
@@ -80,20 +115,12 @@ OBJS_NAME = $(SRCS_NAME1:.c=.o) $(SRCS_NAME2:.c=.o) $(SRCS_NAME3:.c=.o) $(SRCS_N
 
 OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 
-#uncomment these to work on Mac and comment to work on Linux.
 LIBRARY = -L libft/ -lft -ltermcap
 
 INCLUDES = -I includes/ -I libft/includes
 
-#uncomment these to work on Linux and comment to work on Mac.
-#LIBRARY = -L /usr/X11/lib -lmlx -lX11 -lm -lXext -L libft/ -lft
- 
-#INCLUDES = -I includes/ -I libft/includes -I /usr/X11/include
-
-HEADER = 	$(INCLUDES_PATH)colours.h \
-			$(INCLUDES_PATH)light.h \
-			$(INCLUDES_PATH)vector.h \
-			$(INCLUDES_PATH)rt.h \
+HEADER = 	$(INCLUDES_PATH)minishell.h \
+			$(INCLUDES_PATH)pipe.h \
 
 all: qme odir $(NAME)
 
@@ -140,7 +167,7 @@ fclean: clean
 re: fclean all
 	@$(call colourecho, "re Done!")
 
-format: norme me
+format: norm me
 
 norm:
 	@clear
@@ -153,7 +180,7 @@ norm:
 
 qme:
 	@rm -Rf author
-	@echo cdebruin > author
+	@echo cdebruyn > author
 	@echo ggroener >> author
 	@echo khansman >> author
 	@echo jlangman >> author

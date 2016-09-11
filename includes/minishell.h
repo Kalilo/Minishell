@@ -18,6 +18,7 @@
 ** Includes
 ** --------
 */
+# include "pipe.h"
 # include <sys/wait.h>
 # include <unistd.h>
 # include <sys/types.h>
@@ -151,6 +152,7 @@
 # define FILE_F FILE	*fopen()
 # define E_FILE fopen("db.txt", "r")
 # define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
+# define BUF_SIZE 1024
 
 # define FREE_RET {free(s);return;}
 # define FREE_L1 if (I_L1 != NULL) {free(I_L1);I_L2=NULL;}
@@ -443,6 +445,11 @@ void				easteregg(t_env *env, char **sa);
 int					exit_shell(t_env *tmp, int i);
 void				signal_gest(void);
 void				list_history(t_env *env, char **sa);
+
+/*
+**		links pipes to everything found in link_files.c
+*/
+void			link_files(t_env *env, char *line);
 
 /*
 ** -----
