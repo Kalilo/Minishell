@@ -87,7 +87,7 @@ int		main(void)
 			//if (line != NULL)
 				//free(line);
 			env.l = NULL;
-				com_sep(&env, env.l);
+				//com_sep(&env, env.l);
 			if (env.l != NULL)
 				free(env.l);
 			env.l = NULL;
