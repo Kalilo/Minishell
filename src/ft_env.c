@@ -6,7 +6,7 @@
 /*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 15:17:46 by ehansman          #+#    #+#             */
-/*   Updated: 2016/07/10 15:23:21 by ehansman         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:14:02 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ char	*find_var_val(t_env *env, const char *var)
 
 void	update_env(t_env *env, char *var, char *n)
 {
-	char	*val;
 	char	*temp;
 	int		k;
 

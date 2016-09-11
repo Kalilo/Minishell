@@ -14,18 +14,18 @@
 
 static void	signal_ctrl_c(int sig)
 {
-	(void) sig;
+	(void)sig;
 	ft_putstr("\b \b\b \b\n");
-	ft_putstr(SH_L); 
+	ft_putstr(SH_L);
 }
 
 static void	signal_ctrl_z(int sig)
 {
-	(void) sig;
+	(void)sig;
 	ft_putstr("\b \b\b \b");
 }
 
-void	signal_gest(void)
+void		signal_gest(void)
 {
 	signal(SIGINT, signal_ctrl_c);
 	signal(SIGTSTP, signal_ctrl_z);

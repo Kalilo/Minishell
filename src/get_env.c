@@ -12,6 +12,10 @@
 
 #include "../includes/minishell.h"
 
+/*
+**		No longer using this function
+*/
+
 char	*add_own(void)
 {
 	char	*s;
@@ -45,7 +49,6 @@ char	**get_env(char **environ)
 		}
 		i++;
 	}
-	env[i++] = add_own();
 	env[i] = NULL;
 	return (env);
 }

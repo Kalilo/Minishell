@@ -6,7 +6,7 @@
 /*   By: ehansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 12:35:02 by ehansman          #+#    #+#             */
-/*   Updated: 2016/09/09 11:43:25 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:31:56 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*clip_path(char *path, int count)
 	int		i;
 	int		j;
 	char	*new_path;
+	(void) count;
 
 	i = 0;
 	j = 0;

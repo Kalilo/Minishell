@@ -45,6 +45,7 @@ static int	in_while(char **key, t_data **data, t_hist **hst, t_edit **lst)
 	int		value;
 
 	value = 0;
+	(void)hst;
 	ft_bzero(*key, 7);
 	if ((value = ft_sigleton(0)) > 0)
 	{
