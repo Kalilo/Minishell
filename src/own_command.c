@@ -53,4 +53,5 @@ void	own_command(t_env *env, char **sa, char *s)
 		list_history(env, sa);
 	else
 		ft_putstr(E_MESS05);
+	FREE_(s);
 }
