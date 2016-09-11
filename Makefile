@@ -36,6 +36,7 @@ SRCS_NAME1 =	checks.c \
 				ft_env.c \
 				find_path.c \
 				ctrl_keys.c \
+				dir_manage.c	\
 
 SRCS_NAME2 =	ft_echo.c \
 				ft_cd.c \
@@ -56,7 +57,8 @@ SRCS_NAME2 =	ft_echo.c \
 				keys_cb.c \
 				check_par.c \
 			   	cursor.c \
-				list_history.c
+				list_history.c\
+				auto_complete.c	\
 
 
 SRCS_NAME3 = 	ft_unit_len.c \
@@ -76,6 +78,8 @@ SRCS_NAME3 = 	ft_unit_len.c \
 				read_left_path.c 	\
 				ft_sigleton.c 		\
 				ft_jumprint.c 		\
+				re_malloc.c		\
+				sort_history.c	\
 
 SRCS_NAME4 =	get_winsize.c		\
 				ft_create_string.c  \
