@@ -82,14 +82,12 @@ int		main(void)
 			if (ft_strchr_f(env.l, '=') != 0)
 				set_env(&env, env.l);
 			else
-				//com_sep(&env, line);
-				link_files(&env, env.l);
+				com_sep(&env, env.l);
 			//if (line != NULL)
 				//free(line);
 			env.l = NULL;
-				//com_sep(&env, env.l);
-			if (env.l != NULL)
-				free(env.l);
+			//if (env.l != NULL)
+			//	free(env.l);
 			env.l = NULL;
 			com_history(&env, HIST_STORE);
 			init_hist(&env, 1);

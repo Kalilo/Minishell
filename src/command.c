@@ -76,7 +76,8 @@ void	command(t_env *env, char *s)
 		if (is_own(sa[0]))
 			own_command(env, sa, s);
 		else
-			do_command(env, s);
+			link_files(env, env->l);
+	//		do_command(env, s);
 //	}
 //	else
 //		error(1);
