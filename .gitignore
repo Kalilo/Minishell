@@ -4,6 +4,7 @@ a.out
 *.o
 *.swp
 .*.c.*
+._*
 ._*.pdf
 ._*.txt
 *.json
