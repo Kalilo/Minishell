@@ -138,7 +138,7 @@ define colourecho2
 endef
 
 $(NAME): $(OBJS)
-	#@Make -C libft
+	@Make -C libft
 	@$(call colourecho, " - Making $(NAME)")
 	@clear
 	@$(CC) $(CFLAGS) -o $(NAME) $^ $(LIBRARY) $(INCLUDES) -I$(INCLUDES_PATH)
@@ -154,13 +154,13 @@ odir:
 	@mkdir -p $(OBJS_PATH)
 
 clean:
-	#@Make clean -C libft
+	@Make clean -C libft
 	@$(call colourecho, " - Clearing object files")
 	@rm -f $(OBJS)
 	@$(call colourecho, "clean done!")
 
 fclean: clean
-	#@Make fclean -C libft
+	@Make fclean -C libft
 	@$(call colourecho, "Clearing executable files")
 	@rm -f $(NAME)
 	@$(call colourecho, "fclean done")

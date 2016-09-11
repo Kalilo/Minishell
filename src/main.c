@@ -83,8 +83,6 @@ int		main(void)
 				set_env(&env, env.l);
 			else
 				com_sep(&env, env.l);
-			//if (line != NULL)
-				//free(line);
 			env.l = NULL;
 			//if (env.l != NULL)
 			//	free(env.l);

@@ -10,8 +10,8 @@ int				store_history(t_env *env, int i)
 	k = i - 1;
 	while (k >= 0 && j < i)
 	{
-		I_HPR[j] = ft_strdup(ft_strjoin_free1(ft_strjoin_free1\
-					(ft_itoa(j + 1), "	"), I_HIS[k]));
+		I_HPR[j] = ft_strjoin_free1(ft_strjoin_free1(\
+				ft_itoa(j + 1), "	"), I_HIS[k]);
 		k--;
 		j++;
 	}	
