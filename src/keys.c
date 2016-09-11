@@ -30,6 +30,8 @@ static void	key_handler2(t_env *env, char *key)
 		copy_line(env);
 	else if (!ft_strcmp(K_F17, key))
 		copy_l2(env);
+	else if (!ft_strcmp(K_TAB, key))
+		ft_putendl("hello");
 }
 
 /*
@@ -63,8 +65,6 @@ void		key_handler(t_env *env, char *key)
 		ke_home(env);
 	else if (!ft_strcmp(K_F14, key) || !ft_strcmp(K_END, key))
 		ke_end(env);
-	else if (!ft_strcmp(K_TAB, key))
-		ft_putendl("hello");
 	else
 		key_handler2(env, key);
 }
