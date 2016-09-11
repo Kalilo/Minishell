@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:36:04 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/09 11:00:23 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:20:47 by cdebruyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # include <sys/stat.h>
 # include <stdio.h>
 # include <string.h>
+# include <dirent.h>
 
 /*
 **Forbidden:
@@ -61,6 +62,7 @@
 
 # define I_HIS env->input.history
 # define I_H_POS env->input.hist_pos
+# define I_HPR env->input.print
 # define I_TMP env->input.temp
 # define I_TMP2 env->input.temp2
 # define I_L1 env->input.line1
@@ -97,6 +99,10 @@
 # define E_MESS11 ">>Take a deep breath and try again.<<\n"
 # define E_MESS12 E_MESS03 E_MESS11
 
+# define DIR_ERROR1 "\e[31mError: Invalid directory pathname"
+# define DIR_ERROR2 "\e[31mError: Directory not accessible."
+# define DIR_ERROR3 "\e[31mError: Directory cannot be closed."
+
 /*
 **		Stings
 */
@@ -122,6 +128,7 @@
 # define K_DOWN "\e[B"
 # define K_RIGHT "\e[C"
 # define K_LEFT "\e[D"
+# define K_TAB "\e9"
 # define K_F5 "\e[15~"
 # define K_F6 "\e[17~"
 # define K_F13 "\e[25~"
@@ -204,6 +211,7 @@ typedef struct		s_input
 {
 	char			**history;
 	int				hist_pos;
+	char			**print;
 	char			temp;
 	char			temp2;
 	char			*cur;
@@ -220,6 +228,7 @@ typedef struct		s_env
 {
 	pid_t			pid;
 	struct termios	term;
+	struct dirent	*dirp;
 	int				enter;
 	char			**ret;
 	char			**environ;
@@ -238,6 +247,10 @@ typedef struct		s_env
 */
 
 /*
+ *
+ */
+void				auto_complete(void);
+/*
 **		checks.c
 */
 int					allowed_character(char c);
@@ -251,6 +264,12 @@ void				ft_help(t_env *env, char **sa);
 int					do_command(t_env *env, char *com);
 void				com_sep(t_env *env, char *s);
 void				command(t_env *env, char *s);
+/*
+ *
+ */
+DIR					*open_dir(char *path);
+void				read_dir(DIR *fd);
+void				close_dir(DIR *fd);
 /*
 **		errors.c
 */
@@ -445,6 +464,13 @@ void				easteregg(t_env *env, char **sa);
 int					exit_shell(t_env *tmp, int i);
 void				signal_gest(void);
 void				list_history(t_env *env, char **sa);
+int					store_history(t_env *env, int i);
+int					search_history(t_env *env, char *str, int i);
+void				free_history(t_env *env);
+char				**re_2d_malloc(char **arr, size_t size);
+char				***re_3d_malloc(char ***arr, size_t size);
+//void				ft_ctrl_c(int sig);
+//void				ft_ctrl_z(int sig);
 
 /*
 **		links pipes to everything found in link_files.c

@@ -36,6 +36,7 @@ SRCS_NAME1 =	checks.c \
 				ft_env.c \
 				find_path.c \
 				ctrl_keys.c \
+				dir_manage.c	\
 
 SRCS_NAME2 =	ft_echo.c \
 				ft_cd.c \
@@ -56,14 +57,14 @@ SRCS_NAME2 =	ft_echo.c \
 				keys_cb.c \
 				check_par.c \
 			   	cursor.c \
-				list_history.c
+				list_history.c\
+				auto_complete.c	\
 
 
 SRCS_NAME3 = 	ft_unit_len.c \
 				init_structs.c \
 				sub_var.c		\
-
-SRCS_NAME4 =	ft_lexer.c 			\
+				ft_lexer.c 			\
 				ft_read_path.c 		\
 				check_pipes.c  		\
 				create_path.c 		\
@@ -77,7 +78,10 @@ SRCS_NAME4 =	ft_lexer.c 			\
 				read_left_path.c 	\
 				ft_sigleton.c 		\
 				ft_jumprint.c 		\
-				get_winsize.c		\
+				re_malloc.c		\
+				sort_history.c	\
+
+SRCS_NAME4 =	get_winsize.c		\
 				ft_create_string.c  \
 				ft_write_on_file.c	\
 				l_list.c			\
@@ -175,14 +179,17 @@ norm:
 	@norminette	$(SRCS4)
 	@norminette $(HEADER)
 
+norme: norm
+
 qme:
-	@rm -Rf author
-	@echo cdebruyn > author
-	@echo ggroener >> author
-	@echo khansman >> author
-	@echo jlangman >> author
-	@echo rlutsch >> author
-	
+	@if [ ! -f author ];then \
+			echo cdebruyn > author;echo ggroener >> author;echo khansman >> author;\
+			echo jlangman >> author;echo rlutsch >> author;\
+		fi
+
+full: re clean
+	@./$(NAME)
+
 me: qme
 	cat -e author
 
