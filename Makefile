@@ -59,14 +59,11 @@ SRCS_NAME2 =	ft_echo.c \
 				list_history.c
 
 
-SRCS_NAME3 = ft_unit_len.c \
-			 init_structs.c \
-			 sub_var.c		\
+SRCS_NAME3 = 	ft_unit_len.c \
+				init_structs.c \
+				sub_var.c		\
 
-SRCS_NAME4 =	ft_unit_len.c 		\
-				init_structs.c 		\
-				sub_var.c			\
-				ft_lexer.c 			\
+SRCS_NAME4 =	ft_lexer.c 			\
 				ft_read_path.c 		\
 				check_pipes.c  		\
 				create_path.c 		\
