@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_path.c                                        :+:      :+:    :+:   */
+/*   ft_putcur.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/07 12:12:40 by ggroener          #+#    #+#             */
-/*   Updated: 2016/09/07 12:12:42 by ggroener         ###   ########.fr       */
+/*   Created: 2016/09/11 10:22:57 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/11 10:22:59 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int				ft_read_path(t_pipe *tree, t_data *env, int flag)
+int		ft_pcur(t_edit **lst)
 {
-	int		temp;
+	t_edit	*tmp;
+	int		i;
 
-	temp = 0;
-	if (!tree)
-		return (-1);
-	if (tree)
+	i = 0;
+	tmp = *lst;
+	while (!(tmp->video) && tmp->next)
 	{
-		if (tree->code < COM)
-			temp = ft_pipecode_path(&tree, env, flag);
-		else if (tree->code == COM)
-			temp = ft_execve(tree->name, tree->argv, env);
+		i++;
+		tmp = tmp->next;
 	}
-	return (temp);
+	if (i > 0)
+		return (i);
+	return (0);
 }

@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_path.c                                        :+:      :+:    :+:   */
+/*   ft_sigleton.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/07 12:12:40 by ggroener          #+#    #+#             */
-/*   Updated: 2016/09/07 12:12:42 by ggroener         ###   ########.fr       */
+/*   Created: 2016/09/10 16:33:29 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/10 16:33:30 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int				ft_read_path(t_pipe *tree, t_data *env, int flag)
+// Take out this function if not needed
+int			ft_sigleton(int i)
 {
-	int		temp;
+	static int		value = 0;
 
-	temp = 0;
-	if (!tree)
-		return (-1);
-	if (tree)
-	{
-		if (tree->code < COM)
-			temp = ft_pipecode_path(&tree, env, flag);
-		else if (tree->code == COM)
-			temp = ft_execve(tree->name, tree->argv, env);
-	}
-	return (temp);
+	if (i == 0)
+		return (value);
+	else if (i == -1)
+		value = 0;
+	else
+		value = i;
+	return (value);
 }

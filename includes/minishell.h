@@ -152,7 +152,7 @@
 # define FILE_F FILE	*fopen()
 # define E_FILE fopen("db.txt", "r")
 # define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
-
+# define BUF_SIZE 1024
 /*
 ** ----------
 ** Structures

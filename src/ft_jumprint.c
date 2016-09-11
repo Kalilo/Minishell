@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_path.c                                        :+:      :+:    :+:   */
+/*   ft_jumprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/07 12:12:40 by ggroener          #+#    #+#             */
-/*   Updated: 2016/09/07 12:12:42 by ggroener         ###   ########.fr       */
+/*   Created: 2016/09/10 16:38:12 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/10 16:38:14 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int				ft_read_path(t_pipe *tree, t_data *env, int flag)
+// Take out this function if not needed
+void		ft_jumprint(t_edit **lst)
 {
-	int		temp;
+	int				jump;
+	int				i;
+	struct winsize	ws;
 
-	temp = 0;
-	if (!tree)
-		return (-1);
-	if (tree)
+	get_winsize(&ws);
+	i = 0;
+	jump = ((l_list(lst) + 3) / ws.ws_col) - ((ft_pcur(lst) + 3) / ws.ws_col);
+	//if (!((l_list(lst) + 3) % ws.ws_col) == 0)
+	if (((l_list(lst) + 3) % ws.ws_col) != 0)
 	{
-		if (tree->code < COM)
-			temp = ft_pipecode_path(&tree, env, flag);
-		else if (tree->code == COM)
-			temp = ft_execve(tree->name, tree->argv, env);
+		while (i < jump)
+		{
+			ft_tputs("do");
+			i++;
+		}
 	}
-	return (temp);
 }

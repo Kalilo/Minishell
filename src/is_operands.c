@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_path.c                                        :+:      :+:    :+:   */
+/*   is_operands.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/07 12:12:40 by ggroener          #+#    #+#             */
-/*   Updated: 2016/09/07 12:12:42 by ggroener         ###   ########.fr       */
+/*   Created: 2016/09/07 13:01:16 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/07 13:01:18 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int				ft_read_path(t_pipe *tree, t_data *env, int flag)
+int		is_space(char c)
 {
-	int		temp;
+	return (c == ' ' || c == '\t');
+}
 
-	temp = 0;
-	if (!tree)
-		return (-1);
-	if (tree)
-	{
-		if (tree->code < COM)
-			temp = ft_pipecode_path(&tree, env, flag);
-		else if (tree->code == COM)
-			temp = ft_execve(tree->name, tree->argv, env);
-	}
-	return (temp);
+int		is_operands(char c)
+{
+	if (c == '>' || c == '<' || c == '&' || c == '|' ||
+		c == '(' || c == ')' || c == ';')
+		return (1);
+	else
+		return (0);
 }

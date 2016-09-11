@@ -12,7 +12,6 @@
 
 #include "../includes/minishell.h"
 
-//Try to take out!
 static void			add_link_tedit(char c, t_edit **lst)
 {
 	t_edit		*tmp;
