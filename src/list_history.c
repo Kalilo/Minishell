@@ -6,7 +6,7 @@
 /*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 11:19:23 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/06 09:29:41 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:45:03 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	list_history(t_env *env, char **sa)
 {
 	int		i;
 	int		j;
-	int		k;
+	(void)	sa;
 
 	i = 0;
 	j = 1;

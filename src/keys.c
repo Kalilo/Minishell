@@ -6,16 +6,11 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:58:22 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/05 11:40:28 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:37:24 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
-
-
-void		toggle_mode(t_env *env)
-{
-}
 
 /*
 **	Had a few difficalties getting the right keys for some values,
@@ -35,8 +30,6 @@ static void	key_handler2(t_env *env, char *key)
 		copy_line(env);
 	else if (!ft_strcmp(K_F17, key))
 		copy_l2(env);
-	else if (!ft_strcmp(K_F15, key))
-		toggle_mode(env);
 }
 
 /*

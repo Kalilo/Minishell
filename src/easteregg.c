@@ -6,7 +6,7 @@
 /*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/08/04 11:46:25 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	easteregg(t_env *env, char **sa)
 {
+	(void)	env;
+	(void)	sa;
 	FILE	*fp;
 	int		i;
 
+	i = 0;
 	FILE_F;
 	fp = E_FILE;
 	while (i != EOF)
