@@ -95,7 +95,7 @@ int			com_history(t_env *env, int action)
 
 	if ((k = -1) && (I_H_POS < 0 && (I_L1 || I_L2)))
 	{
-		(I_CUR) ? free(I_CUR) : (void)I_CUR;
+		FREE_(I_CUR);
 		I_CUR = ft_strjoin(I_L1, I_L2);
 	}
 	if (action == HIST_STORE)
