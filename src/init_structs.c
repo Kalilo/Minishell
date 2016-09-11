@@ -12,11 +12,12 @@
 
 #include "../includes/minishell.h"
 
+/*
+** This function seg faults. Don't know why yet.
+*/
+
 void	init_t_sub_var(t_sub_var *var)
 {
-	/*
-	** This function seg faults. Don't know why yet.
-	*/
 	var->s1 = NULL;
 	var->s2 = NULL;
 	var->s3 = NULL;
@@ -35,10 +36,11 @@ void	init_t_par(t_par *par)
 	par->k = 0;
 }
 
+/*
+**To be continued...
+*/
+
 void	init_t_env(t_env *env)
 {
 	env->pid = 0;
-	/*
-	**To be continued...
-	*/
 }

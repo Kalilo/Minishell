@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_history.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdebruyn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/11 15:10:45 by cdebruyn          #+#    #+#             */
+/*   Updated: 2016/09/11 15:10:47 by cdebruyn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/minishell.h"
 
 int				store_history(t_env *env, int i)
@@ -10,8 +22,8 @@ int				store_history(t_env *env, int i)
 	k = i - 1;
 	while (k >= 0 && j < i)
 	{
-		I_HPR[j] = ft_strdup(ft_strjoin_free1(ft_strjoin_free1\
-					(ft_itoa(j + 1), "	"), I_HIS[k]));
+		I_HPR[j] = ft_strjoin_free1(ft_strjoin_free1(\
+				ft_itoa(j + 1), "	"), I_HIS[k]);
 		k--;
 		j++;
 	}	

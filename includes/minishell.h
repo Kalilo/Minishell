@@ -83,6 +83,8 @@
 # define P_K par->k
 # define P_SK P_STR[P_K]
 
+# define E_DATA env->data
+
 /*
 **		Error Messages
 */

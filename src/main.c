@@ -62,6 +62,9 @@ void	init_state(t_env *env, char **line, char ***environ)
 **	Debug lines (put inside main if statement)
 **		printf("Line = '%s'\n", line);//debug
 **		put_bin((unsigned char *)line);//debug
+**
+**	Removed Code
+**		if (env.l != NULL) free(env.l);
 */
 
 int		main(void)
@@ -83,11 +86,6 @@ int		main(void)
 				set_env(&env, env.l);
 			else
 				com_sep(&env, env.l);
-			//if (line != NULL)
-				//free(line);
-			env.l = NULL;
-			//if (env.l != NULL)
-			//	free(env.l);
 			env.l = NULL;
 			com_history(&env, HIST_STORE);
 			init_hist(&env, 1);

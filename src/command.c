@@ -62,6 +62,10 @@ void	com_sep(t_env *env, char *s)
 	}
 }
 
+/*
+**	replaced do command with link_files
+*/
+
 void	command(t_env *env, char *s)
 {
 	char	**sa;
@@ -71,15 +75,9 @@ void	command(t_env *env, char *s)
 	sa = NULL;
 	rm_tabs(&s);
 	sa = ft_strsplit(s, ' ');
-//	if (arg_valid(sa, count(s, ' ')))
-//	{
-		if (is_own(sa[0]))
-			own_command(env, sa, s);
-		else
-			link_files(env, env->l);
-	//		do_command(env, s);
-//	}
-//	else
-//		error(1);
+	if (is_own(sa[0]))
+		own_command(env, sa, s);
+	else
+		link_files(env, env->l);
 	free2d(sa);
 }
