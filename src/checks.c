@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:17:46 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/10 10:38:32 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:12:43 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		str_valid(t_env *env, char *str)
 	int		k;
 
 	k = 0;
+	(void)env;
 	while (str[k] != '\0')
 	{
 		if (!(allowed_character(str[k])))
@@ -35,13 +36,13 @@ int		str_valid(t_env *env, char *str)
 	return (1);
 }
 
-int		arg_valid(char **sa, int i)
-{
-	int		k;
-
-	k = 0;
-	return (1);
-}
+//int		arg_valid(char **sa, int i)
+//{
+//	int		k;
+//
+//	k = 0;
+//	return (1);
+//}
 
 int		check_line(char *line)
 {
@@ -61,6 +62,8 @@ int		check_line(char *line)
 
 void	ft_help(t_env *env, char **sa)
 {
+	(void)env;
+	(void)sa;
 	ft_putstr("\e[31mThese are the current functions\n");
 	ft_putstr(" and keys you are able to use:\n\n");
 	ft_putstr("\e[32mecho:     displays the input string on the std output.\n");

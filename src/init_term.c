@@ -6,7 +6,7 @@
 /*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/04 12:48:33 by jlangman          #+#    #+#             */
-/*   Updated: 2016/08/07 16:45:56 by ggroener         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:28:42 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int			init_term(void)
 
 int			ft_termsize(int y)
 {
-	int				ret;
+	size_t				ret;
 	struct ttysize	twin;
 	struct winsize	win;
 
@@ -101,5 +101,5 @@ int			ft_termsize(int y)
 		ft_putstr("ioctl Error: Failed to determine window size.\n.");
 		exit(0);
 	}
-	return (ret);
+	return ((size_t)ret);
 }

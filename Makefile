@@ -3,129 +3,163 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ehansman <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ggroener <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/07/10 12:36:11 by ehansman          #+#    #+#              #
-#    Updated: 2016/09/05 10:33:19 by jlangman         ###   ########.fr        #
+#    Created: 2016/06/22 11:13:51 by ggroener          #+#    #+#              #
+#    Updated: 2016/09/11 12:02:59 by rlutsch          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 42sh
 
+CFLAGS = -Wall -Wextra -Werror -g 
+
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+INCLUDES_PATH = includes/
 
-SRC_PATH = ./src/
+SRCS_PATH = src/
 
-INCL = includes/minishell.h
+SRCS_NAME1 =	checks.c \
+				command.c \
+				count.c \
+				errors.c \
+			   	exit.c \
+				ft_export.c \
+			   	ft_strchr_f.c \
+				ft_unset.c \
+				get_env.c \
+				get_line.c \
+				main.c \
+				own_command.c \
+				set_env.c \
+				ft_env.c \
+				find_path.c \
+				ctrl_keys.c \
 
-LIB_INCL = -L. libft/includes/libft.h $^ -ltermcap
+SRCS_NAME2 =	ft_echo.c \
+				ft_cd.c \
+				trim.c \
+				signals.c \
+				init_term.c \
+				init_term2.c \
+			   	debug.c \
+				get_input.c \
+				com_history.c \
+			  	ft_cd_sub.c \
+				keys.c \
+				keys_lr.c \
+				easteregg.c \
+				keys_he.c \
+				keys_w_jump.c \
+				keys_del.c \
+				keys_cb.c \
+				check_par.c \
+			   	cursor.c \
+				list_history.c
 
-LIB_A = -lm libft/libft.a
 
-SRC1 =	$(SRC_PATH)checks.c			\
-		$(SRC_PATH)command.c		\
-		$(SRC_PATH)count.c			\
-		$(SRC_PATH)errors.c			\
-		$(SRC_PATH)exit.c			\
-		$(SRC_PATH)ft_export.c		\
-		$(SRC_PATH)ft_strchr_f.c	\
-		$(SRC_PATH)ft_unset.c		\
-		$(SRC_PATH)get_env.c		\
-		$(SRC_PATH)get_line.c		\
-		$(SRC_PATH)main.c			\
-		$(SRC_PATH)own_command.c	\
-		$(SRC_PATH)set_env.c		\
-		$(SRC_PATH)ft_env.c			\
-		$(SRC_PATH)find_path.c		\
-		$(SRC_PATH)ctrl_keys.c		\
+SRCS_NAME3 = ft_unit_len.c \
+			 init_structs.c \
 
-SRC2 = 	$(SRC_PATH)ft_echo.c		\
-		$(SRC_PATH)ft_cd.c			\
-		$(SRC_PATH)trim.c			\
-		$(SRC_PATH)signals.c		\
-		$(SRC_PATH)init_term.c		\
-		$(SRC_PATH)init_term2.c		\
-		$(SRC_PATH)debug.c			\
-		$(SRC_PATH)get_input.c		\
-		$(SRC_PATH)com_history.c	\
-		$(SRC_PATH)ft_cd_sub.c		\
-		$(SRC_PATH)keys.c			\
-		$(SRC_PATH)keys_lr.c		\
-		$(SRC_PATH)easteregg.c		\
-		$(SRC_PATH)keys_he.c		\
-		$(SRC_PATH)keys_w_jump.c	\
-		$(SRC_PATH)keys_del.c		\
-		$(SRC_PATH)keys_cb.c		\
-		$(SRC_PATH)check_par.c		\
-		$(SRC_PATH)cursor.c			\
-		$(SRC_PATH)list_history.c
+SRCS_NAME4 = sub_var.c
 
-SRC = $(SRC1) $(SRC2) $(SRC_PATH)ft_unit_len.c $(SRC_PATH)init_structs.c $(SRC_PATH)sub_var.c
+SRCS4 = $(addprefix $(SRCS_PATH), $(SRCS_NAME4))
 
-BIN =  $(SRC:.c=.o)
+SRCS3 = $(addprefix $(SRCS_PATH), $(SRCS_NAME3))
 
-define colorecho
-      @tput setaf 14
-      @echo $1
-      @tput sgr0
+SRCS2 = $(addprefix $(SRCS_PATH), $(SRCS_NAME2))
+
+SRCS1 = $(addprefix $(SRCS_PATH), $(SRCS_NAME1))
+
+SRCS = $(SRCS1) $(SRCS2) $(SRCS3) $(SRCS4)
+
+OBJS_PATH = objs/
+
+OBJS_NAME = $(SRCS_NAME1:.c=.o) $(SRCS_NAME2:.c=.o) $(SRCS_NAME3:.c=.o) $(SRCS_NAME4:.c=.o)
+
+OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
+
+#uncomment these to work on Mac and comment to work on Linux.
+LIBRARY = -L libft/ -lft -ltermcap
+
+INCLUDES = -I includes/ -I libft/includes
+
+#uncomment these to work on Linux and comment to work on Mac.
+#LIBRARY = -L /usr/X11/lib -lmlx -lX11 -lm -lXext -L libft/ -lft
+ 
+#INCLUDES = -I includes/ -I libft/includes -I /usr/X11/include
+
+HEADER = 	$(INCLUDES_PATH)colours.h \
+			$(INCLUDES_PATH)light.h \
+			$(INCLUDES_PATH)vector.h \
+			$(INCLUDES_PATH)rt.h \
+
+all: qme odir $(NAME)
+
+define colourecho
+	@tput setaf 14
+	@echo $1
+	@tput sgr0
 endef
 
-define colorecho2
-      @tput setaf 2
-      @echo $1
-      @tput sgr0
+define colourecho2
+	@tput setaf 2
+	@echo $1
+	@tput sgr0
 endef
 
-all: $(NAME)
-
-$(NAME):
-	@$(call colorecho,"\nPreparing to compile $(NAME)...")
-	@make re -C libft/
-	@$(CC) $(C_FLAGS) -c $(SRC) $(INCL)
-	@mv *.o src/
-	@$(call colorecho,"Library has successfully compiled and object" \
-		"files have been created and moved to src/")
-	@$(CC) $(C_FLAGS) $(BIN) $(LIB_INCL) $(LIB_A)
-	@mv ./a.out ./$(NAME)
+$(NAME): $(OBJS)
+	@Make -C libft
+	@$(call colourecho, " - Making $(NAME)")
 	@clear
-	@$(call colorecho, "$(NAME) has successfully been compiled.\n")
+	@$(CC) $(CFLAGS) -o $(NAME) $^ $(LIBRARY) $(INCLUDES) -I$(INCLUDES_PATH)
+	@clear
+	@$(call colourecho, "Make Done!")
+
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c
+	@$(call colourecho, " - Compiling $<")
+	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $< -I$(INCLUDES_PATH)
+	@$(call colourecho, "Compiling Done!")
+
+odir:
+	@mkdir -p $(OBJS_PATH)
 
 clean:
-	@rm -f $(BIN)
-	@$(call colorecho, "All object files have been removed. Please" \
-		"ensure no sourcefiles have accidently been removed.")
-	@make clean -C libft/
+	@Make clean -C libft
+	@$(call colourecho, " - Clearing object files")
+	@rm -f $(OBJS)
+	@$(call colourecho, "clean done!")
 
 fclean: clean
+	@Make fclean -C libft
+	@$(call colourecho, "Clearing executable files")
 	@rm -f $(NAME)
-	@make fclean -C libft/
-	@$(call colorecho, "The executables ./$(NAME) and " \
-		"./libft has been removed")
-	@rm -f $(INCL:.h=.h.gch)
+	@$(call colourecho, "fclean done")
 
 re: fclean all
-	@clear
-	@$(call colorecho, "$(NAME) has successfully recompiled.\n")
-
-full: re
-	@make clean
-	@clear
-	@$(call colorecho, "Done making and cleaning.\n")
-	@./$(NAME)
-
+	@$(call colourecho, "re Done!")
 
 format: norme me
-	@$(call colorecho2, "All good!")
 
-norme:
-	@$(call colorecho2, "Normenette:\n")
-	@norminette $(SRC1)
-	@norminette $(SRC2)
-	@norminette $(INCL)
+norm:
+	@clear
+	@$(call colourecho2, "Norminette:")
+	@norminette $(SRCS1)
+	@norminette $(SRCS2)
+	@norminette $(SRCS3)
+	@norminette	$(SRCS4)
+	@norminette $(HEADER)
 
 qme:
-	@if [ ! -f author ]; then \
-		whoami>author;git add author; \
-	fi
+	@rm -Rf author
+	@echo cdebruin > author
+	@echo ggroener >> author
+	@echo khansman >> author
+	@echo jlangman >> author
+	@echo rlutsch >> author
+	
+me: qme
+	cat -e author
+
+.PHONY: clean fclean re odir
