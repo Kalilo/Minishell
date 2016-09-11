@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_path.c                                        :+:      :+:    :+:   */
+/*   ft_create_string.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/07 12:12:40 by ggroener          #+#    #+#             */
-/*   Updated: 2016/09/07 12:12:42 by ggroener         ###   ########.fr       */
+/*   Created: 2016/09/10 17:17:11 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/10 17:17:12 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int				ft_read_path(t_pipe *tree, t_data *env, int flag)
+// Take out this function if not needed
+char		*ft_create_string(t_edit *lst)
 {
-	int		temp;
+	int		i;
+	t_edit	*tmp;
+	char	*new;
 
-	temp = 0;
-	if (!tree)
-		return (-1);
-	if (tree)
+	tmp = lst;
+	i = 0;
+	while (tmp)
 	{
-		if (tree->code < COM)
-			temp = ft_pipecode_path(&tree, env, flag);
-		else if (tree->code == COM)
-			temp = ft_execve(tree->name, tree->argv, env);
+		tmp = tmp->next;
+		i++;
 	}
-	return (temp);
+	new = (char *)malloc(sizeof(char) * i + 1);
+	ft_bzero(new, i + 1);
+	i = 0;
+	tmp = lst;
+	while (tmp)
+	{
+		new[i] = tmp->c;
+		tmp = tmp->next;
+		i++;
+	}
+	return (new);
 }

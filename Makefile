@@ -66,31 +66,41 @@ SRC2 = 	$(SRC_PATH)ft_echo.c		\
 		$(SRC_PATH)list_history.c	\
 		
 
-SRC3 =	$(SRC_PATH)ft_unit_len.c \
-		$(SRC_PATH)init_structs.c \
-		$(SRC_PATH)sub_var.c	\
-		$(SRC_PATH)ft_lexer.c \
-		$(SRC_PATH)ft_read_path.c \
-		$(SRC_PATH)check_pipes.c  \
-		$(SRC_PATH)create_path.c \
-		$(SRC_PATH)ft_execevn.c \
-
-#PIPE_SRC = ft_lexer.c \
-			ft_read_path.c \
-			#ft_make_pipelst.c \
-			ft_split.c \
-			is_operands.c \
-			ft_fill_tab.c \
-			ft_pipecode_path.c \
-			ft_ar_lft.c \
-			ft_and.c \
-			ft_or.c \
-			ft_ar_rgt.c \
-			read_right_path.c \
-			read_left_path.c \
-			read_left_path_tool.c \
-			ft_semicol.c \
-			pipe.c \
+SRC3 =	$(SRC_PATH)ft_unit_len.c 		\
+		$(SRC_PATH)init_structs.c 		\
+		$(SRC_PATH)sub_var.c			\
+		\
+		$(SRC_PATH)ft_lexer.c 			\
+		$(SRC_PATH)ft_read_path.c 		\
+		$(SRC_PATH)check_pipes.c  		\
+		$(SRC_PATH)create_path.c 		\
+		$(SRC_PATH)ft_execve.c 			\
+		$(SRC_PATH)ft_get_pipe_path.c 	\
+		$(SRC_PATH)ft_make_pipelst.c 	\
+		$(SRC_PATH)ft_pipecode_path.c 	\
+		$(SRC_PATH)ft_and.c 			\
+		$(SRC_PATH)ft_ar_lft.c 			\
+		$(SRC_PATH)ft_pipecode_path.c 	\
+		$(SRC_PATH)ft_ar_rgt.c 			\
+		$(SRC_PATH)read_left_path.c 	\
+		$(SRC_PATH)ft_sigleton.c 		\
+		$(SRC_PATH)ft_jumprint.c 		\
+		$(SRC_PATH)get_winsize.c		\
+		$(SRC_PATH)ft_create_string.c  	\
+		$(SRC_PATH)ft_write_on_file.c	\
+		$(SRC_PATH)l_list.c				\
+		$(SRC_PATH)ft_putcur.c 			\
+		$(SRC_PATH)read_right_path.c 	\
+		$(SRC_PATH)read_left_path_tool.c \
+		$(SRC_PATH)ft_create_hst.c 		\
+		$(SRC_PATH)ft_clean_hist.c		\
+		$(SRC_PATH)pipe.c 				\
+		$(SRC_PATH)ft_split.c 			\
+		$(SRC_PATH)is_operands.c 		\
+		$(SRC_PATH)ft_fill_tab.c 		\
+		$(SRC_PATH)ft_or.c 				\
+		$(SRC_PATH)ft_semicol.c 		\
+		
 
 #PIPE_SRCS = $(addprefix pipe/, $(PIPE_SRC))
 

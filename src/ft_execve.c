@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_execevn.c                                        :+:      :+:    :+:   */
+/*   ft_execve.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void		check_tild(char **argv, t_data environ)
+static void		check_tild(char **argv, t_data *data)
 {
 	char		*tild;
 	int			i;
@@ -23,50 +23,47 @@ static void		check_tild(char **argv, t_data environ)
 	--i;
 	if (argv[i] && argv[i][0] == '~')
 	{
-		tild = ft_strjoin(env->home, argv[i] + 1);
+		tild = ft_strjoin(data->home, argv[i] + 1);
 		argv[i] = tild;
 	}
 }
 
-static void		lunch_cmd(char *cmd, char **argv, t_data environ)
+static void		lunch_cmd(char *cmd, char **argv, t_data *data)
 {
 	int		i;
 	char	**paths;
 	char	*tmp;
 	int		ret;
 
-	check_tild(argv, environ);
+	check_tild(argv, data);
 	i = -1;
 	tmp = NULL;
 	paths = NULL;
-	paths = ft_get_path(environ);
+	paths = ft_get_path(data);
 	while (paths[++i] != '\0')
 	{
 		tmp = ft_strjoin(paths[i], cmd);
-		ret = execve(tmp, argv, env->env);
+		ret = execve(tmp, argv, data->env);
 		free(tmp);
 		if (ret > -1)
 			exit(0);
 	}
-	ret = execve(cmd, argv, env->env);
+	ret = execve(cmd, argv, data->env);
 	if (ret == -1)
 		ft_putstr("Command can't be executed, check permission or existence\n");
 	exit(0);
 }
 
-int				ft_execevn(char *cmd, char **argv, t_data environ)
+int				ft_execve(char *cmd, char **argv, t_data *data)
 {
 	pid_t	fork_return;
 	int		ret;
 
-	ret = -1;
-	if ((ret = ft_builtin(cmd, argv, environ)) == -1)
-	{
-		fork_return = fork();
-		if (fork_return == 0)
-			lunch_cmd(cmd, argv, environ);
-		else
-			waitpid(fork_return, &ret, WUNTRACED);
-	}
+	ret = 1;
+	fork_return = fork();
+	if (fork_return == 0)
+		lunch_cmd(cmd, argv, data);
+	else
+		waitpid(fork_return, &ret, WUNTRACED);
 	return (ret);
 }

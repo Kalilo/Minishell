@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_path.c                                        :+:      :+:    :+:   */
+/*   setup_pipe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/07 12:12:40 by ggroener          #+#    #+#             */
-/*   Updated: 2016/09/07 12:12:42 by ggroener         ###   ########.fr       */
+/*   Created: 2016/09/10 11:12:53 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/10 11:12:55 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
-
-int				ft_read_path(t_pipe *tree, t_data *env, int flag)
+void	setup_pipe(t_data env)
 {
-	int		temp;
-
-	temp = 0;
-	if (!tree)
-		return (-1);
-	if (tree)
-	{
-		if (tree->code < COM)
-			temp = ft_pipecode_path(&tree, env, flag);
-		else if (tree->code == COM)
-			temp = ft_execve(tree->name, tree->argv, env);
-	}
-	return (temp);
+	env = 
 }
