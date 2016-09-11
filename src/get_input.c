@@ -59,7 +59,6 @@ void	print_line(t_env *env)
 
 	if (I_L1 == NULL && I_L2 == NULL)
 		return ;
-	l = -1;
 	k = ft_termsize(0);
 	CL_LINE;
 	l = ((int)ft_strlen(I_L1) >= (int)ft_termsize(0) - 5) ?
