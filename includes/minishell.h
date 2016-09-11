@@ -368,6 +368,7 @@ void				rm_tabs(char **str);
 */
 void				sig_handler(int signo);
 void				sigs(void);
+void				ft_signal_set(void);
 void				restart(void);
 /*
 **		main.c

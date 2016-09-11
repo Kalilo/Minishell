@@ -90,6 +90,7 @@ int		main(void)
 			com_history(&env, HIST_STORE);
 			init_hist(&env, 1);
 		}
+		ft_signal_set();
 	}
 	exit_prog(&env);
 }
