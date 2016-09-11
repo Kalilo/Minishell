@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easteregg.c                                        :+:      :+:    :+:   */
+/*   l_list.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/09/11 10:20:16 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/11 10:20:18 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	easteregg(t_env *env, char **sa)
+int		l_list(t_edit **lst_e)
 {
-	(void)	env;
-	(void)	sa;
-	FILE	*fp;
-	int		i;
+	int		lengh;
+	t_edit	*tmp;
 
-	i = 0;
-	FILE_F;
-	fp = E_FILE;
-	while (i != EOF)
+	lengh = 0;
+	tmp = *lst_e;
+	while (tmp != NULL)
 	{
-		ft_putchar(i);
-		i = getc(fp);
+		tmp = tmp->next;
+		lengh++;
 	}
-	fclose(fp);
+	return (lengh);
 }

@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easteregg.c                                        :+:      :+:    :+:   */
+/*   get_winsize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/09/10 16:57:06 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/10 16:57:07 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include <sys/ioctl.h>
 
-void	easteregg(t_env *env, char **sa)
+// Take out this function if not needed
+void	get_winsize(struct winsize *ws)
 {
-	(void)	env;
-	(void)	sa;
-	FILE	*fp;
-	int		i;
-
-	i = 0;
-	FILE_F;
-	fp = E_FILE;
-	while (i != EOF)
-	{
-		ft_putchar(i);
-		i = getc(fp);
-	}
-	fclose(fp);
+	ioctl(1, TIOCGWINSZ, ws);
+	return ;
 }

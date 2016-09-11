@@ -18,6 +18,7 @@
 ** Includes
 ** --------
 */
+# include "pipe.h"
 # include <sys/wait.h>
 # include <unistd.h>
 # include <sys/types.h>
@@ -113,7 +114,7 @@
 # define SH_B "\r\e[32mbrac>\e[0m\e[36m"
 # define SH_AB "\r\e[32mabrac>\e[0m\e[36m"
 # define SH_SB "\r\e[32msbrac>\e[0m\e[36m"
-# define SH_Q SH_B
+# define SH_Q SH_BSL
 # define CM_EXIT "exit"
 # define CM_EXIT_S 5
 # define OWN_FUNCS "cd setenv unsetenv env exit help"
@@ -154,10 +155,16 @@
 
 # define SCAN_CUR if (scan_dir(s, ".")) return (add_path(".", s))
 # define ERROR_6 else ft_putstr(E_MESS06)
-# define MAIN_VAR t_env env; char *line; extern char **environ
+# define MAIN_VAR t_env env; extern char **environ
 # define FILE_F FILE	*fopen()
 # define E_FILE fopen("db.txt", "r")
 # define CL_LINE ft_putchar('\r');while (++l < k) ft_putchar(' ')
+# define BUF_SIZE 1024
+
+# define FREE_RET {free(s);return;}
+# define FREE_L1 if (I_L1 != NULL) {free(I_L1);I_L2=NULL;}
+# define FREE_L2 if (I_L2 != NULL) {free(I_L2);I_L2=NULL;}
+# define FREE_(x) if (x != NULL) {free(x);x=NULL;}
 
 /*
 ** ----------
@@ -218,7 +225,7 @@ typedef struct		s_input
 **		Global Enviroment
 */
 typedef struct		s_env
-{	
+{
 	pid_t			pid;
 	struct termios	term;
 	struct dirent	*dirp;
@@ -226,6 +233,7 @@ typedef struct		s_env
 	char			**ret;
 	char			**environ;
 	int				env_size;
+	char			*l;
 	char			*line;
 	int				error;
 	char			*a;
@@ -335,8 +343,8 @@ char				*find_path(t_env *env, char s[]);
 */
 void				ft_echo(char **sa);
 void				ft_print_echo(char **sa);
-void    			ft_doflag(char c);
-void    			ft_dostuff(char c);
+void				ft_doflag(char c);
+void				ft_dostuff(char c);
 /*
 **		ft_cd.c
 */
@@ -464,5 +472,21 @@ char				***re_3d_malloc(char ***arr, size_t size);
 //void				ft_ctrl_c(int sig);
 //void				ft_ctrl_z(int sig);
 
+/*
+**		links pipes to everything found in link_files.c
+*/
+void			link_files(t_env *env, char *line);
+
+/*
+** -----
+** Other
+** -----
+*/
+
+/*
+**		Old Prototypes:
+** void				ft_ctrl_c(int sig);
+** void				ft_ctrl_z(int sig);
+*/
 
 #endif

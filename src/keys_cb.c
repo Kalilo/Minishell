@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 08:58:28 by khansman          #+#    #+#             */
-/*   Updated: 2016/09/09 13:10:19 by cdebruyn         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:38:17 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ void	ft_ctrl_c(t_env *env)
 
 void	ft_ctrl_z(t_env *env)
 {
+	(void) env;
+
 	restart();
 }

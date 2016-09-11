@@ -6,7 +6,7 @@
 /*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/09 15:18:14 by khansman          #+#    #+#             */
-/*   Updated: 2016/08/07 15:20:06 by jlangman         ###   ########.fr       */
+/*   Updated: 2016/09/11 12:00:50 by rlutsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int		do_command(t_env *env, char *com)
 	char	*str;
 	char	**arr;
 	pid_t	forked;
-	t_env	*pid;
 
 	str = NULL;
 	arr = NULL;
@@ -72,14 +71,14 @@ void	command(t_env *env, char *s)
 	sa = NULL;
 	rm_tabs(&s);
 	sa = ft_strsplit(s, ' ');
-	if (arg_valid(sa, count(s, ' ')))
-	{
+//	if (arg_valid(sa, count(s, ' ')))
+//	{
 		if (is_own(sa[0]))
 			own_command(env, sa, s);
 		else
 			do_command(env, s);
-	}
-	else
-		error(1);
+//	}
+//	else
+//		error(1);
 	free2d(sa);
 }

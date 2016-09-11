@@ -38,11 +38,12 @@ void	init_hist(t_env *env, char action)
 	}
 	else
 	{
-		if (I_L1 != NULL)
-			free(I_L1);
-		if (I_L2 != NULL)
-			free(I_L2);
+		FREE_L1;
+		FREE_L2;
 	}
+	if (I_CUR)
+		free(I_CUR);
+	I_CUR = NULL;
 	I_H_POS = -1;
 	I_L1 = NULL;
 	I_L2 = NULL;
@@ -66,28 +67,33 @@ void	init_state(t_env *env, char **line, char ***environ)
 int		main(void)
 {
 	MAIN_VAR;
-	init_state(&env, &line, &environ);
+	init_state(&env, &env.l, &environ);
 	back_up_env((void *)&env);
 	while (1)
 	{
 		ft_putstr(SH_L);
 		signal_gest();
-		get_input(&env, 0, &line);
-		if (check_line(line))
+		get_input(&env, 0, &env.l);
+		if (check_line(env.l))
 		{
-			if (ft_memcmp(line, CM_EXIT, CM_EXIT_S) == 0)
+			if (ft_memcmp(env.l, CM_EXIT, CM_EXIT_S) == 0)
 				break ;
-			scan_for_var(&env, &line);
-			if (ft_strchr_f(line, '=') != 0)
-				set_env(&env, line);
+			scan_for_var(&env, &env.l);
+			if (ft_strchr_f(env.l, '=') != 0)
+				set_env(&env, env.l);
 			else
-				com_sep(&env, line);
-			if (line != NULL)
-				free(line);
-			line = NULL;
+				//com_sep(&env, line);
+				link_files(&env, env.l);
+			//if (line != NULL)
+				//free(line);
+			env.l = NULL;
+				//com_sep(&env, env.l);
+			if (env.l != NULL)
+				free(env.l);
+			env.l = NULL;
 			com_history(&env, HIST_STORE);
 			init_hist(&env, 1);
 		}
 	}
-	exit(1);
+	exit_prog(&env);
 }

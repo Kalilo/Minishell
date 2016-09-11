@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easteregg.c                                        :+:      :+:    :+:   */
+/*   ft_sigleton.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlangman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggroener <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/04 11:13:49 by jlangman          #+#    #+#             */
-/*   Updated: 2016/09/11 11:36:53 by rlutsch          ###   ########.fr       */
+/*   Created: 2016/09/10 16:33:29 by ggroener          #+#    #+#             */
+/*   Updated: 2016/09/10 16:33:30 by ggroener         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	easteregg(t_env *env, char **sa)
+// Take out this function if not needed
+int			ft_sigleton(int i)
 {
-	(void)	env;
-	(void)	sa;
-	FILE	*fp;
-	int		i;
+	static int		value = 0;
 
-	i = 0;
-	FILE_F;
-	fp = E_FILE;
-	while (i != EOF)
-	{
-		ft_putchar(i);
-		i = getc(fp);
-	}
-	fclose(fp);
+	if (i == 0)
+		return (value);
+	else if (i == -1)
+		value = 0;
+	else
+		value = i;
+	return (value);
 }
