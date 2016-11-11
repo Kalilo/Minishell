@@ -22,6 +22,40 @@
 **		else if (CTRL_Z == *key) ft_ctrl_z(env);
 */
 
+//static void	swapinput
+
+static void replace_l1(t_env *env, char *replacement)
+{
+	if (I_L1 != NULL)
+		free(I_L1);
+	I_L1 = ft_strdup(replacement);
+	I_C1 = ft_strlen(replacement) -1;
+}
+
+static void key_tab(t_env *env)
+{
+	if (!ft_strcmp(I_L1, "ec") || !ft_strcmp(I_L1, "e"))
+		replace_l1(env, "echo ");
+	else if (!ft_strcmp(I_L1, "em") || !ft_strcmp(I_L1, "ema"))
+		replace_l1(env, "emacs ");
+	else if (!ft_strcmp(I_L1, "ex"))
+		replace_l1(env, "exit");
+	else if (!ft_strcmp(I_L1, "se") || !ft_strcmp(I_L1, "s"))
+		replace_l1(env, "setenv ");
+	else if (!ft_strcmp(I_L1, "u") || !ft_strcmp(I_L1, "un"))
+		replace_l1(env, "unsetenv ");
+	else if (!ft_strcmp(I_L1, "h") || !ft_strcmp(I_L1, "his"))
+		replace_l1(env, "history ");
+	else if (!ft_strcmp(I_L1, "c"))
+		replace_l1(env, "cd ");
+	else if (!ft_strcmp(I_L1, "en"))
+		replace_l1(env, "env ");
+	else if (!ft_strcmp(I_L1, "he") || !ft_strcmp(I_L1, "hel"))
+		replace_l1(env, "help");
+	else if (!ft_strcmp(I_L1, "v") || !ft_strcmp(I_L1, "vi"))
+		replace_l1(env, "vim ");
+}
+
 static void	key_handler2(t_env *env, char *key)
 {
 	if (!ft_strcmp(K_F19, key))
@@ -30,8 +64,8 @@ static void	key_handler2(t_env *env, char *key)
 		copy_line(env);
 	else if (!ft_strcmp(K_F17, key))
 		copy_l2(env);
-	else if (!ft_strcmp(K_TAB, key))
-		ft_putendl("hello");
+	else if (!ft_strcmp(K_TAB, key) || *key == 9)
+		key_tab(env);
 }
 
 /*

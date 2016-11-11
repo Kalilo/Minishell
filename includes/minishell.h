@@ -46,6 +46,13 @@
 */
 
 /*
+**Debug:
+**	ft_putstr("key = '");//debug
+**	put_bin((unsigned char *)key);//debug
+**	ft_putstr("'.\n");//debug
+*/
+
+/*
 ** -------
 ** Defines
 ** -------
