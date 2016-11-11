@@ -22,17 +22,15 @@
 **		else if (CTRL_Z == *key) ft_ctrl_z(env);
 */
 
-//static void	swapinput
-
-static void replace_l1(t_env *env, char *replacement)
+static void	replace_l1(t_env *env, char *replacement)
 {
 	if (I_L1 != NULL)
 		free(I_L1);
 	I_L1 = ft_strdup(replacement);
-	I_C1 = ft_strlen(replacement) -1;
+	I_C1 = ft_strlen(replacement) - 1;
 }
 
-static void key_tab(t_env *env)
+static void	key_tab(t_env *env)
 {
 	if (!ft_strcmp(I_L1, "ec") || !ft_strcmp(I_L1, "e"))
 		replace_l1(env, "echo ");
