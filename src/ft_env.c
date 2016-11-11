@@ -86,6 +86,8 @@ void	update_env(t_env *env, char *var, char *n)
 		if (ft_strncmp(E_EN[k], var, ft_strlen(var)) == 0)
 		{
 			temp = ft_strjoin(var, "=");
+			if (E_EN[k] != NULL)
+				free(E_EN[k]);
 			E_EN[k] = ft_strjoin(temp, n);
 			free(temp);
 		}

@@ -15,10 +15,14 @@
 void	cd_prev(t_env *env)
 {
 	char	*prev;
+	char	*temp;
 
-	prev = find_var_val(env, "OLDPWD=");
+	prev = find_var_val(env, "OLDPWD");
+	temp = ft_strdup(find_var_val(env, "PWD"));
 	chdir(prev);
 	update_env(env, "PWD", prev);
+	update_env(env, "OLDPWD", temp);
+	free(temp);
 }
 
 int		check(char **sa)
@@ -47,6 +51,11 @@ void	ft_cd(t_env *env, char **sa)
 	if (sa[1] == NULL)
 	{
 		cd_home(env);
+		return ;
+	}
+	else if (!ft_strcmp(sa[1], "-"))
+	{
+		cd_prev(env);
 		return ;
 	}
 	count = check(sa);
