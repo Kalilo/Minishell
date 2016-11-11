@@ -58,7 +58,9 @@ void	com_sep(t_env *env, char *s)
 			command(env, sa[k]);
 			k++;
 		}
-		free2d(sa);
+		free(s);
+		s = NULL;
+		free(sa);
 	}
 }
 
@@ -78,6 +80,6 @@ void	command(t_env *env, char *s)
 	if (is_own(sa[0]))
 		own_command(env, sa, s);
 	else
-		link_files(env, env->l);
+		link_files(env, s);
 	free2d(sa);
 }
