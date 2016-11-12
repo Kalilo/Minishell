@@ -22,13 +22,15 @@ int		is_own(char *s)
 		return (1);
 	if (ft_memcmp(s, "unsetenv", 8) == 0)
 		return (1);
-	if (ft_memcmp(s, "echo", 4) == 0)
-		return (1);
 	if (ft_memcmp(s, "help", 4) == 0)
 		return (1);
 	if (ft_memcmp(s, "easter", 6) == 0)
 		return (1);
 	if (ft_memcmp(s, "history", 7) == 0)
+		return (1);
+	if (ft_memcmp(s, "echo", 4) == 0 && !(ft_strchr(s, '>') != NULL ||
+			ft_strchr(s, '<') != NULL || ft_strchr(s, '|') != NULL ||
+			ft_strchr(s, '&') != NULL))
 		return (1);
 	return (0);
 }

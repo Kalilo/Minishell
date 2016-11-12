@@ -77,7 +77,7 @@ void	command(t_env *env, char *s)
 	sa = NULL;
 	rm_tabs(&s);
 	sa = ft_strsplit(s, ' ');
-	if (is_own(sa[0]))
+	if (is_own(s))
 		own_command(env, sa, s);
 	else
 		link_files(env, s);
